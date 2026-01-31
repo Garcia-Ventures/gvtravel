@@ -1,0 +1,16 @@
+[build]
+  command = "yarn build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[context.production]
+  environment = { NEXT_PUBLIC_SITE_ENV = "production" }
+
+[context.develop]
+  command = "yarn build"
+  publish = ".next"
+
+[context.develop.environment]
+  NEXT_PUBLIC_SITE_ENV = "beta"
