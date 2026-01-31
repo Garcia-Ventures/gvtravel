@@ -1,10 +1,24 @@
-# template
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A base template for creating new GitHub Repos
+## Getting Started
 
-## Overview
+First, run the development server:
 
-This is a template repository designed to provide a solid foundation for new GitHub projects. It includes standard documentation structure, branching guidelines, security policies, and GitHub configuration files.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Documentation
 
@@ -13,16 +27,6 @@ Comprehensive documentation is available in the [`docs`](docs/) directory:
 - **[Documentation Overview](docs/README.md)** - Introduction to the documentation structure
 - **[Branching Strategy](docs/BRANCHING.md)** - Git workflow and branching standards
 - **[Contributing Guide](docs/CONTRIBUTING.md)** - How to contribute to this project
-
-## Quick Start
-
-1. **Use this template** - Click the "Use this template" button at the top of the repository
-2. **Clone your new repository**
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/your-new-repo.git
-   cd your-new-repo
-   ```
-3. **Read the documentation** - Check out the [docs](docs/) directory to understand the project structure and workflow
 
 ## Branching Model
 
