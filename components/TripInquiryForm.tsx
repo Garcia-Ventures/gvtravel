@@ -49,10 +49,16 @@ export function TripInquiryForm() {
       name="trip-inquiry"
       method="POST"
       data-netlify="true"
+      data-netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
       className="mx-auto max-w-2xl space-y-8"
     >
       <input type="hidden" name="form-name" value="trip-inquiry" />
+      <p className="hidden">
+        <label>
+          Don’t fill this out if you’re human: <input name="bot-field" />
+        </label>
+      </p>
 
       {/* Contact Info */}
       <div className="space-y-4">
