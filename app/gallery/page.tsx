@@ -1,13 +1,28 @@
 import { Metadata } from 'next';
 import { GalleryGrid } from '@/components/GalleryGrid';
-import { GALLERY_ITEMS } from '@/lib/data';
+import { client } from '@/sanity/lib/client';
+import { GALLERY_QUERY } from '@/sanity/lib/queries';
+import { GalleryItem, SanityGalleryImage } from '@/lib/types';
 
 export const metadata: Metadata = {
   title: 'Travel Gallery - GV Travel',
   description: 'A glimpse into our family travels around the world.',
 };
 
-export default function GalleryPage() {
+export const revalidate = 60;
+
+export default async function GalleryPage() {
+  const galleryData = await client.fetch(GALLERY_QUERY);
+
+  const galleryItems: GalleryItem[] =
+    galleryData?.images?.map((img: SanityGalleryImage, index: number) => ({
+      id: img.id || `gallery-image-${index}`, // Fallback ID
+      title: img.title || 'Untitled',
+      destination: img.destination || '',
+      imageUrl: img.imageUrl,
+      tripDate: '',
+    })) || [];
+
   return (
     <div className="bg-white dark:bg-zinc-950 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -19,7 +34,7 @@ export default function GalleryPage() {
             Snapshots from our adventures. We hope these inspire your next trip!
           </p>
         </div>
-        <GalleryGrid items={GALLERY_ITEMS} />
+        <GalleryGrid items={galleryItems} />
       </div>
     </div>
   );

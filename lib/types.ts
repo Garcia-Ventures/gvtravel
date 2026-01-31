@@ -39,3 +39,27 @@ export interface TripInquiry {
   notes?: string;
   consent: boolean;
 }
+
+import { PortableTextBlock } from 'sanity';
+
+export interface SanityPost {
+  slug: string;
+  title: string;
+  summary?: string;
+  publishDate: string;
+  tags?: string[];
+  imageUrl?: string;
+  body?: PortableTextBlock[];
+}
+
+export interface SanityGalleryImage {
+  id: string;
+  title?: string;
+  destination?: string;
+  imageUrl: string;
+}
+
+export interface SanityGallery {
+  title: string;
+  images: SanityGalleryImage[];
+}

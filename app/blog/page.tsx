@@ -1,13 +1,28 @@
 import { Metadata } from 'next';
 import { BlogList } from '@/components/BlogList';
-import { BLOG_POSTS } from '@/lib/data';
+import { client } from '@/sanity/lib/client';
+import { POSTS_QUERY } from '@/sanity/lib/queries';
+import { BlogPost, SanityPost } from '@/lib/types';
 
 export const metadata: Metadata = {
   title: 'Blog - GV Travel',
   description: 'Trip reports, reviews, and travel tips from our family adventures.',
 };
 
-export default function BlogIndex() {
+export const revalidate = 60;
+
+export default async function BlogIndex() {
+  const postsFromSanity = await client.fetch(POSTS_QUERY);
+
+  const posts: BlogPost[] = postsFromSanity.map((p: SanityPost) => ({
+    slug: p.slug,
+    title: p.title,
+    summary: p.summary ? p.summary.substring(0, 150) + '...' : 'No summary available.',
+    publishDate: p.publishDate,
+    tags: p.tags || [],
+    imageUrl: p.imageUrl,
+  }));
+
   return (
     <div className="bg-white dark:bg-zinc-950 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -17,7 +32,7 @@ export default function BlogIndex() {
             Read about our latest adventures, cruise ship reviews, and travel tips.
           </p>
         </div>
-        <BlogList posts={BLOG_POSTS} />
+        <BlogList posts={posts} />
       </div>
     </div>
   );
