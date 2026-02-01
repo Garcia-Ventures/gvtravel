@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description: 'Trip reports, reviews, and travel tips from our family adventures.',
 };
 
+export const runtime = 'edge';
 export const revalidate = 60;
 
 export default async function BlogIndex() {

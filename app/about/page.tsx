@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description: 'Learn more about our family-run travel agency.',
 };
 
+export const runtime = 'edge';
 export const revalidate = 60;
 
 export default async function AboutPage() {
