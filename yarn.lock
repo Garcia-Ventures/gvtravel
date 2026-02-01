@@ -4278,14 +4278,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/image-url@npm:1":
-  version: 1.2.0
-  resolution: "@sanity/image-url@npm:1.2.0"
-  checksum: 10c0/cb2de279d9efae91c856688d5a0b1919335ea884f9957085489244d0124ee403fe17c2d4513eb5312d6f6a95ee2c8202e2e9e10cf61b3e7587d252de0f38cf74
-  languageName: node
-  linkType: hard
-
-"@sanity/image-url@npm:^2.0.1":
+"@sanity/image-url@npm:2, @sanity/image-url@npm:^2.0.1":
   version: 2.0.3
   resolution: "@sanity/image-url@npm:2.0.3"
   dependencies:
@@ -8870,7 +8863,7 @@ __metadata:
     "@portabletext/react": "npm:^6.0.2"
     "@sanity/client": "npm:^7.13.2"
     "@sanity/icons": "npm:^3.7.4"
-    "@sanity/image-url": "npm:1"
+    "@sanity/image-url": "npm:2"
     "@sanity/vision": "npm:4"
     "@tailwindcss/postcss": "npm:^4"
     "@types/node": "npm:^20"
