@@ -1,0 +1,14 @@
+[site]
+bucket = ".vercel/output/static"
+
+[params]
+# Add any environment variables here if needed
+
+[[env.production.compatibility_flags]]
+name = "nodejs_compat"
+
+[[env.preview.compatibility_flags]]
+name = "nodejs_compat"
+
+[compatibility_flags]
+nodejs_compat = true

@@ -9,8 +9,7 @@ export const metadata: Metadata = {
   description: 'Trip reports, reviews, and travel tips from our family adventures.',
 };
 
-export const runtime = 'edge';
-export const revalidate = 60;
+export const dynamic = 'force-static';
 
 export default async function BlogIndex() {
   const postsFromSanity = await client.fetch(POSTS_QUERY);

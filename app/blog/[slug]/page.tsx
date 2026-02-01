@@ -4,14 +4,21 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
 import { client } from '@/sanity/lib/client';
-import { POST_QUERY } from '@/sanity/lib/queries';
+import { POST_QUERY, POSTS_QUERY } from '@/sanity/lib/queries';
+import { SanityPost } from '@/lib/types';
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export const runtime = 'edge';
-export const revalidate = 60;
+export const dynamic = 'force-static';
+
+export async function generateStaticParams() {
+  const posts = await client.fetch(POSTS_QUERY);
+  return posts.map((post: SanityPost) => ({
+    slug: post.slug,
+  }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
