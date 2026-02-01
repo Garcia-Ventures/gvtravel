@@ -14,6 +14,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@portabletext/react": "^6.0.2",
     "@sanity/client": "^7.13.2",
     "@sanity/icons": "^3.7.4",

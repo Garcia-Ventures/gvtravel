@@ -1,33 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from '@formspree/react';
 
 export function TripInquiryForm() {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_ID || '');
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setStatus('submitting');
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        // @ts-expect-error - URLSearchParams constructor accepts FormData
-        body: new URLSearchParams(formData).toString(),
-      });
-      setStatus('success');
-      form.reset();
-    } catch (error) {
-      console.error('Submission error:', error);
-      setStatus('error');
-    }
-  };
-
-  if (status === 'success') {
+  if (state.succeeded) {
     return (
       <div className="mx-auto max-w-2xl rounded-xl bg-green-50 p-8 text-center dark:bg-green-900/20">
         <h3 className="text-xl font-semibold text-green-800 dark:text-green-300">Request Received!</h3>
@@ -35,7 +14,7 @@ export function TripInquiryForm() {
           Thank you for reaching out. We will review your details and get back to you shortly with some ideas!
         </p>
         <button
-          onClick={() => setStatus('idle')}
+          onClick={() => window.location.reload()}
           className="mt-6 text-sm font-semibold text-green-800 underline dark:text-green-300"
         >
           Send another request
@@ -45,21 +24,7 @@ export function TripInquiryForm() {
   }
 
   return (
-    <form
-      name="trip-inquiry"
-      method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      onSubmit={handleSubmit}
-      className="mx-auto max-w-2xl space-y-8"
-    >
-      <input type="hidden" name="form-name" value="trip-inquiry" />
-      <p className="hidden">
-        <label>
-          Don’t fill this out if you’re human: <input name="bot-field" />
-        </label>
-      </p>
-
+    <form name="trip-inquiry" onSubmit={handleSubmit} className="mx-auto max-w-2xl space-y-8">
       {/* Contact Info */}
       <div className="space-y-4">
         <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 border-b pb-2 dark:border-zinc-800">
@@ -174,12 +139,12 @@ export function TripInquiryForm() {
       <div>
         <button
           type="submit"
-          disabled={status === 'submitting'}
+          disabled={state.submitting}
           className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {status === 'submitting' ? 'Submitting...' : 'Send Inquiry'}
+          {state.submitting ? 'Submitting...' : 'Send Inquiry'}
         </button>
-        {status === 'error' && (
+        {state.errors && (
           <p className="mt-2 text-center text-sm text-red-600 dark:text-red-400">
             Something went wrong. Please try again later.
           </p>
