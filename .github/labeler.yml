@@ -1,0 +1,25 @@
+# Labels based on changed files
+
+"area: app":
+  - changed-files:
+      - any-glob-to-any-file: "app/**/*"
+
+"area: components":
+  - changed-files:
+      - any-glob-to-any-file: "components/**/*"
+
+"area: sanity":
+  - changed-files:
+      - any-glob-to-any-file: "sanity/**/*"
+
+"type: documentation":
+  - changed-files:
+      - any-glob-to-any-file: ["docs/**/*", "README.md", "SECURITY.md"]
+
+"type: configuration":
+  - changed-files:
+      - any-glob-to-any-file: ["package.json", "yarn.lock", "tsconfig.json", "next.config.ts", ".github/**/*"]
+
+"type: styles":
+  - changed-files:
+      - any-glob-to-any-file: ["**/*.css", "**/*.scss", "postcss.config.mjs"]
