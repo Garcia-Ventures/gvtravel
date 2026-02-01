@@ -4008,7 +4008,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/image-url@npm:2.0.3, @sanity/image-url@npm:^2.0.3":
+"@sanity/image-url@npm:^2.0.3":
   version: 2.0.3
   resolution: "@sanity/image-url@npm:2.0.3"
   dependencies:
@@ -8582,7 +8582,7 @@ __metadata:
     "@portabletext/react": "npm:^6.0.2"
     "@sanity/client": "npm:^7.14.1"
     "@sanity/icons": "npm:^3.7.4"
-    "@sanity/image-url": "npm:2.0.3"
+    "@sanity/image-url": "npm:^2.0.3"
     "@sanity/vision": "npm:5.7.0"
     "@tailwindcss/postcss": "npm:^4.1.18"
     "@types/node": "npm:^20.19.30"
