@@ -2,6 +2,8 @@
   "name": "gvtravel",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "packageManager": "yarn@4.12.0",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
@@ -11,41 +13,42 @@
     "lint:fix": "eslint . --cache --fix",
     "lint:report": "eslint . --cache -o ./eslintReport.html -f html",
     "prepare": "husky",
-    "start": "next start"
+    "start": "next start",
+    "validate": "node scripts/validate.mjs"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
     "@portabletext/react": "^6.0.2",
-    "@sanity/client": "^7.13.2",
+    "@sanity/client": "^7.14.1",
     "@sanity/icons": "^3.7.4",
-    "@sanity/image-url": "1",
-    "@sanity/vision": "4",
-    "next": "^16.0.0",
-    "next-sanity": "11.6.12",
-    "react": "^19",
-    "react-dom": "^19",
-    "sanity": "^4.22.0",
-    "styled-components": "^6.1"
+    "@sanity/image-url": "^2.0.3",
+    "@sanity/vision": "5.7.0",
+    "next": "^16.1.6",
+    "next-sanity": "12.0.16",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "sanity": "^5.7.0",
+    "styled-components": "^6.3.8"
   },
   "devDependencies": {
     "@eng618/prettier-config": "^2.5.2",
     "@eslint/js": "^9.39.2",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^20.19.30",
+    "@types/react": "^19.2.10",
+    "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.54.0",
     "@typescript-eslint/parser": "^8.54.0",
     "eslint": "^9.39.2",
     "eslint-config-next": "16.1.6",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
-    "globals": "^17.2.0",
+    "globals": "^17.3.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "prettier": "^3.8.1",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   },
   "lint-staged": {
     "*.(js|ts|mjs|cjs)?(x)": [
