@@ -9,8 +9,6 @@ export const metadata: Metadata = {
   description: 'Learn more about our family-run travel agency.',
 };
 
-export const dynamic = 'force-static';
-
 export default async function AboutPage() {
   const data = await client.fetch(ABOUT_QUERY);
 

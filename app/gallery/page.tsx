@@ -9,8 +9,6 @@ export const metadata: Metadata = {
   description: 'A glimpse into our family travels around the world.',
 };
 
-export const dynamic = 'force-static';
-
 export default async function GalleryPage() {
   const galleryData = await client.fetch(GALLERY_QUERY);
 
