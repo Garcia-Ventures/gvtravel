@@ -9,8 +9,6 @@ export const metadata: Metadata = {
   description: 'Trip reports, reviews, and travel tips from our family adventures.',
 };
 
-export const revalidate = 60;
-
 export default async function BlogIndex() {
   const postsFromSanity = await client.fetch(POSTS_QUERY);
 

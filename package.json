@@ -57,6 +57,9 @@
     ],
     "*.(md)?(x)": [
       "prettier --write"
+    ],
+    "*.(yml|yaml)": [
+      "prettier --write"
     ]
   },
   "prettier": "@eng618/prettier-config"

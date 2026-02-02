@@ -5,14 +5,20 @@ import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
 import { client } from '@/sanity/lib/client';
 import { POST_QUERY, POSTS_QUERY } from '@/sanity/lib/queries';
-
 import { SanityPost } from '@/lib/types';
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
-export const revalidate = 60;
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const posts = await client.fetch(POSTS_QUERY);
+  return posts.map((post: SanityPost) => ({
+    slug: post.slug,
+  }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -23,13 +29,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} - GV Travel`,
     description: post.summary || `Read about ${post.title}`,
   };
-}
-
-export async function generateStaticParams() {
-  const posts = await client.fetch(POSTS_QUERY);
-  return posts.map((post: SanityPost) => ({
-    slug: post.slug,
-  }));
 }
 
 export default async function BlogPostPage({ params }: Props) {
