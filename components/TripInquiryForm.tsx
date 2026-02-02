@@ -15,16 +15,18 @@ export function TripInquiryForm() {
 
   if (state.succeeded) {
     return (
-      <div className="mx-auto max-w-2xl rounded-xl bg-green-50 p-8 text-center dark:bg-green-900/20">
-        <h3 className="text-xl font-semibold text-green-800 dark:text-green-300">Request Received!</h3>
-        <p className="mt-2 text-green-700 dark:text-green-400">
-          Thank you for reaching out. We will review your details and get back to you shortly with some ideas!
+      <div className="mx-auto max-w-2xl rounded-xl bg-[var(--color-primary-teal)]/10 p-8 text-center border border-[var(--color-primary-teal)]/20">
+        <h3 className="text-xl font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
+          Magic in the works!
+        </h3>
+        <p className="mt-2 text-[var(--color-text-main)] opacity-80">
+          Thank you for trusting GV Travel. Our concierge team is already charting your personalized course.
         </p>
         <button
           onClick={() => window.location.reload()}
-          className="mt-6 text-sm font-semibold text-green-800 underline dark:text-green-300"
+          className="mt-6 text-sm font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] underline hover:opacity-80 transition-opacity"
         >
-          Send another request
+          Send another bit of magic
         </button>
       </div>
     );
@@ -34,12 +36,12 @@ export function TripInquiryForm() {
     <form name="trip-inquiry" onSubmit={handleSubmit} className="mx-auto max-w-2xl space-y-8">
       {/* Contact Info */}
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 border-b pb-2 dark:border-zinc-800">
-          Contact Information
+        <h3 className="text-lg font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] border-b border-[var(--color-primary-teal)]/10 pb-2 uppercase tracking-widest">
+          Personal Details
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium leading-6 text-zinc-900 dark:text-zinc-50">
+            <label htmlFor="name" className="block text-sm font-bold text-[var(--color-text-main)] opacity-90">
               Full Name
             </label>
             <div className="mt-2">
@@ -48,12 +50,12 @@ export function TripInquiryForm() {
                 name="name"
                 id="name"
                 required
-                className="block w-full rounded-md border-0 py-1.5 text-zinc-900 shadow-sm ring-1 ring-inset ring-zinc-300 placeholder:text-zinc-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-zinc-900 dark:text-white dark:ring-zinc-700"
+                className="block w-full rounded-md border-0 py-1.5 text-[var(--color-text-main)] shadow-sm ring-1 ring-inset ring-[var(--color-primary-teal)]/20 placeholder:text-[var(--color-text-main)]/30 focus:ring-2 focus:ring-inset focus:ring-[var(--color-accent-magic)] sm:text-sm sm:leading-6 bg-[var(--color-background)] dark:ring-[var(--color-primary-teal)]/40"
               />
             </div>
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium leading-6 text-zinc-900 dark:text-zinc-50">
+            <label htmlFor="email" className="block text-sm font-bold text-[var(--color-text-main)] opacity-90">
               Email
             </label>
             <div className="mt-2">
@@ -62,7 +64,7 @@ export function TripInquiryForm() {
                 name="email"
                 id="email"
                 required
-                className="block w-full rounded-md border-0 py-1.5 text-zinc-900 shadow-sm ring-1 ring-inset ring-zinc-300 placeholder:text-zinc-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-zinc-900 dark:text-white dark:ring-zinc-700"
+                className="block w-full rounded-md border-0 py-1.5 text-[var(--color-text-main)] shadow-sm ring-1 ring-inset ring-[var(--color-primary-teal)]/20 placeholder:text-[var(--color-text-main)]/30 focus:ring-2 focus:ring-inset focus:ring-[var(--color-accent-magic)] sm:text-sm sm:leading-6 bg-[var(--color-background)] dark:ring-[var(--color-primary-teal)]/40"
               />
             </div>
           </div>
@@ -71,20 +73,20 @@ export function TripInquiryForm() {
 
       {/* Trip Basics */}
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50 border-b pb-2 dark:border-zinc-800">
-          Trip Details
+        <h3 className="text-lg font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] border-b border-[var(--color-primary-teal)]/10 pb-2 uppercase tracking-widest">
+          The Journey Vision
         </h3>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div>
-            <label htmlFor="trip-type" className="block text-sm font-medium leading-6 text-zinc-900 dark:text-zinc-50">
-              Type of Trip
+            <label htmlFor="trip-type" className="block text-sm font-bold text-[var(--color-text-main)] opacity-90">
+              Type of Experience
             </label>
             <div className="mt-2">
               <select
                 id="trip-type"
                 name="trip-type"
-                className="block w-full rounded-md border-0 py-1.5 text-zinc-900 shadow-sm ring-1 ring-inset ring-zinc-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-zinc-900 dark:text-white dark:ring-zinc-700"
+                className="block w-full rounded-md border-0 py-1.5 text-[var(--color-text-main)] shadow-sm ring-1 ring-inset ring-[var(--color-primary-teal)]/20 focus:ring-2 focus:ring-inset focus:ring-[var(--color-accent-magic)] sm:text-sm sm:leading-6 bg-[var(--color-background)]"
               >
                 <option value="cruise">Cruise</option>
                 <option value="resort">All-Inclusive Resort</option>
@@ -95,14 +97,14 @@ export function TripInquiryForm() {
             </div>
           </div>
           <div>
-            <label htmlFor="budget" className="block text-sm font-medium leading-6 text-zinc-900 dark:text-zinc-50">
-              Budget Range
+            <label htmlFor="budget" className="block text-sm font-bold text-[var(--color-text-main)] opacity-90">
+              Investment Range
             </label>
             <div className="mt-2">
               <select
                 id="budget"
                 name="budget"
-                className="block w-full rounded-md border-0 py-1.5 text-zinc-900 shadow-sm ring-1 ring-inset ring-zinc-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-zinc-900 dark:text-white dark:ring-zinc-700"
+                className="block w-full rounded-md border-0 py-1.5 text-[var(--color-text-main)] shadow-sm ring-1 ring-inset ring-[var(--color-primary-teal)]/20 focus:ring-2 focus:ring-inset focus:ring-[var(--color-accent-magic)] sm:text-sm sm:leading-6 bg-[var(--color-background)]"
               >
                 <option value="under-2k">Under $2,000</option>
                 <option value="2k-5k">$2,000 - $5,000</option>
@@ -115,16 +117,16 @@ export function TripInquiryForm() {
         </div>
 
         <div>
-          <label htmlFor="details" className="block text-sm font-medium leading-6 text-zinc-900 dark:text-zinc-50">
-            Tell us about your ideal trip
+          <label htmlFor="details" className="block text-sm font-bold text-[var(--color-text-main)] opacity-90">
+            Describe Your Magical Destination
           </label>
           <div className="mt-2">
             <textarea
               id="details"
               name="details"
               rows={4}
-              className="block w-full rounded-md border-0 py-1.5 text-zinc-900 shadow-sm ring-1 ring-inset ring-zinc-300 placeholder:text-zinc-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 dark:bg-zinc-900 dark:text-white dark:ring-zinc-700"
-              placeholder="Where do you want to go? Who is traveling? Any special dates?"
+              className="block w-full rounded-md border-0 py-1.5 text-[var(--color-text-main)] shadow-sm ring-1 ring-inset ring-[var(--color-primary-teal)]/20 placeholder:text-[var(--color-text-main)]/30 focus:ring-2 focus:ring-inset focus:ring-[var(--color-accent-magic)] sm:text-sm sm:leading-6 bg-[var(--color-background)]"
+              placeholder="Where do you hear the sea calling? Who is part of your crew? Share your dream dates."
             />
           </div>
         </div>
@@ -136,10 +138,13 @@ export function TripInquiryForm() {
           name="consent"
           type="checkbox"
           required
-          className="h-4 w-4 rounded border-zinc-300 text-blue-600 focus:ring-blue-600 dark:border-zinc-700 dark:bg-zinc-900"
+          className="h-4 w-4 rounded border-[var(--color-primary-teal)]/30 text-[var(--color-primary-teal)] focus:ring-[var(--color-accent-magic)] bg-[var(--color-background)]"
         />
-        <label htmlFor="consent" className="block text-sm font-medium leading-6 text-zinc-900 dark:text-zinc-50">
-          I agree to be contacted by GV Travel regarding this inquiry.
+        <label
+          htmlFor="consent"
+          className="block text-sm font-medium leading-6 text-[var(--color-text-main)] opacity-80"
+        >
+          I trust GV Travel to guide my inquiry with care.
         </label>
       </div>
 
@@ -147,7 +152,7 @@ export function TripInquiryForm() {
         <button
           type="submit"
           disabled={state.submitting}
-          className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex w-full justify-center rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold leading-6 text-[var(--color-cta-text)] shadow-xl transition-all hover:scale-[1.02] hover:bg-[var(--color-secondary-coral)] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {state.submitting ? 'Submitting...' : 'Send Inquiry'}
         </button>

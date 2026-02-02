@@ -8599,6 +8599,7 @@ __metadata:
     lint-staged: "npm:^16.2.7"
     next: "npm:^16.1.6"
     next-sanity: "npm:12.0.16"
+    next-themes: "npm:^0.4.6"
     prettier: "npm:^3.8.1"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
@@ -10564,6 +10565,16 @@ __metadata:
     sanity: ^5.7.0
     styled-components: ^6.1
   checksum: 10c0/ef950dc20a80c0024a0ad91c44df143670ce43f39b1dfef571969eb208d2c6df3a6bde12513a512ccb8a81cd866ac882e913ccb2fd574112a8e23ef79de48c27
+  languageName: node
+  linkType: hard
+
+"next-themes@npm:^0.4.6":
+  version: 0.4.6
+  resolution: "next-themes@npm:0.4.6"
+  peerDependencies:
+    react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+    react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+  checksum: 10c0/83590c11d359ce7e4ced14f6ea9dd7a691d5ce6843fe2dc520fc27e29ae1c535118478d03e7f172609c41b1ef1b8da6b8dd2d2acd6cd79cac1abbdbd5b99f2c4
   languageName: node
   linkType: hard
 

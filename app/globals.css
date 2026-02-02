@@ -1,26 +1,45 @@
 @import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-background: #fdfcf0; /* Warm Pearl */
+    --color-primary-teal: #005f73; /* Deep Sea */
+    --color-accent-magic: #ee9b00; /* Sunset Amber */
+    --color-text-main: #002d36; /* Dark Teal */
+    --color-secondary-coral: #ca6702; /* Warm highlight */
+    --color-nav-bg: rgba(253, 252, 240, 0.8);
+    --color-cta-text: #002d36; /* Dark text on Amber */
+    --color-logo: #005f73; /* Teal Logo */
+  }
+
+  [data-theme='dark'] {
+    --color-background: #001219; /* Midnight Ocean */
+    --color-primary-teal: #0a9396; /* Lighter Teal */
+    --color-accent-magic: #e9d8a6; /* Soft Champagne Magic */
+    --color-text-main: #fdfcf0; /* Pearl White text */
+    --color-nav-bg: rgba(0, 18, 25, 0.8);
+    --color-cta-text: #001219; /* Dark Ocean text on Champagne */
+    --color-logo: #e9d8a6; /* Champagne Logo */
   }
 }
 
+@theme {
+  --color-background: var(--color-background);
+  --color-primary-teal: var(--color-primary-teal);
+  --color-accent-magic: var(--color-accent-magic);
+  --color-text-main: var(--color-text-main);
+  --color-secondary-coral: var(--color-secondary-coral);
+  --color-nav-bg: var(--color-nav-bg);
+  --color-cta-text: var(--color-cta-text);
+  --color-logo: var(--color-logo);
+  --font-serif: var(--font-playfair);
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: var(--color-background);
+  color: var(--color-text-main);
   font-family: Arial, Helvetica, sans-serif;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }

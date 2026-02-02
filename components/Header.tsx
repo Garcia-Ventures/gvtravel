@@ -1,30 +1,32 @@
 import Link from 'next/link';
+import { Logo } from './Logo';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
+    <header className="sticky top-0 z-50 w-full border-b border-[var(--color-primary-teal)]/10 bg-[var(--color-nav-bg)] backdrop-blur-md transition-colors duration-300">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight">
-          <span className="text-blue-600 dark:text-blue-400">GV</span>
-          <span className="text-zinc-900 dark:text-zinc-50">Travel</span>
+        <Link href="/" className="flex items-center gap-2 group">
+          <Logo className="h-10 w-auto text-[var(--color-logo)] transition-colors duration-300" />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
-          <Link href="/about" className="transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[var(--color-primary-teal)] dark:text-[var(--color-text-main)] transition-colors opacity-90">
+          <Link href="/about" className="transition-colors hover:text-[var(--color-accent-magic)]">
             About
           </Link>
-          <Link href="/gallery" className="transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+          <Link href="/gallery" className="transition-colors hover:text-[var(--color-accent-magic)]">
             Gallery
           </Link>
-          <Link href="/blog" className="transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+          <Link href="/blog" className="transition-colors hover:text-[var(--color-accent-magic)]">
             Blog
           </Link>
         </nav>
 
         <div className="flex items-center gap-4">
+          <ThemeToggle />
           <Link
             href="/start-planning"
-            className="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            className="rounded-full bg-[var(--color-accent-magic)] px-5 py-2 text-sm font-bold text-[var(--color-cta-text)] shadow-sm transition-all hover:scale-105 active:scale-95 hover:bg-[var(--color-secondary-coral)]"
           >
             Start Planning
           </Link>

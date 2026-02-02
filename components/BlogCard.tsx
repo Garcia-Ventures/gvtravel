@@ -11,33 +11,40 @@ export function BlogCard({ post }: BlogCardProps) {
     <article className="flex flex-col items-start justify-between">
       <div className="relative w-full">
         {post.imageUrl && (
-          <div className="aspect-[16/9] w-full rounded-2xl bg-zinc-100 dark:bg-zinc-800 object-cover sm:aspect-[2/1] lg:aspect-[3/2] overflow-hidden">
-            <Image src={post.imageUrl} alt={post.title} fill className="object-cover" />
+          <div className="aspect-[16/9] w-full rounded-2xl bg-[var(--color-primary-teal)]/5 object-cover sm:aspect-[2/1] lg:aspect-[3/2] overflow-hidden">
+            <Image
+              src={post.imageUrl}
+              alt={post.title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
           </div>
         )}
       </div>
       <div className="max-w-xl">
         <div className="mt-8 flex items-center gap-x-4 text-xs">
-          <time dateTime={post.publishDate} className="text-zinc-500">
+          <time dateTime={post.publishDate} className="text-[var(--color-text-main)] opacity-50 font-medium">
             {new Date(post.publishDate).toLocaleDateString()}
           </time>
           {post.tags.map((tag) => (
             <span
               key={tag}
-              className="relative z-10 rounded-full bg-zinc-50 px-3 py-1.5 font-medium text-zinc-600 hover:bg-zinc-100 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700"
+              className="relative z-10 rounded-full bg-[var(--color-primary-teal)]/10 px-3 py-1.5 font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] uppercase tracking-tighter text-[10px]"
             >
               {tag}
             </span>
           ))}
         </div>
         <div className="group relative">
-          <h3 className="mt-3 text-lg font-semibold leading-6 text-zinc-900 dark:text-zinc-50 group-hover:text-zinc-600 dark:group-hover:text-zinc-300">
+          <h3 className="mt-3 text-2xl font-serif font-bold leading-tight text-[var(--color-text-main)] group-hover:text-[var(--color-primary-teal)] dark:group-hover:text-[var(--color-accent-magic)] transition-colors">
             <Link href={`/blog/${post.slug}`}>
               <span className="absolute inset-0" />
               {post.title}
             </Link>
           </h3>
-          <p className="mt-5 line-clamp-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">{post.summary}</p>
+          <p className="mt-5 line-clamp-3 text-sm leading-6 text-[var(--color-text-main)] opacity-70 font-medium">
+            {post.summary}
+          </p>
         </div>
       </div>
     </article>

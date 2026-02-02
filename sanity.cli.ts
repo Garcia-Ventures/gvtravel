@@ -1,10 +1,29 @@
-/**
- * This configuration file lets you run `$ sanity [command]` in this folder
- * Go to https://www.sanity.io/docs/cli to learn more.
- **/
 import { defineCliConfig } from 'sanity/cli';
+import { loadEnvConfig } from '@next/env';
+
+// Load environment variables from .env.local
+const dev = process.env.NODE_ENV !== 'production';
+loadEnvConfig(process.cwd(), dev, { info: () => {}, error: console.error });
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 
-export default defineCliConfig({ api: { projectId, dataset } });
+// We apply the same quote-stripping logic here manually to avoid circular dependencies or import issues in CLI
+function cleanValue(v: string | undefined): string | undefined {
+  if (!v) return v;
+  let value = v.trim();
+  if ((value.startsWith('"') || value.startsWith("'")) && (value.endsWith('"') || value.endsWith("'"))) {
+    value = value.slice(1, -1);
+  }
+  return value;
+}
+
+export default defineCliConfig({
+  api: {
+    projectId: cleanValue(projectId),
+    dataset: cleanValue(dataset),
+  },
+  deployment: {
+    appId: 'asroa8slllva5afmhbur4w81',
+  },
+});
