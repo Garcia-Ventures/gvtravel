@@ -1,3 +1,0 @@
-# Compatibility settings for both Production and Preview environments
-compatibility_date = "2024-05-02"
-compatibility_flags = ["nodejs_compat"]
