@@ -18,10 +18,13 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: "yarn"
+          cache: 'yarn'
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Check Formatting
         run: yarn format:ci
@@ -44,10 +47,13 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: "yarn"
+          cache: 'yarn'
+
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Install Dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Run Build
         run: yarn build
@@ -55,6 +61,6 @@ jobs:
       - name: Compress Size
         uses: preactjs/compressed-size-action@v2
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          pattern: ".next/static/**/*.{js,css}"
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          pattern: '.next/static/**/*.{js,css}'
           strip-hash: "\\.[0-9a-f]{16}\\."
