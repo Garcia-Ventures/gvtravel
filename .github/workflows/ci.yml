@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: 'yarn'
+          cache: "yarn"
 
       - name: Install Dependencies
         run: yarn install --immutable
@@ -50,7 +50,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: 'yarn'
+          cache: "yarn"
 
       - name: Install Dependencies
         run: yarn install --immutable
@@ -61,6 +61,6 @@ jobs:
       - name: Compress Size
         uses: preactjs/compressed-size-action@v2
         with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
-          pattern: '.next/static/**/*.{js,css}'
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          pattern: ".next/static/**/*.{js,css}"
           strip-hash: "\\.[0-9a-f]{16}\\."
