@@ -20,7 +20,7 @@ const eslintConfig = defineConfig([
     'next-env.d.ts',
   ]),
   {
-    ignores: ['dist', 'node_modules', 'coverage'],
+    ignores: ['dist', 'node_modules', 'coverage', '.sanity'],
   },
   js.configs.recommended,
   {

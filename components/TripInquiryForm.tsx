@@ -4,7 +4,14 @@ import React from 'react';
 import { useForm } from '@formspree/react';
 
 export function TripInquiryForm() {
-  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_ID || '');
+  const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID || 'missing-form-id';
+  const [state, handleSubmit] = useForm(formId);
+
+  React.useEffect(() => {
+    if (formId === 'missing-form-id' && process.env.NODE_ENV === 'development') {
+      console.warn('Formspree ID is missing. Please set NEXT_PUBLIC_FORMSPREE_ID in your .env file.');
+    }
+  }, [formId]);
 
   if (state.succeeded) {
     return (
