@@ -1,18 +1,19 @@
 @import 'tailwindcss';
+@source '../node_modules/@gv-tech/design-system/dist/**/*.js';
 
 @layer base {
   :root {
-    /* GVTravel Theme Colors */
-    --color-background: #fdfcf0; /* Warm Pearl */
-    --color-primary-teal: #005f73; /* Deep Sea */
-    --color-accent-magic: #ee9b00; /* Sunset Amber */
-    --color-text-main: #002d36; /* Dark Teal */
-    --color-secondary-coral: #ca6702; /* Warm highlight */
-    --color-nav-bg: rgba(253, 252, 240, 0.8);
-    --color-cta-text: #002d36; /* Dark text on Amber */
-    --color-logo: #005f73; /* Teal Logo */
+    /* GVTravel Theme Colors - Base Hex */
+    --color-background-hex: #fdfcf0; /* Warm Pearl */
+    --color-primary-teal-hex: #005f73; /* Deep Sea */
+    --color-accent-magic-hex: #ee9b00; /* Sunset Amber */
+    --color-text-main-hex: #002d36; /* Dark Teal */
+    --color-secondary-coral-hex: #ca6702; /* Warm highlight */
+    --color-nav-bg-hex: rgba(253, 252, 240, 0.8);
+    --color-cta-text-hex: #002d36; /* Dark text on Amber */
+    --color-logo-hex: #005f73; /* Teal Logo */
 
-    /* Shadcn/Design System CSS Variables - mapped to GVTravel theme */
+    /* Shadcn/Design System HSL Variables - mapped to GVTravel theme */
     --background: 50 65% 97%; /* Warm Pearl #fdfcf0 */
     --foreground: 190 100% 11%; /* Dark Teal #002d36 */
     --card: 50 65% 97%;
@@ -36,16 +37,16 @@
   }
 
   [data-theme='dark'] {
-    /* GVTravel Dark Theme Colors */
-    --color-background: #001219; /* Midnight Ocean */
-    --color-primary-teal: #0a9396; /* Lighter Teal */
-    --color-accent-magic: #e9d8a6; /* Soft Champagne Magic */
-    --color-text-main: #fdfcf0; /* Pearl White text */
-    --color-nav-bg: rgba(0, 18, 25, 0.8);
-    --color-cta-text: #001219; /* Dark Ocean text on Champagne */
-    --color-logo: #e9d8a6; /* Champagne Logo */
+    /* GVTravel Dark Theme Colors - Base Hex */
+    --color-background-hex: #001219; /* Midnight Ocean */
+    --color-primary-teal-hex: #0a9396; /* Lighter Teal */
+    --color-accent-magic-hex: #e9d8a6; /* Soft Champagne Magic */
+    --color-text-main-hex: #fdfcf0; /* Pearl White text */
+    --color-nav-bg-hex: rgba(0, 18, 25, 0.8);
+    --color-cta-text-hex: #001219; /* Dark Ocean text on Champagne */
+    --color-logo-hex: #e9d8a6; /* Champagne Logo */
 
-    /* Shadcn/Design System CSS Variables - dark theme */
+    /* Shadcn/Design System HSL Variables - dark theme */
     --background: 197 100% 5%; /* Midnight Ocean */
     --foreground: 54 45% 97%; /* Pearl White */
     --card: 197 100% 5%;
@@ -69,36 +70,37 @@
 }
 
 @theme {
-  --color-background: var(--color-background);
-  --color-primary-teal: var(--color-primary-teal);
-  --color-accent-magic: var(--color-accent-magic);
-  --color-text-main: var(--color-text-main);
-  --color-secondary-coral: var(--color-secondary-coral);
-  --color-nav-bg: var(--color-nav-bg);
-  --color-cta-text: var(--color-cta-text);
-  --color-logo: var(--color-logo);
+  /* Project-specific colors */
+  --color-background: var(--color-background-hex);
+  --color-primary-teal: var(--color-primary-teal-hex);
+  --color-accent-magic: var(--color-accent-magic-hex);
+  --color-text-main: var(--color-text-main-hex);
+  --color-secondary-coral: var(--color-secondary-coral-hex);
+  --color-nav-bg: var(--color-nav-bg-hex);
+  --color-cta-text: var(--color-cta-text-hex);
+  --color-logo: var(--color-logo-hex);
   --font-serif: var(--font-playfair);
 
-  /* Design system theme colors */
-  --color-ds-background: hsl(var(--background));
-  --color-ds-foreground: hsl(var(--foreground));
-  --color-ds-card: hsl(var(--card));
-  --color-ds-card-foreground: hsl(var(--card-foreground));
-  --color-ds-popover: hsl(var(--popover));
-  --color-ds-popover-foreground: hsl(var(--popover-foreground));
-  --color-ds-primary: hsl(var(--primary));
-  --color-ds-primary-foreground: hsl(var(--primary-foreground));
-  --color-ds-secondary: hsl(var(--secondary));
-  --color-ds-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-ds-muted: hsl(var(--muted));
-  --color-ds-muted-foreground: hsl(var(--muted-foreground));
-  --color-ds-accent: hsl(var(--accent));
-  --color-ds-accent-foreground: hsl(var(--accent-foreground));
-  --color-ds-destructive: hsl(var(--destructive));
-  --color-ds-destructive-foreground: hsl(var(--destructive-foreground));
-  --color-ds-border: hsl(var(--border));
-  --color-ds-input: hsl(var(--input));
-  --color-ds-ring: hsl(var(--ring));
+  /* Design system standard names (required for @gv-tech/design-system components) */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
 
   /* Border radius from design system */
   --radius-lg: var(--radius);

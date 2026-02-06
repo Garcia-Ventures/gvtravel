@@ -4,7 +4,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@gv-tech/design-system';
 
+import { useIsMounted } from '@/lib/hooks';
+
 export function Hero() {
+  const isMounted = useIsMounted();
+
+  if (!isMounted) {
+    return (
+      <div className="relative isolate overflow-hidden bg-zinc-900 py-24 sm:py-32">
+        <div className="absolute inset-0 -z-10 h-full w-full bg-zinc-900" />
+      </div>
+    );
+  }
+
   return (
     <div className="relative isolate overflow-hidden bg-zinc-900 py-24 sm:py-32">
       {/* Background Image */}
@@ -15,6 +27,7 @@ export function Hero() {
           fill
           className="object-cover object-center opacity-40"
           priority
+          suppressHydrationWarning
         />
       </div>
 
@@ -31,11 +44,11 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral)]"
+              className="rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral-hex)]"
             >
               <Link href="/start-planning">Start Planning Your Magic</Link>
             </Button>
-            <Button asChild variant="link" className="text-white hover:text-[var(--color-accent-magic)]">
+            <Button asChild variant="link" className="text-white hover:text-[var(--color-accent-magic-hex)]">
               <Link href="/about">
                 Our Compass Story <span aria-hidden="true">→</span>
               </Link>

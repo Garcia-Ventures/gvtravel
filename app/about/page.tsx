@@ -68,7 +68,7 @@ export default async function AboutPage() {
           </div>
           <div className="relative">
             <div className="aspect-[3/2] w-full rounded-xl bg-zinc-100 dark:bg-zinc-800 object-cover lg:aspect-[4/5] lg:w-[36rem] lg:max-w-none overflow-hidden relative">
-              <Image src={imageUrl} alt={title} fill className="object-cover" />
+              <Image src={imageUrl} alt={title} fill className="object-cover" suppressHydrationWarning />
             </div>
           </div>
         </div>

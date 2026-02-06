@@ -64,7 +64,7 @@ export function TripInquiryForm() {
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="space-y-2">
-            <Label htmlFor="name" className="font-bold text-[var(--color-text-main)] opacity-90">
+            <Label htmlFor="name" className="font-bold text-[var(--color-text-main-hex)] opacity-90">
               Full Name
             </Label>
             <Input
@@ -72,11 +72,11 @@ export function TripInquiryForm() {
               name="name"
               id="name"
               required
-              className="bg-[var(--color-background)] border-[var(--color-primary-teal)]/20 focus-visible:ring-[var(--color-accent-magic)]"
+              className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 focus-visible:ring-[var(--color-accent-magic-hex)]"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email" className="font-bold text-[var(--color-text-main)] opacity-90">
+            <Label htmlFor="email" className="font-bold text-[var(--color-text-main-hex)] opacity-90">
               Email
             </Label>
             <Input
@@ -84,7 +84,7 @@ export function TripInquiryForm() {
               name="email"
               id="email"
               required
-              className="bg-[var(--color-background)] border-[var(--color-primary-teal)]/20 focus-visible:ring-[var(--color-accent-magic)]"
+              className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 focus-visible:ring-[var(--color-accent-magic-hex)]"
             />
           </div>
         </div>
@@ -102,10 +102,10 @@ export function TripInquiryForm() {
               Type of Experience
             </Label>
             <Select value={tripType} onValueChange={setTripType} name="trip-type">
-              <SelectTrigger className="bg-[var(--color-background)] border-[var(--color-primary-teal)]/20">
+              <SelectTrigger className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 focus:ring-[var(--color-accent-magic-hex)]">
                 <SelectValue placeholder="Select experience type" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 text-[var(--color-text-main-hex)]">
                 <SelectItem value="cruise">Cruise</SelectItem>
                 <SelectItem value="resort">All-Inclusive Resort</SelectItem>
                 <SelectItem value="tour">Guided Land Tour</SelectItem>
@@ -116,14 +116,14 @@ export function TripInquiryForm() {
             <input type="hidden" name="trip-type" value={tripType} />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="budget" className="font-bold text-[var(--color-text-main)] opacity-90">
+            <Label htmlFor="budget" className="font-bold text-[var(--color-text-main-hex)] opacity-90">
               Investment Range
             </Label>
             <Select value={budget} onValueChange={setBudget} name="budget">
-              <SelectTrigger className="bg-[var(--color-background)] border-[var(--color-primary-teal)]/20">
+              <SelectTrigger className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 focus:ring-[var(--color-accent-magic-hex)]">
                 <SelectValue placeholder="Select budget range" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 text-[var(--color-text-main-hex)]">
                 <SelectItem value="under-2k">Under $2,000</SelectItem>
                 <SelectItem value="2k-5k">$2,000 - $5,000</SelectItem>
                 <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
@@ -136,14 +136,14 @@ export function TripInquiryForm() {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="details" className="font-bold text-[var(--color-text-main)] opacity-90">
+          <Label htmlFor="details" className="font-bold text-[var(--color-text-main-hex)] opacity-90">
             Describe Your Magical Destination
           </Label>
           <Textarea
             id="details"
             name="details"
             rows={4}
-            className="bg-[var(--color-background)] border-[var(--color-primary-teal)]/20 focus-visible:ring-[var(--color-accent-magic)]"
+            className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 focus-visible:ring-[var(--color-accent-magic-hex)]"
             placeholder="Where do you hear the sea calling? Who is part of your crew? Share your dream dates."
           />
         </div>
@@ -156,12 +156,12 @@ export function TripInquiryForm() {
           required
           checked={consent}
           onCheckedChange={(checked) => setConsent(checked === true)}
-          className="border-[var(--color-primary-teal)]/30 data-[state=checked]:bg-[var(--color-primary-teal)] data-[state=checked]:border-[var(--color-primary-teal)]"
+          className="h-5 w-5 border-2 border-[var(--color-primary-teal-hex)]/40 rounded-sm data-[state=checked]:bg-[var(--color-primary-teal-hex)] data-[state=checked]:border-[var(--color-primary-teal-hex)] transition-all"
         />
         <input type="hidden" name="consent" value={consent ? 'yes' : 'no'} />
         <Label
           htmlFor="consent"
-          className="text-sm font-medium leading-6 text-[var(--color-text-main)] opacity-80 cursor-pointer"
+          className="text-sm font-medium leading-6 text-[var(--color-text-main-hex)] opacity-80 cursor-pointer"
         >
           I trust GV Travel to guide my inquiry with care.
         </Label>
@@ -171,11 +171,12 @@ export function TripInquiryForm() {
         <Button
           type="submit"
           disabled={state.submitting}
-          className="w-full rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:bg-[var(--color-secondary-coral)] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:bg-[var(--color-secondary-coral-hex)] disabled:opacity-50 disabled:cursor-not-allowed"
           size="lg"
         >
           {state.submitting ? 'Submitting...' : 'Send Inquiry'}
         </Button>
+
         {state.errors && (
           <p className="mt-2 text-center text-sm text-red-600 dark:text-red-400">
             Something went wrong. Please try again later.
