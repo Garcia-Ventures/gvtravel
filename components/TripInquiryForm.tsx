@@ -15,18 +15,25 @@ import {
   SelectValue,
 } from '@gv-tech/design-system';
 
+import { useIsMounted } from '@/lib/hooks';
+
 export function TripInquiryForm() {
   const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID || 'missing-form-id';
   const [state, handleSubmit] = useForm(formId);
   const [tripType, setTripType] = React.useState('cruise');
   const [budget, setBudget] = React.useState('2k-5k');
   const [consent, setConsent] = React.useState(false);
+  const isMounted = useIsMounted();
 
   React.useEffect(() => {
     if (formId === 'missing-form-id' && process.env.NODE_ENV === 'development') {
       console.warn('Formspree ID is missing. Please set NEXT_PUBLIC_FORMSPREE_ID in your .env file.');
     }
   }, [formId]);
+
+  if (!isMounted) {
+    return null;
+  }
 
   if (state.succeeded) {
     return (
