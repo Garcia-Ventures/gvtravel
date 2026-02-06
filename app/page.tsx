@@ -1,5 +1,8 @@
+'use client';
+
 import { Hero } from '@/components/Hero';
 import Link from 'next/link';
+import { Button } from '@gv-tech/design-system';
 
 export default function Home() {
   return (
@@ -36,18 +39,22 @@ export default function Home() {
               magic.
             </p>
             <div className="mt-10 flex items-center gap-x-6">
-              <Link
-                href="/start-planning"
-                className="rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl transition-all hover:scale-105 hover:bg-[var(--color-secondary-coral)]"
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral)]"
               >
-                Request Your Proposal
-              </Link>
-              <Link
-                href="/gallery"
-                className="text-sm font-semibold leading-6 text-[var(--color-background)] hover:text-[var(--color-accent-magic)] transition-colors"
+                <Link href="/start-planning">Request Your Proposal</Link>
+              </Button>
+              <Button
+                asChild
+                variant="link"
+                className="text-[var(--color-background)] hover:text-[var(--color-accent-magic)]"
               >
-                Explore the Magic <span aria-hidden="true">→</span>
-              </Link>
+                <Link href="/gallery">
+                  Explore the Magic <span aria-hidden="true">→</span>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

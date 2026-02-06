@@ -2,6 +2,7 @@
 
 @layer base {
   :root {
+    /* GVTravel Theme Colors */
     --color-background: #fdfcf0; /* Warm Pearl */
     --color-primary-teal: #005f73; /* Deep Sea */
     --color-accent-magic: #ee9b00; /* Sunset Amber */
@@ -10,9 +11,32 @@
     --color-nav-bg: rgba(253, 252, 240, 0.8);
     --color-cta-text: #002d36; /* Dark text on Amber */
     --color-logo: #005f73; /* Teal Logo */
+
+    /* Shadcn/Design System CSS Variables - mapped to GVTravel theme */
+    --background: 50 65% 97%; /* Warm Pearl #fdfcf0 */
+    --foreground: 190 100% 11%; /* Dark Teal #002d36 */
+    --card: 50 65% 97%;
+    --card-foreground: 190 100% 11%;
+    --popover: 50 65% 97%;
+    --popover-foreground: 190 100% 11%;
+    --primary: 187 100% 23%; /* Primary Teal #005f73 */
+    --primary-foreground: 50 65% 97%;
+    --secondary: 50 40% 94%;
+    --secondary-foreground: 190 100% 11%;
+    --muted: 50 40% 94%;
+    --muted-foreground: 190 50% 35%;
+    --accent: 39 100% 47%; /* Accent Amber #ee9b00 */
+    --accent-foreground: 190 100% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 50 65% 97%;
+    --border: 187 100% 23% / 0.1;
+    --input: 187 100% 23% / 0.2;
+    --ring: 39 100% 47%;
+    --radius: 0.5rem;
   }
 
   [data-theme='dark'] {
+    /* GVTravel Dark Theme Colors */
     --color-background: #001219; /* Midnight Ocean */
     --color-primary-teal: #0a9396; /* Lighter Teal */
     --color-accent-magic: #e9d8a6; /* Soft Champagne Magic */
@@ -20,6 +44,27 @@
     --color-nav-bg: rgba(0, 18, 25, 0.8);
     --color-cta-text: #001219; /* Dark Ocean text on Champagne */
     --color-logo: #e9d8a6; /* Champagne Logo */
+
+    /* Shadcn/Design System CSS Variables - dark theme */
+    --background: 197 100% 5%; /* Midnight Ocean */
+    --foreground: 54 45% 97%; /* Pearl White */
+    --card: 197 100% 5%;
+    --card-foreground: 54 45% 97%;
+    --popover: 197 100% 5%;
+    --popover-foreground: 54 45% 97%;
+    --primary: 181 85% 31%; /* Lighter Teal */
+    --primary-foreground: 197 100% 5%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 54 45% 97%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 47 63% 78%; /* Soft Champagne */
+    --accent-foreground: 197 100% 5%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 54 45% 97%;
+    --border: 181 85% 31% / 0.2;
+    --input: 181 85% 31% / 0.3;
+    --ring: 47 63% 78%;
   }
 }
 
@@ -33,6 +78,32 @@
   --color-cta-text: var(--color-cta-text);
   --color-logo: var(--color-logo);
   --font-serif: var(--font-playfair);
+
+  /* Design system theme colors */
+  --color-ds-background: hsl(var(--background));
+  --color-ds-foreground: hsl(var(--foreground));
+  --color-ds-card: hsl(var(--card));
+  --color-ds-card-foreground: hsl(var(--card-foreground));
+  --color-ds-popover: hsl(var(--popover));
+  --color-ds-popover-foreground: hsl(var(--popover-foreground));
+  --color-ds-primary: hsl(var(--primary));
+  --color-ds-primary-foreground: hsl(var(--primary-foreground));
+  --color-ds-secondary: hsl(var(--secondary));
+  --color-ds-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-ds-muted: hsl(var(--muted));
+  --color-ds-muted-foreground: hsl(var(--muted-foreground));
+  --color-ds-accent: hsl(var(--accent));
+  --color-ds-accent-foreground: hsl(var(--accent-foreground));
+  --color-ds-destructive: hsl(var(--destructive));
+  --color-ds-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-ds-border: hsl(var(--border));
+  --color-ds-input: hsl(var(--input));
+  --color-ds-ring: hsl(var(--ring));
+
+  /* Border radius from design system */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
 }
 
 body {

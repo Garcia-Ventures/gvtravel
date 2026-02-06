@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { Button } from '@gv-tech/design-system';
 
 export function Hero() {
   return (
@@ -25,18 +28,18 @@ export function Hero() {
             on making the magic happen.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link
-              href="/start-planning"
-              className="rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl transition-all hover:scale-105 hover:bg-[var(--color-secondary-coral)]"
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral)]"
             >
-              Start Planning Your Magic
-            </Link>
-            <Link
-              href="/about"
-              className="text-sm font-semibold leading-6 text-white hover:text-[var(--color-accent-magic)] transition-colors"
-            >
-              Our Compass Story <span aria-hidden="true">→</span>
-            </Link>
+              <Link href="/start-planning">Start Planning Your Magic</Link>
+            </Button>
+            <Button asChild variant="link" className="text-white hover:text-[var(--color-accent-magic)]">
+              <Link href="/about">
+                Our Compass Story <span aria-hidden="true">→</span>
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

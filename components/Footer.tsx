@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { Logo } from './Logo';
+import { Separator } from '@gv-tech/design-system';
 
 export function Footer() {
   return (
@@ -63,11 +66,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-[var(--color-primary-teal)]/10 pt-8">
-          <p className="text-xs text-center text-[var(--color-text-main)] opacity-50 font-medium">
-            &copy; {new Date().getFullYear()} GV Travel. Guided by Garcia Ventures.
-          </p>
-        </div>
+        <Separator className="my-8 bg-[var(--color-primary-teal)]/10" />
+
+        <p className="text-xs text-center text-[var(--color-text-main)] opacity-50 font-medium">
+          &copy; {new Date().getFullYear()} GV Travel. Guided by Garcia Ventures.
+        </p>
       </div>
     </footer>
   );

@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import { Logo } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
+import { Button } from '@gv-tech/design-system';
 
 export function Header() {
   return (
@@ -24,12 +27,12 @@ export function Header() {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Link
-            href="/start-planning"
-            className="rounded-full bg-[var(--color-accent-magic)] px-5 py-2 text-sm font-bold text-[var(--color-cta-text)] shadow-sm transition-all hover:scale-105 active:scale-95 hover:bg-[var(--color-secondary-coral)]"
+          <Button
+            asChild
+            className="rounded-full bg-[var(--color-accent-magic)] px-5 py-2 text-sm font-bold text-[var(--color-cta-text)] shadow-sm hover:scale-105 active:scale-95 hover:bg-[var(--color-secondary-coral)]"
           >
-            Start Planning
-          </Link>
+            <Link href="/start-planning">Start Planning</Link>
+          </Button>
         </div>
       </div>
     </header>

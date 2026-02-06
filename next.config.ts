@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Transpile the design system package for Next.js compatibility
+  transpilePackages: ['@gv-tech/design-system'],
 };
 
 export default nextConfig;

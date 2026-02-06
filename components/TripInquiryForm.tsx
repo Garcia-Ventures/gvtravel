@@ -2,10 +2,25 @@
 
 import React from 'react';
 import { useForm } from '@formspree/react';
+import {
+  Button,
+  Input,
+  Label,
+  Textarea,
+  Checkbox,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@gv-tech/design-system';
 
 export function TripInquiryForm() {
   const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID || 'missing-form-id';
   const [state, handleSubmit] = useForm(formId);
+  const [tripType, setTripType] = React.useState('cruise');
+  const [budget, setBudget] = React.useState('2k-5k');
+  const [consent, setConsent] = React.useState(false);
 
   React.useEffect(() => {
     if (formId === 'missing-form-id' && process.env.NODE_ENV === 'development') {
@@ -22,12 +37,13 @@ export function TripInquiryForm() {
         <p className="mt-2 text-[var(--color-text-main)] opacity-80">
           Thank you for trusting GV Travel. Our concierge team is already charting your personalized course.
         </p>
-        <button
+        <Button
+          variant="link"
           onClick={() => window.location.reload()}
-          className="mt-6 text-sm font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] underline hover:opacity-80 transition-opacity"
+          className="mt-6 text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]"
         >
           Send another bit of magic
-        </button>
+        </Button>
       </div>
     );
   }
@@ -40,33 +56,29 @@ export function TripInquiryForm() {
           Personal Details
         </h3>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div>
-            <label htmlFor="name" className="block text-sm font-bold text-[var(--color-text-main)] opacity-90">
+          <div className="space-y-2">
+            <Label htmlFor="name" className="font-bold text-[var(--color-text-main)] opacity-90">
               Full Name
-            </label>
-            <div className="mt-2">
-              <input
-                type="text"
-                name="name"
-                id="name"
-                required
-                className="block w-full rounded-md border-0 py-1.5 text-[var(--color-text-main)] shadow-sm ring-1 ring-inset ring-[var(--color-primary-teal)]/20 placeholder:text-[var(--color-text-main)]/30 focus:ring-2 focus:ring-inset focus:ring-[var(--color-accent-magic)] sm:text-sm sm:leading-6 bg-[var(--color-background)] dark:ring-[var(--color-primary-teal)]/40"
-              />
-            </div>
+            </Label>
+            <Input
+              type="text"
+              name="name"
+              id="name"
+              required
+              className="bg-[var(--color-background)] border-[var(--color-primary-teal)]/20 focus-visible:ring-[var(--color-accent-magic)]"
+            />
           </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-bold text-[var(--color-text-main)] opacity-90">
+          <div className="space-y-2">
+            <Label htmlFor="email" className="font-bold text-[var(--color-text-main)] opacity-90">
               Email
-            </label>
-            <div className="mt-2">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                required
-                className="block w-full rounded-md border-0 py-1.5 text-[var(--color-text-main)] shadow-sm ring-1 ring-inset ring-[var(--color-primary-teal)]/20 placeholder:text-[var(--color-text-main)]/30 focus:ring-2 focus:ring-inset focus:ring-[var(--color-accent-magic)] sm:text-sm sm:leading-6 bg-[var(--color-background)] dark:ring-[var(--color-primary-teal)]/40"
-              />
-            </div>
+            </Label>
+            <Input
+              type="email"
+              name="email"
+              id="email"
+              required
+              className="bg-[var(--color-background)] border-[var(--color-primary-teal)]/20 focus-visible:ring-[var(--color-accent-magic)]"
+            />
           </div>
         </div>
       </div>
@@ -78,84 +90,85 @@ export function TripInquiryForm() {
         </h3>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div>
-            <label htmlFor="trip-type" className="block text-sm font-bold text-[var(--color-text-main)] opacity-90">
+          <div className="space-y-2">
+            <Label htmlFor="trip-type" className="font-bold text-[var(--color-text-main)] opacity-90">
               Type of Experience
-            </label>
-            <div className="mt-2">
-              <select
-                id="trip-type"
-                name="trip-type"
-                className="block w-full rounded-md border-0 py-1.5 text-[var(--color-text-main)] shadow-sm ring-1 ring-inset ring-[var(--color-primary-teal)]/20 focus:ring-2 focus:ring-inset focus:ring-[var(--color-accent-magic)] sm:text-sm sm:leading-6 bg-[var(--color-background)]"
-              >
-                <option value="cruise">Cruise</option>
-                <option value="resort">All-Inclusive Resort</option>
-                <option value="tour">Guided Land Tour</option>
-                <option value="combo">Combo / Custom</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
+            </Label>
+            <Select value={tripType} onValueChange={setTripType} name="trip-type">
+              <SelectTrigger className="bg-[var(--color-background)] border-[var(--color-primary-teal)]/20">
+                <SelectValue placeholder="Select experience type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="cruise">Cruise</SelectItem>
+                <SelectItem value="resort">All-Inclusive Resort</SelectItem>
+                <SelectItem value="tour">Guided Land Tour</SelectItem>
+                <SelectItem value="combo">Combo / Custom</SelectItem>
+                <SelectItem value="other">Other</SelectItem>
+              </SelectContent>
+            </Select>
+            <input type="hidden" name="trip-type" value={tripType} />
           </div>
-          <div>
-            <label htmlFor="budget" className="block text-sm font-bold text-[var(--color-text-main)] opacity-90">
+          <div className="space-y-2">
+            <Label htmlFor="budget" className="font-bold text-[var(--color-text-main)] opacity-90">
               Investment Range
-            </label>
-            <div className="mt-2">
-              <select
-                id="budget"
-                name="budget"
-                className="block w-full rounded-md border-0 py-1.5 text-[var(--color-text-main)] shadow-sm ring-1 ring-inset ring-[var(--color-primary-teal)]/20 focus:ring-2 focus:ring-inset focus:ring-[var(--color-accent-magic)] sm:text-sm sm:leading-6 bg-[var(--color-background)]"
-              >
-                <option value="under-2k">Under $2,000</option>
-                <option value="2k-5k">$2,000 - $5,000</option>
-                <option value="5k-10k">$5,000 - $10,000</option>
-                <option value="10k-plus">$10,000+</option>
-                <option value="not-sure">Not sure yet</option>
-              </select>
-            </div>
+            </Label>
+            <Select value={budget} onValueChange={setBudget} name="budget">
+              <SelectTrigger className="bg-[var(--color-background)] border-[var(--color-primary-teal)]/20">
+                <SelectValue placeholder="Select budget range" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="under-2k">Under $2,000</SelectItem>
+                <SelectItem value="2k-5k">$2,000 - $5,000</SelectItem>
+                <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
+                <SelectItem value="10k-plus">$10,000+</SelectItem>
+                <SelectItem value="not-sure">Not sure yet</SelectItem>
+              </SelectContent>
+            </Select>
+            <input type="hidden" name="budget" value={budget} />
           </div>
         </div>
 
-        <div>
-          <label htmlFor="details" className="block text-sm font-bold text-[var(--color-text-main)] opacity-90">
+        <div className="space-y-2">
+          <Label htmlFor="details" className="font-bold text-[var(--color-text-main)] opacity-90">
             Describe Your Magical Destination
-          </label>
-          <div className="mt-2">
-            <textarea
-              id="details"
-              name="details"
-              rows={4}
-              className="block w-full rounded-md border-0 py-1.5 text-[var(--color-text-main)] shadow-sm ring-1 ring-inset ring-[var(--color-primary-teal)]/20 placeholder:text-[var(--color-text-main)]/30 focus:ring-2 focus:ring-inset focus:ring-[var(--color-accent-magic)] sm:text-sm sm:leading-6 bg-[var(--color-background)]"
-              placeholder="Where do you hear the sea calling? Who is part of your crew? Share your dream dates."
-            />
-          </div>
+          </Label>
+          <Textarea
+            id="details"
+            name="details"
+            rows={4}
+            className="bg-[var(--color-background)] border-[var(--color-primary-teal)]/20 focus-visible:ring-[var(--color-accent-magic)]"
+            placeholder="Where do you hear the sea calling? Who is part of your crew? Share your dream dates."
+          />
         </div>
       </div>
 
       <div className="flex items-center gap-x-3">
-        <input
+        <Checkbox
           id="consent"
           name="consent"
-          type="checkbox"
           required
-          className="h-4 w-4 rounded border-[var(--color-primary-teal)]/30 text-[var(--color-primary-teal)] focus:ring-[var(--color-accent-magic)] bg-[var(--color-background)]"
+          checked={consent}
+          onCheckedChange={(checked) => setConsent(checked === true)}
+          className="border-[var(--color-primary-teal)]/30 data-[state=checked]:bg-[var(--color-primary-teal)] data-[state=checked]:border-[var(--color-primary-teal)]"
         />
-        <label
+        <input type="hidden" name="consent" value={consent ? 'yes' : 'no'} />
+        <Label
           htmlFor="consent"
-          className="block text-sm font-medium leading-6 text-[var(--color-text-main)] opacity-80"
+          className="text-sm font-medium leading-6 text-[var(--color-text-main)] opacity-80 cursor-pointer"
         >
           I trust GV Travel to guide my inquiry with care.
-        </label>
+        </Label>
       </div>
 
       <div>
-        <button
+        <Button
           type="submit"
           disabled={state.submitting}
-          className="flex w-full justify-center rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold leading-6 text-[var(--color-cta-text)] shadow-xl transition-all hover:scale-[1.02] hover:bg-[var(--color-secondary-coral)] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:bg-[var(--color-secondary-coral)] disabled:opacity-50 disabled:cursor-not-allowed"
+          size="lg"
         >
           {state.submitting ? 'Submitting...' : 'Send Inquiry'}
-        </button>
+        </Button>
         {state.errors && (
           <p className="mt-2 text-center text-sm text-red-600 dark:text-red-400">
             Something went wrong. Please try again later.
