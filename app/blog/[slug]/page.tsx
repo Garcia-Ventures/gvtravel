@@ -1,11 +1,11 @@
-import { Metadata } from 'next';
-import Image from 'next/image';
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import { PortableText } from '@portabletext/react';
+import { SanityPost } from '@/lib/types';
 import { client } from '@/sanity/lib/client';
 import { POST_QUERY, POSTS_QUERY } from '@/sanity/lib/queries';
-import { SanityPost } from '@/lib/types';
+import { PortableText } from '@portabletext/react';
+import { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 interface Props {
   params: Promise<{ slug: string }>;

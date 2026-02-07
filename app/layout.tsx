@@ -1,11 +1,11 @@
+import { Footer } from '@/components/Footer';
+import { Header } from '@/components/Header';
+import { ThemeFavicon } from '@/components/ThemeFavicon';
+import { ThemeProvider } from '@/components/ThemeProvider';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google';
 import { type ReactNode } from 'react';
 import './globals.css';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
-import { ThemeProvider } from '@/components/ThemeProvider';
-import { ThemeFavicon } from '@/components/ThemeFavicon';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',

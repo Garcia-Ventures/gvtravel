@@ -1,8 +1,8 @@
-import { Metadata } from 'next';
 import { BlogList } from '@/components/BlogList';
+import { BlogPost, SanityPost } from '@/lib/types';
 import { client } from '@/sanity/lib/client';
 import { POSTS_QUERY } from '@/sanity/lib/queries';
-import { BlogPost, SanityPost } from '@/lib/types';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Blog - GV Travel',

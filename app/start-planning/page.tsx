@@ -1,5 +1,5 @@
-import { Metadata } from 'next';
 import { TripInquiryForm } from '@/components/TripInquiryForm';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Start Planning - GV Travel',

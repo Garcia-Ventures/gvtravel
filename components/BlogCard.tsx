@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
 import { BlogPost } from '@/lib/types';
 import { Badge } from '@gv-tech/design-system';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface BlogCardProps {
   post: BlogPost;

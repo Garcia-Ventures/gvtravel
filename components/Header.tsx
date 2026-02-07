@@ -1,9 +1,9 @@
 'use client';
 
+import { Button } from '@gv-tech/design-system';
 import Link from 'next/link';
 import { Logo } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
-import { Button } from '@gv-tech/design-system';
 
 export function Header() {
   return (

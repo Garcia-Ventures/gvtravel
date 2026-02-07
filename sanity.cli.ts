@@ -1,5 +1,5 @@
-import { defineCliConfig } from 'sanity/cli';
 import { loadEnvConfig } from '@next/env';
+import { defineCliConfig } from 'sanity/cli';
 
 // Load environment variables from .env.local
 const dev = process.env.NODE_ENV !== 'production';

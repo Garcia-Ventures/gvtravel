@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { GalleryItem } from '@/lib/types';
+import Image from 'next/image';
 
 interface GalleryGridProps {
   items: GalleryItem[];

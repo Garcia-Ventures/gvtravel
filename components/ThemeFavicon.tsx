@@ -1,7 +1,7 @@
 'use client';
 
-import { useTheme } from 'next-themes';
 import { useIsMounted } from '@/lib/hooks';
+import { useTheme } from 'next-themes';
 
 export function ThemeFavicon() {
   const { resolvedTheme } = useTheme();

@@ -10317,6 +10317,7 @@ __metadata:
     next-sanity: "npm:12.1.0"
     next-themes: "npm:^0.4.6"
     prettier: "npm:^3.8.1"
+    prettier-plugin-organize-imports: "npm:^4.3.0"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     sanity: "npm:^5.8.1"
@@ -13104,6 +13105,20 @@ __metadata:
   dependencies:
     fast-diff: "npm:^1.1.2"
   checksum: 10c0/91cea965681bc5f62c9d26bd3ca6358b81557261d4802e96ec1cf0acbd99d4b61632d53320cd2c3ec7d7f7805a81345644108a41ef46ddc9688e783a9ac792d1
+  languageName: node
+  linkType: hard
+
+"prettier-plugin-organize-imports@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "prettier-plugin-organize-imports@npm:4.3.0"
+  peerDependencies:
+    prettier: ">=2.0"
+    typescript: ">=2.9"
+    vue-tsc: ^2.1.0 || 3
+  peerDependenciesMeta:
+    vue-tsc:
+      optional: true
+  checksum: 10c0/57e5a3e611f1da6614fe1228d306b9a361d9249140abfdfcf21cffc9de13bda204c01f44bed0396786269541b63e12b05e1eab03e43d2e201320e4211af88bc6
   languageName: node
   linkType: hard
 

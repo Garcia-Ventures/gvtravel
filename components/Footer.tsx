@@ -1,8 +1,8 @@
 'use client';
 
+import { Separator } from '@gv-tech/design-system';
 import Link from 'next/link';
 import { Logo } from './Logo';
-import { Separator } from '@gv-tech/design-system';
 
 export function Footer() {
   return (

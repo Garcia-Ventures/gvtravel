@@ -1,8 +1,8 @@
 'use client';
 
 import { Hero } from '@/components/Hero';
-import Link from 'next/link';
 import { Button } from '@gv-tech/design-system';
+import Link from 'next/link';
 
 export default function Home() {
   return (

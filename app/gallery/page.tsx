@@ -1,8 +1,8 @@
-import { Metadata } from 'next';
 import { GalleryGrid } from '@/components/GalleryGrid';
+import { GalleryItem, SanityGalleryImage } from '@/lib/types';
 import { client } from '@/sanity/lib/client';
 import { GALLERY_QUERY } from '@/sanity/lib/queries';
-import { GalleryItem, SanityGalleryImage } from '@/lib/types';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Travel Gallery - GV Travel',

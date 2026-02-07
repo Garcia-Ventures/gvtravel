@@ -1,8 +1,8 @@
-import { Metadata } from 'next';
-import Image from 'next/image';
-import { PortableText } from '@portabletext/react';
 import { client } from '@/sanity/lib/client';
 import { ABOUT_QUERY } from '@/sanity/lib/queries';
+import { PortableText } from '@portabletext/react';
+import { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'About Us - GV Travel',
