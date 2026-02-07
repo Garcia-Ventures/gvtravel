@@ -1846,12 +1846,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eng618/prettier-config@npm:^2.5.2":
-  version: 2.5.2
-  resolution: "@eng618/prettier-config@npm:2.5.2"
+"@eng618/prettier-config@npm:^2.5.3":
+  version: 2.5.3
+  resolution: "@eng618/prettier-config@npm:2.5.3"
   peerDependencies:
     prettier: ^2.0.0 || ^3.0.0
-  checksum: 10c0/65d0b5cc3392808475e99d7967cf3760b56c3ce421338ad30f0295fd5554767c462c2be0985ca29a4332c21d4ff7a0f9ef529a3f07dc8b5da3405a282485700f
+    prettier-plugin-organize-imports: ^4.0.0
+  checksum: 10c0/89955b2d2f0ad5c16d0fd3e8b97e5d30766b4fa943d370c31abf897e4eea0ab475fb5852dc2904e569c22df50d22d20ecabb6560a1529caa087f72bcbbe7d1e7
   languageName: node
   linkType: hard
 
@@ -10144,7 +10145,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "gvtravel@workspace:."
   dependencies:
-    "@eng618/prettier-config": "npm:^2.5.2"
+    "@eng618/prettier-config": "npm:^2.5.3"
     "@eslint/js": "npm:^9.39.2"
     "@formspree/react": "npm:^3.0.0"
     "@gv-tech/design-system": "npm:1.1.0"
