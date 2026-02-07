@@ -5704,9 +5704,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/vision@npm:5.7.0":
-  version: 5.7.0
-  resolution: "@sanity/vision@npm:5.7.0"
+"@sanity/vision@npm:5.8.1":
+  version: 5.8.1
+  resolution: "@sanity/vision@npm:5.8.1"
   dependencies:
     "@codemirror/autocomplete": "npm:^6.20.0"
     "@codemirror/commands": "npm:^6.10.1"
@@ -5736,7 +5736,7 @@ __metadata:
     react: ^19.2.2
     sanity: ^4.0.0-0 || ^5.0.0-0
     styled-components: ^6.1.15
-  checksum: 10c0/bb80312c8cf2558efa2ad2d1c0a579d0861b1273564c598284f89a7bbad096120a9dc260fd6f8abb2d7288ca0c7b3d1917fbc1953b6e8e3041922def24644c66
+  checksum: 10c0/09fb1ac6546430b1fa868b927581b02aa6ad03d7fe902686d99b94024d2c036075415989f2c61fc6c3cbcda0e66769a673299029714fa96234b17960131c8264
   languageName: node
   linkType: hard
 
@@ -10188,7 +10188,7 @@ __metadata:
     "@sanity/client": "npm:^7.14.1"
     "@sanity/icons": "npm:^3.7.4"
     "@sanity/image-url": "npm:^2.0.3"
-    "@sanity/vision": "npm:5.7.0"
+    "@sanity/vision": "npm:5.8.1"
     "@tailwindcss/postcss": "npm:^4.1.18"
     "@types/node": "npm:^20.19.30"
     "@types/react": "npm:^19.2.13"
