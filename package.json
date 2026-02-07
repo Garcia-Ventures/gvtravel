@@ -37,7 +37,7 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
-    "@eng618/prettier-config": "^2.5.2",
+    "@eng618/prettier-config": "^2.5.3",
     "@eslint/js": "^9.39.2",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^20.19.30",
