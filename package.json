@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "packageManager": "yarn@4.12.0",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
@@ -16,6 +15,16 @@
     "start": "next start",
     "validate": "node scripts/validate.mjs"
   },
+  "lint-staged": {
+    "*.(js|ts|mjs|cjs)?(x)": [
+      "prettier --write",
+      "eslint --cache --fix"
+    ],
+    "*.(md)?(x)": [
+      "prettier --write"
+    ]
+  },
+  "prettier": "@eng618/prettier-config",
   "dependencies": {
     "@formspree/react": "^3.0.0",
     "@gv-tech/design-system": "1.1.0",
@@ -37,15 +46,17 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
-    "@eng618/prettier-config": "^2.5.3",
-    "@eslint/js": "^9.39.2",
+    "@eng618/prettier-config": "^2.6.0",
+    "@eslint/js": "^10.0.1",
+    "@gv-tech/eslint-config": "^0.1.5",
+    "@next/eslint-plugin-next": "^16.1.6",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.13",
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.54.0",
     "@typescript-eslint/parser": "^8.54.0",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "eslint-config-next": "16.1.6",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
@@ -55,19 +66,8 @@
     "prettier": "^3.8.1",
     "prettier-plugin-organize-imports": "^4.3.0",
     "tailwindcss": "^4.1.18",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0"
   },
-  "lint-staged": {
-    "*.(js|ts|mjs|cjs)?(x)": [
-      "prettier --write",
-      "eslint --cache --fix"
-    ],
-    "*.(md)?(x)": [
-      "prettier --write"
-    ],
-    "*.(yml|yaml)": [
-      "prettier --write"
-    ]
-  },
-  "prettier": "@eng618/prettier-config"
+  "packageManager": "yarn@4.12.0"
 }
