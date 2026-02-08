@@ -2114,6 +2114,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint/js@npm:^9.0.0":
+  version: 9.39.2
+  resolution: "@eslint/js@npm:9.39.2"
+  checksum: 10c0/00f51c52b04ac79faebfaa65a9652b2093b9c924e945479f1f3945473f78aee83cbc76c8d70bbffbf06f7024626575b16d97b66eab16182e1d0d39daff2f26f5
+  languageName: node
+  linkType: hard
+
 "@eslint/object-schema@npm:^3.0.1":
   version: 3.0.1
   resolution: "@eslint/object-schema@npm:3.0.1"
@@ -2261,20 +2268,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gv-tech/eslint-config@npm:^0.1.5":
-  version: 0.1.5
-  resolution: "@gv-tech/eslint-config@npm:0.1.5"
+"@gv-tech/eslint-config@npm:^0.1.8":
+  version: 0.1.8
+  resolution: "@gv-tech/eslint-config@npm:0.1.8"
+  dependencies:
+    "@eslint/js": "npm:^9.0.0"
+    eslint-config-prettier: "npm:^10.0.0"
+    eslint-plugin-prettier: "npm:^5.0.0"
+    globals: "npm:>=15.0.0"
+    typescript-eslint: "npm:^8.0.0"
   peerDependencies:
     "@eng618/prettier-config": ^2.0.0
-    "@eslint/js": ^9.0.0
     "@next/eslint-plugin-next": ^15.0.0 || ^16.0.0
     eslint: ^9.0.0
-    eslint-config-prettier: ^9.0.0 || ^10.0.0
-    eslint-plugin-prettier: ^5.0.0
-    globals: ">=15.0.0"
     prettier: ^3.0.0
     typescript: ">=5.0.0"
-    typescript-eslint: ^8.0.0
   peerDependenciesMeta:
     "@eng618/prettier-config":
       optional: true
@@ -2290,7 +2298,7 @@ __metadata:
       optional: true
     typescript-eslint:
       optional: true
-  checksum: 10c0/47c38b28905ea7f82ff86d8a87073fe3e24b41e6a2cfd748ab8312e00e4dadfba7790fdc14457f28aa3120976650a1e5e14059aed37190ff8a29bf3be9119708
+  checksum: 10c0/f776bad632420edfcff1dc60af3e7abaab002cbb919ecf86d2bfe9384667de327eab7c0e239ea378198c3b54f7f9d4bad73d973046e853904ae7e8d0aeacb9dd
   languageName: node
   linkType: hard
 
@@ -6581,12 +6589,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.0.0":
-  version: 24.10.11
-  resolution: "@types/node@npm:24.10.11"
+"@types/node@npm:^24.10.12":
+  version: 24.10.12
+  resolution: "@types/node@npm:24.10.12"
   dependencies:
     undici-types: "npm:~7.16.0"
-  checksum: 10c0/2578baa9443d62b0f13444b7965790912eca6d25c205e594cfa96689fa9bc6a676d2d4d7024a95a92e42e4be52133e5608ece2ef86edb12ee110c8b52f603a35
+  checksum: 10c0/fa39b88c8d82a2cec41544bee3426c4b78a13cc3c5ccf6fcb6c9528a68466ffcc73772833c612c7bb7e5fe1bc8e38002d1d543152e43b20b0600096cf6f210d1
   languageName: node
   linkType: hard
 
@@ -9319,7 +9327,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^10.1.8":
+"eslint-config-prettier@npm:^10.0.0, eslint-config-prettier@npm:^10.1.8":
   version: 10.1.8
   resolution: "eslint-config-prettier@npm:10.1.8"
   peerDependencies:
@@ -9431,7 +9439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^5.5.5":
+"eslint-plugin-prettier@npm:^5.0.0, eslint-plugin-prettier@npm:^5.5.5":
   version: 5.5.5
   resolution: "eslint-plugin-prettier@npm:5.5.5"
   dependencies:
@@ -10288,7 +10296,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^17.3.0":
+"globals@npm:>=15.0.0, globals@npm:^17.3.0":
   version: 17.3.0
   resolution: "globals@npm:17.3.0"
   checksum: 10c0/7f21443ecaa60c6e9ff56d9fb6f10a9b5f9514e7f22e5392f715472bb220ce31c865ebf414a32695150e733fb3e1013e6322dbce70fddd1e066f372b8d55a4b8
@@ -10394,7 +10402,7 @@ __metadata:
     "@eslint/js": "npm:^10.0.1"
     "@formspree/react": "npm:^3.0.0"
     "@gv-tech/design-system": "npm:1.1.0"
-    "@gv-tech/eslint-config": "npm:^0.1.5"
+    "@gv-tech/eslint-config": "npm:^0.1.8"
     "@next/eslint-plugin-next": "npm:^16.1.6"
     "@portabletext/react": "npm:^6.0.2"
     "@sanity/client": "npm:^7.14.1"
@@ -10402,7 +10410,7 @@ __metadata:
     "@sanity/image-url": "npm:^2.0.3"
     "@sanity/vision": "npm:5.8.1"
     "@tailwindcss/postcss": "npm:^4.1.18"
-    "@types/node": "npm:^24.0.0"
+    "@types/node": "npm:^24.10.12"
     "@types/react": "npm:^19.2.13"
     "@types/react-dom": "npm:^19.2.3"
     "@typescript-eslint/eslint-plugin": "npm:^8.54.0"
@@ -10425,7 +10433,7 @@ __metadata:
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
     sanity: "npm:^5.8.1"
-    styled-components: "npm:^6.3.8"
+    styled-components: "npm:^6.3.9"
     tailwind-merge: "npm:^3.4.0"
     tailwindcss: "npm:^4.1.18"
     typescript: "npm:^5.9.3"
@@ -15436,9 +15444,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-components@npm:^6.3.8":
-  version: 6.3.8
-  resolution: "styled-components@npm:6.3.8"
+"styled-components@npm:^6.3.9":
+  version: 6.3.9
+  resolution: "styled-components@npm:6.3.9"
   dependencies:
     "@emotion/is-prop-valid": "npm:1.4.0"
     "@emotion/unitless": "npm:0.10.0"
@@ -15455,7 +15463,7 @@ __metadata:
   peerDependenciesMeta:
     react-dom:
       optional: true
-  checksum: 10c0/04cebfaee316e356919b85eac6b5a6319454f45c473cc2162173eedab062c9625ce726c96d78a255d4a2ece6f9316d45e5f3cf8976d278da64082cad3172a918
+  checksum: 10c0/3c9c71255442e95fdb1feeba40fab615cd810836262b3637ef71aa9c5193d3b5d98d172d20a133a9d58c95512e29a4a6c5543e554835319a539212c28e380656
   languageName: node
   linkType: hard
 
@@ -15944,7 +15952,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-eslint@npm:^8.46.0, typescript-eslint@npm:^8.54.0":
+"typescript-eslint@npm:^8.0.0, typescript-eslint@npm:^8.46.0, typescript-eslint@npm:^8.54.0":
   version: 8.54.0
   resolution: "typescript-eslint@npm:8.54.0"
   dependencies:
