@@ -38,11 +38,11 @@ export default function Home() {
               Share your vision with our boutique concierge, and we&apos;ll craft a unique proposal that captures the
               magic.
             </p>
-            <div className="mt-10 flex items-center gap-x-6">
+            <div className="mt-10 flex flex-col items-start gap-y-4 sm:flex-row sm:items-center sm:gap-x-6">
               <Button
                 asChild
                 size="lg"
-                className="rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral)]"
+                className="w-full sm:w-auto rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral)]"
               >
                 <Link href="/start-planning">Request Your Proposal</Link>
               </Button>

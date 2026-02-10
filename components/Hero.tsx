@@ -40,11 +40,11 @@ export function Hero() {
             Expertly crafted cruise vacations and Disney experiences. Let GV Travel handle the details while you focus
             on making the magic happen.
           </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
+          <div className="mt-10 flex flex-col items-center justify-center gap-y-4 sm:flex-row sm:gap-x-6">
             <Button
               asChild
               size="lg"
-              className="rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral-hex)]"
+              className="w-full sm:w-auto rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral-hex)]"
             >
               <Link href="/start-planning">Start Planning Your Magic</Link>
             </Button>
