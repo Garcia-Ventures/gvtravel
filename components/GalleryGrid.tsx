@@ -14,9 +14,41 @@ import {
   DialogContent,
   DialogDescription,
   DialogTitle,
+  Separator,
+  Skeleton,
 } from '@gv-tech/design-system';
 import Image from 'next/image';
 import React from 'react';
+
+function GalleryImage({
+  src,
+  alt,
+  className,
+  sizes,
+  priority,
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  sizes?: string;
+  priority?: boolean;
+}) {
+  const [loaded, setLoaded] = React.useState(false);
+  return (
+    <>
+      {!loaded && <Skeleton className="absolute inset-0 rounded-none bg-[var(--color-primary-teal)]/10" />}
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className={`${className} transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+        sizes={sizes}
+        priority={priority}
+        onLoad={() => setLoaded(true)}
+      />
+    </>
+  );
+}
 
 interface GalleryGridProps {
   items: GalleryItem[];
@@ -43,6 +75,7 @@ export function GalleryGrid({ items }: GalleryGridProps) {
 
   return (
     <>
+      <Separator className="my-12 bg-[var(--color-primary-teal)]/10" />
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item, index) => (
           <Card
@@ -55,10 +88,9 @@ export function GalleryGrid({ items }: GalleryGridProps) {
             }}
           >
             <AspectRatio ratio={3 / 2} className="w-full">
-              <Image
+              <GalleryImage
                 src={item.imageUrl}
                 alt={item.title || 'Travel gallery image'}
-                fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               />

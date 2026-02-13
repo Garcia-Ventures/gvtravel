@@ -1,6 +1,6 @@
 'use client';
 
-import { Separator } from '@gv-tech/design-system';
+import { Separator, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@gv-tech/design-system';
 import Link from 'next/link';
 import { Logo } from './Logo';
 
@@ -55,12 +55,24 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="mailto:lindsay@gv-travel.com"
-                  className="hover:text-[var(--color-accent-magic)] transition-colors"
-                >
-                  Email the Concierge
-                </a>
+                <TooltipProvider delayDuration={200}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <a
+                        href="mailto:lindsay@gv-travel.com"
+                        className="hover:text-[var(--color-accent-magic)] transition-colors"
+                      >
+                        Email the Concierge
+                      </a>
+                    </TooltipTrigger>
+                    <TooltipContent
+                      side="top"
+                      className="bg-[var(--color-background)] text-[var(--color-text-main)] border border-[var(--color-primary-teal)]/10 shadow-lg text-xs"
+                    >
+                      lindsay@gv-travel.com
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </li>
             </ul>
           </div>

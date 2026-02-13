@@ -1,11 +1,33 @@
 'use client';
 
 import { useIsMounted } from '@/lib/hooks';
-import { Button, Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@gv-tech/design-system';
+import {
+  Button,
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@gv-tech/design-system';
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
+
+const navItems = [
+  { href: '/about', label: 'About' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/blog', label: 'Blog' },
+];
 
 export function Header() {
   const isMounted = useIsMounted();
@@ -24,26 +46,43 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[var(--color-primary-teal)] dark:text-[var(--color-text-main)] transition-colors opacity-90">
-          <Link href="/about" className="transition-colors hover:text-[var(--color-accent-magic)]">
-            About
-          </Link>
-          <Link href="/gallery" className="transition-colors hover:text-[var(--color-accent-magic)]">
-            Gallery
-          </Link>
-          <Link href="/blog" className="transition-colors hover:text-[var(--color-accent-magic)]">
-            Blog
-          </Link>
-        </nav>
+        <NavigationMenu className="hidden md:flex">
+          <NavigationMenuList className="gap-1">
+            {navItems.map((item) => (
+              <NavigationMenuItem key={item.href}>
+                <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+                  <Link
+                    href={item.href}
+                    className="!bg-transparent !text-[var(--color-primary-teal)] dark:!text-[var(--color-text-main)] hover:!text-[var(--color-accent-magic)] hover:!bg-[var(--color-primary-teal)]/5 !font-medium !text-sm transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
 
         <div className="flex items-center gap-2 sm:gap-4">
           <ThemeToggle />
-          <Button
-            asChild
-            className="hidden sm:inline-flex rounded-full bg-[var(--color-accent-magic)] px-5 py-2 text-sm font-bold text-[var(--color-cta-text)] shadow-sm hover:scale-105 active:scale-95 hover:bg-[var(--color-secondary-coral)]"
-          >
-            <Link href="/start-planning">Start Planning</Link>
-          </Button>
+          <TooltipProvider delayDuration={300}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  asChild
+                  className="hidden sm:inline-flex rounded-full bg-[var(--color-accent-magic)] px-5 py-2 text-sm font-bold text-[var(--color-cta-text)] shadow-sm hover:scale-105 active:scale-95 hover:bg-[var(--color-secondary-coral)]"
+                >
+                  <Link href="/start-planning">Start Planning</Link>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent
+                side="bottom"
+                className="bg-[var(--color-background)] text-[var(--color-text-main)] border border-[var(--color-primary-teal)]/10 shadow-lg text-xs"
+              >
+                Plan your family&apos;s next magical adventure ✨
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
 
           {/* Mobile Navigation */}
           <div className="md:hidden">

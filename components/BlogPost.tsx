@@ -1,5 +1,6 @@
 'use client';
 
+import { portableTextComponents } from '@/lib/portabletext';
 import { SanityPost } from '@/lib/types';
 import {
   Badge,
@@ -9,6 +10,14 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
+  Button,
+  Card,
+  CardContent,
+  Separator,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
 } from '@gv-tech/design-system';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
@@ -56,17 +65,28 @@ export function BlogPost({ post }: BlogPostProps) {
           </div>
 
           {post.tags && post.tags.length > 0 && (
-            <div className="mt-4 flex items-center justify-center gap-x-2">
-              {post.tags.map((tag) => (
-                <Badge
-                  key={tag}
-                  variant="secondary"
-                  className="bg-[var(--color-primary-teal)]/10 text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] border-none uppercase tracking-tighter text-[10px] font-bold px-3 py-1.5"
-                >
-                  {tag}
-                </Badge>
-              ))}
-            </div>
+            <TooltipProvider delayDuration={200}>
+              <div className="mt-4 flex items-center justify-center gap-x-2">
+                {post.tags.map((tag) => (
+                  <Tooltip key={tag}>
+                    <TooltipTrigger asChild>
+                      <Badge
+                        variant="secondary"
+                        className="cursor-default bg-[var(--color-primary-teal)]/10 text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] border-none uppercase tracking-tighter text-[10px] font-bold px-3 py-1.5"
+                      >
+                        {tag}
+                      </Badge>
+                    </TooltipTrigger>
+                    <TooltipContent
+                      side="bottom"
+                      className="bg-[var(--color-background)] text-[var(--color-text-main)] border border-[var(--color-primary-teal)]/10 shadow-lg text-xs"
+                    >
+                      Browse posts tagged: {tag}
+                    </TooltipContent>
+                  </Tooltip>
+                ))}
+              </div>
+            </TooltipProvider>
           )}
         </div>
 
@@ -76,21 +96,29 @@ export function BlogPost({ post }: BlogPostProps) {
           </div>
         )}
 
-        <div className="mt-10 max-w-2xl text-[var(--color-text-main)] opacity-80 prose dark:prose-invert">
-          {post.body ? <PortableText value={post.body} /> : <p className="text-lg leading-8">{post.summary}</p>}
+        <Separator className="my-10 bg-[var(--color-primary-teal)]/10" />
 
-          <div className="my-10 rounded-2xl bg-[var(--color-primary-teal)]/5 p-8 text-center ring-1 ring-inset ring-[var(--color-primary-teal)]/10 not-prose border border-[var(--color-primary-teal)]/10">
-            <h3 className="text-lg font-serif font-bold text-[var(--color-text-main)]">Inspired by this voyage?</h3>
-            <p className="mt-2 text-[var(--color-text-main)] opacity-70">
-              Let our concierge help you chart a similar magical journey for your family.
-            </p>
-            <Link
-              href="/start-planning"
-              className="mt-6 inline-block rounded-full bg-[var(--color-accent-magic)] px-6 py-2 text-sm font-bold text-[var(--color-cta-text)] shadow-xl transition-all hover:scale-105 hover:bg-[var(--color-secondary-coral)]"
-            >
-              Start Planning
-            </Link>
-          </div>
+        <div className="max-w-2xl text-[var(--color-text-main)] opacity-80">
+          {post.body ? (
+            <PortableText value={post.body} components={portableTextComponents} />
+          ) : (
+            <p className="text-lg leading-8">{post.summary}</p>
+          )}
+
+          <Card className="my-10 border border-[var(--color-primary-teal)]/10 bg-[var(--color-primary-teal)]/5 rounded-2xl shadow-sm">
+            <CardContent className="p-8 text-center">
+              <h3 className="text-lg font-serif font-bold text-[var(--color-text-main)]">Inspired by this voyage?</h3>
+              <p className="mt-2 text-[var(--color-text-main)] opacity-70">
+                Let our concierge help you chart a similar magical journey for your family.
+              </p>
+              <Button
+                asChild
+                className="mt-6 rounded-full bg-[var(--color-accent-magic)] px-6 py-2 text-sm font-bold text-[var(--color-cta-text)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral)]"
+              >
+                <Link href="/start-planning">Start Planning</Link>
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
