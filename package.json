@@ -27,7 +27,7 @@
   "prettier": "@eng618/prettier-config",
   "dependencies": {
     "@formspree/react": "^3.0.0",
-    "@gv-tech/design-system": "2.0.0",
+    "@gv-tech/design-system": "2.1.1",
     "@portabletext/react": "^6.0.2",
     "@sanity/client": "^7.14.1",
     "@sanity/icons": "^3.7.4",

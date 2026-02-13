@@ -36,7 +36,7 @@
     --radius: 0.5rem;
   }
 
-  [data-theme='dark'] {
+  .dark {
     /* GVTravel Dark Theme Colors - Base Hex */
     --color-background-hex: #001219; /* Midnight Ocean */
     --color-primary-teal-hex: #0a9396; /* Lighter Teal */
