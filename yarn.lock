@@ -6743,6 +6743,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prop-types@npm:^15":
+  version: 15.7.15
+  resolution: "@types/prop-types@npm:15.7.15"
+  checksum: 10c0/b59aad1ad19bf1733cf524fd4e618196c6c7690f48ee70a327eb450a42aab8e8a063fbe59ca0a5701aebe2d92d582292c0fb845ea57474f6a15f6994b0e260b2
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:^19.2.3":
   version: 19.2.3
   resolution: "@types/react-dom@npm:19.2.3"
@@ -6752,7 +6759,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-is@npm:^19.2.0":
+"@types/react-is@npm:^19, @types/react-is@npm:^19.2.0":
   version: 19.2.0
   resolution: "@types/react-is@npm:19.2.0"
   dependencies:
@@ -10751,12 +10758,12 @@ __metadata:
     "@sanity/vision": "npm:5.9.0"
     "@tailwindcss/postcss": "npm:^4.1.18"
     "@types/node": "npm:^24.10.13"
+    "@types/prop-types": "npm:^15"
     "@types/react": "npm:^19.2.14"
     "@types/react-dom": "npm:^19.2.3"
+    "@types/react-is": "npm:^19"
     "@typescript-eslint/eslint-plugin": "npm:^8.55.0"
     "@typescript-eslint/parser": "npm:^8.55.0"
-    class-variance-authority: "npm:^0.7.1"
-    clsx: "npm:^2.1.1"
     eslint: "npm:^10.0.0"
     eslint-config-next: "npm:16.1.6"
     husky: "npm:^9.1.7"
@@ -10767,11 +10774,12 @@ __metadata:
     next-themes: "npm:^0.4.6"
     prettier: "npm:^3.8.1"
     prettier-plugin-organize-imports: "npm:^4.3.0"
+    prop-types: "npm:^15.8.1"
     react: "npm:^19.2.4"
     react-dom: "npm:^19.2.4"
+    react-is: "npm:^19.2.4"
     sanity: "npm:^5.9.0"
     styled-components: "npm:^6.3.9"
-    tailwind-merge: "npm:^3.4.0"
     tailwindcss: "npm:^4.1.18"
     typescript: "npm:^5.9.3"
   languageName: unknown
