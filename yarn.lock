@@ -2381,9 +2381,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gv-tech/design-system@npm:2.1.1":
-  version: 2.1.1
-  resolution: "@gv-tech/design-system@npm:2.1.1"
+"@gv-tech/design-system@npm:2.3.0":
+  version: 2.3.0
+  resolution: "@gv-tech/design-system@npm:2.3.0"
   dependencies:
     "@hookform/resolvers": "npm:^5.2.2"
     "@radix-ui/react-accordion": "npm:^1.2.12"
@@ -2420,7 +2420,6 @@ __metadata:
     date-fns: "npm:^4.1.0"
     embla-carousel-react: "npm:^8.6.0"
     lucide-react: "npm:^0.563.0"
-    next-themes: "npm:^0.4.6"
     react-day-picker: "npm:^9.13.2"
     react-hook-form: "npm:^7.71.1"
     react-icons: "npm:^5.5.0"
@@ -2431,11 +2430,12 @@ __metadata:
     vaul: "npm:^1.1.2"
     zod: "npm:^4.3.6"
   peerDependencies:
+    next-themes: ^0.4.0
     prop-types: ^15.8.0
     react: ^18 || ^19
     react-dom: ^18 || ^19
     react-is: ^16 || ^17 || ^18 || ^19
-  checksum: 10c0/c78f4a6155a894e73b4310bfebcf672637a65c6ae6586a6211b197d29ba16d4a3182fde6b6a9ae9d2b9209360238eec66013d103bf75b41acfd2f81091b14abc
+  checksum: 10c0/95cebd180b64baf9543732a942c6a733f2befe9e9b57e78b749ed54c196bc2206273dd6400c4c93e6a584db229041af43f90bd081865cb803870bffba7f0eee8
   languageName: node
   linkType: hard
 
@@ -10741,7 +10741,7 @@ __metadata:
   dependencies:
     "@eng618/prettier-config": "npm:^2.7.0"
     "@formspree/react": "npm:^3.0.0"
-    "@gv-tech/design-system": "npm:2.1.1"
+    "@gv-tech/design-system": "npm:2.3.0"
     "@gv-tech/eslint-config": "npm:^0.1.8"
     "@next/eslint-plugin-next": "npm:^16.1.6"
     "@portabletext/react": "npm:^6.0.2"

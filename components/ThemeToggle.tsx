@@ -1,8 +1,7 @@
 'use client';
 
 import { useIsMounted } from '@/lib/hooks';
-import { ThemeToggle as DesignSystemThemeToggle } from '@gv-tech/design-system';
-import { useTheme } from 'next-themes';
+import { ThemeToggle as GVThemeToggle, useTheme } from '@gv-tech/design-system';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -12,5 +11,5 @@ export function ThemeToggle() {
     return <div className="w-9 h-9" />;
   }
 
-  return <DesignSystemThemeToggle variant="ternary" customTheme={theme} onThemeChange={setTheme} />;
+  return <GVThemeToggle variant="ternary" customTheme={theme} onThemeChange={setTheme} />;
 }

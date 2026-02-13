@@ -1,7 +1,7 @@
 'use client';
 
 import { useIsMounted } from '@/lib/hooks';
-import { useTheme } from 'next-themes';
+import { useTheme } from '@gv-tech/design-system';
 
 export function ThemeFavicon() {
   const { resolvedTheme } = useTheme();
