@@ -48,7 +48,7 @@
     "@eng618/prettier-config": "^2.7.0",
     "@gv-tech/eslint-config": "^0.1.8",
     "@next/eslint-plugin-next": "^16.1.6",
-    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/postcss": "^4.2.0",
     "@types/node": "^24.10.13",
     "@types/prop-types": "^15",
     "@types/react": "^19.2.14",
