@@ -1856,20 +1856,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eng618/prettier-config@npm:^2.7.0":
-  version: 2.7.0
-  resolution: "@eng618/prettier-config@npm:2.7.0"
+"@eng618/prettier-config@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "@eng618/prettier-config@npm:2.7.1"
   dependencies:
-    prettier-plugin-jsdoc: "npm:^1.8.0"
+    prettier-plugin-jsdoc: "npm:^1.3.3"
     prettier-plugin-organize-imports: "npm:^4.3.0"
-    prettier-plugin-packagejson: "npm:^2.5.22"
+    prettier-plugin-packagejson: "npm:^3.0.0"
   peerDependencies:
     prettier: ">=3.0.0"
     typescript: ">=5.0.0"
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/48c2e18811f24b9f2f8c16eaaf8374357b23b69615bd6041e044a5d07698511175943c61ff898ecc5a737b9c1530f6e1f63b359132a74e63d712cf091e388209
+  checksum: 10c0/348e32bab1523267a02fdaecc6a76bd0dd70b2e24e8d7ab38ea935964934c6c98887694682635fbae95197019b56667bb8e54d3b668a02e877860cc742155835
   languageName: node
   linkType: hard
 
@@ -10746,7 +10746,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "gvtravel@workspace:."
   dependencies:
-    "@eng618/prettier-config": "npm:^2.7.0"
+    "@eng618/prettier-config": "npm:^2.7.1"
     "@formspree/react": "npm:^3.0.0"
     "@gv-tech/design-system": "npm:2.3.0"
     "@gv-tech/eslint-config": "npm:^0.1.8"
@@ -13812,7 +13812,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-jsdoc@npm:^1.8.0":
+"prettier-plugin-jsdoc@npm:^1.3.3":
   version: 1.8.0
   resolution: "prettier-plugin-jsdoc@npm:1.8.0"
   dependencies:
@@ -13839,17 +13839,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-packagejson@npm:^2.5.22":
-  version: 2.5.22
-  resolution: "prettier-plugin-packagejson@npm:2.5.22"
+"prettier-plugin-packagejson@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "prettier-plugin-packagejson@npm:3.0.0"
   dependencies:
     sort-package-json: "npm:3.6.0"
   peerDependencies:
-    prettier: ">= 1.16.0"
+    prettier: ^3
   peerDependenciesMeta:
     prettier:
       optional: true
-  checksum: 10c0/a4c8d671c5c453c3c33414ac3c28ae61c11fce4494b5a82a442343cb26e13b86e70fd9335b2c6c19c3065bb299ad48765b220ec17d3e85942a2b6ea370597f67
+  checksum: 10c0/ddcc6d4b70dc6afb97775187e620fa102f2acd64fe7305651eea250505f0dc77da234e85d9fc1163a4cf0bc008a5e8e1772c00e29d22df735f0828efc7aabe45
   languageName: node
   linkType: hard
 
