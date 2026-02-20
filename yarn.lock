@@ -5340,6 +5340,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sanity/client@npm:^7.15.0":
+  version: 7.15.0
+  resolution: "@sanity/client@npm:7.15.0"
+  dependencies:
+    "@sanity/eventsource": "npm:^5.0.2"
+    get-it: "npm:^8.7.0"
+    nanoid: "npm:^3.3.11"
+    rxjs: "npm:^7.0.0"
+  checksum: 10c0/607988b2c77d7c2a62d7af706be8989b07c8fcc910e0192083d1712c6b8243a6ea61b719e8d805f51cf1bcad1ae9087e46f8a3cada2d07778a56dba41e67386c
+  languageName: node
+  linkType: hard
+
 "@sanity/codegen@npm:^5.9.1":
   version: 5.9.3
   resolution: "@sanity/codegen@npm:5.9.3"
@@ -10752,7 +10764,7 @@ __metadata:
     "@gv-tech/eslint-config": "npm:^0.1.8"
     "@next/eslint-plugin-next": "npm:^16.1.6"
     "@portabletext/react": "npm:^6.0.2"
-    "@sanity/client": "npm:^7.14.1"
+    "@sanity/client": "npm:^7.15.0"
     "@sanity/icons": "npm:^3.7.4"
     "@sanity/image-url": "npm:^2.0.3"
     "@sanity/vision": "npm:5.9.0"
