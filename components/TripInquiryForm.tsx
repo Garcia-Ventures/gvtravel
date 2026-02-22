@@ -17,7 +17,7 @@ import {
   SelectValue,
   Separator,
   Textarea,
-} from '@gv-tech/design-system';
+} from '@gv-tech/ui-web';
 import React from 'react';
 
 import { useIsMounted } from '@/lib/hooks';
@@ -42,9 +42,9 @@ export function TripInquiryForm() {
 
   if (state.succeeded) {
     return (
-      <Card className="mx-auto max-w-2xl bg-[var(--color-primary-teal)]/10 border-[var(--color-primary-teal)]/20 shadow-xl overflow-hidden rounded-2xl transition-all duration-300">
+      <Card className="mx-auto max-w-2xl overflow-hidden rounded-2xl border-[var(--color-primary-teal)]/20 bg-[var(--color-primary-teal)]/10 shadow-xl transition-all duration-300">
         <CardContent className="p-8 text-center">
-          <h3 className="text-xl font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
+          <h3 className="font-serif text-xl font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
             Magic in the works!
           </h3>
           <p className="mt-2 text-[var(--color-text-main)] opacity-80">
@@ -63,9 +63,9 @@ export function TripInquiryForm() {
   }
 
   return (
-    <Card className="mx-auto max-w-2xl bg-[var(--color-background)] border-[var(--color-primary-teal)]/10 shadow-2xl overflow-hidden rounded-2xl">
-      <CardHeader className="bg-[var(--color-primary-teal)]/5 p-8 border-b border-[var(--color-primary-teal)]/10">
-        <CardTitle className="text-2xl font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
+    <Card className="mx-auto max-w-2xl overflow-hidden rounded-2xl border-[var(--color-primary-teal)]/10 bg-[var(--color-background)] shadow-2xl">
+      <CardHeader className="border-b border-[var(--color-primary-teal)]/10 bg-[var(--color-primary-teal)]/5 p-8">
+        <CardTitle className="font-serif text-2xl font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
           Chart Your Next Adventure
         </CardTitle>
         <p className="text-sm text-[var(--color-text-main)] opacity-70">Share your vision with our concierge team.</p>
@@ -74,7 +74,7 @@ export function TripInquiryForm() {
         <form name="trip-inquiry" onSubmit={handleSubmit} className="space-y-8">
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] uppercase tracking-widest text-sm">
+            <h3 className="font-serif text-lg text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
               Personal Details
             </h3>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -87,7 +87,7 @@ export function TripInquiryForm() {
                   name="name"
                   id="name"
                   required
-                  className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 focus-visible:ring-[var(--color-accent-magic-hex)]"
+                  className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus-visible:ring-[var(--color-accent-magic-hex)]"
                 />
               </div>
               <div className="space-y-2">
@@ -99,7 +99,7 @@ export function TripInquiryForm() {
                   name="email"
                   id="email"
                   required
-                  className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 focus-visible:ring-[var(--color-accent-magic-hex)]"
+                  className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus-visible:ring-[var(--color-accent-magic-hex)]"
                 />
               </div>
             </div>
@@ -109,7 +109,7 @@ export function TripInquiryForm() {
 
           {/* Trip Basics */}
           <div className="space-y-4">
-            <h3 className="text-lg font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] uppercase tracking-widest text-sm">
+            <h3 className="font-serif text-lg text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
               The Journey Vision
             </h3>
 
@@ -119,10 +119,10 @@ export function TripInquiryForm() {
                   Type of Experience
                 </Label>
                 <Select value={tripType} onValueChange={setTripType} name="trip-type">
-                  <SelectTrigger className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 focus:ring-[var(--color-accent-magic-hex)]">
+                  <SelectTrigger className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus:ring-[var(--color-accent-magic-hex)]">
                     <SelectValue placeholder="Select experience type" />
                   </SelectTrigger>
-                  <SelectContent className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 text-[var(--color-text-main-hex)]">
+                  <SelectContent className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] text-[var(--color-text-main-hex)]">
                     <SelectItem value="cruise">Cruise</SelectItem>
                     <SelectItem value="resort">All-Inclusive Resort</SelectItem>
                     <SelectItem value="tour">Guided Land Tour</SelectItem>
@@ -137,10 +137,10 @@ export function TripInquiryForm() {
                   Investment Range
                 </Label>
                 <Select value={budget} onValueChange={setBudget} name="budget">
-                  <SelectTrigger className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 focus:ring-[var(--color-accent-magic-hex)]">
+                  <SelectTrigger className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus:ring-[var(--color-accent-magic-hex)]">
                     <SelectValue placeholder="Select budget range" />
                   </SelectTrigger>
-                  <SelectContent className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 text-[var(--color-text-main-hex)]">
+                  <SelectContent className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] text-[var(--color-text-main-hex)]">
                     <SelectItem value="under-2k">Under $2,000</SelectItem>
                     <SelectItem value="2k-5k">$2,000 - $5,000</SelectItem>
                     <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
@@ -160,7 +160,7 @@ export function TripInquiryForm() {
                 id="details"
                 name="details"
                 rows={4}
-                className="bg-[var(--color-background-hex)] border-[var(--color-primary-teal-hex)]/20 focus-visible:ring-[var(--color-accent-magic-hex)]"
+                className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus-visible:ring-[var(--color-accent-magic-hex)]"
                 placeholder="Where do you hear the sea calling? Who is part of your crew? Share your dream dates."
               />
             </div>
@@ -175,12 +175,12 @@ export function TripInquiryForm() {
               required
               checked={consent}
               onCheckedChange={(checked) => setConsent(checked === true)}
-              className="h-5 w-5 border-2 border-[var(--color-primary-teal-hex)]/40 rounded-sm data-[state=checked]:bg-[var(--color-primary-teal-hex)] data-[state=checked]:border-[var(--color-primary-teal-hex)] transition-all"
+              className="h-5 w-5 rounded-sm border-2 border-[var(--color-primary-teal-hex)]/40 transition-all data-[state=checked]:border-[var(--color-primary-teal-hex)] data-[state=checked]:bg-[var(--color-primary-teal-hex)]"
             />
             <input type="hidden" name="consent" value={consent ? 'yes' : 'no'} />
             <Label
               htmlFor="consent"
-              className="text-sm font-medium leading-6 text-[var(--color-text-main-hex)] opacity-80 cursor-pointer"
+              className="cursor-pointer text-sm leading-6 font-medium text-[var(--color-text-main-hex)] opacity-80"
             >
               I trust GV Travel to guide my inquiry with care.
             </Label>
@@ -190,7 +190,7 @@ export function TripInquiryForm() {
             <Button
               type="submit"
               disabled={state.submitting}
-              className="w-full rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:bg-[var(--color-secondary-coral-hex)] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:bg-[var(--color-secondary-coral-hex)] disabled:cursor-not-allowed disabled:opacity-50"
               size="lg"
             >
               {state.submitting ? 'Submitting...' : 'Send Inquiry'}

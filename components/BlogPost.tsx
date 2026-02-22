@@ -18,7 +18,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@gv-tech/design-system';
+} from '@gv-tech/ui-web';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -29,7 +29,7 @@ interface BlogPostProps {
 
 export function BlogPost({ post }: BlogPostProps) {
   return (
-    <div className="bg-[var(--color-background)] py-24 sm:py-32 transition-colors duration-300">
+    <div className="bg-[var(--color-background)] py-24 transition-colors duration-300 sm:py-32">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         <Breadcrumb className="mb-8">
           <BreadcrumbList>
@@ -46,19 +46,19 @@ export function BlogPost({ post }: BlogPostProps) {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage className="text-[var(--color-text-main)] font-bold truncate max-w-[200px] sm:max-w-md">
+              <BreadcrumbPage className="max-w-[200px] truncate font-bold text-[var(--color-text-main)] sm:max-w-md">
                 {post.title}
               </BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
         <div className="mx-auto max-w-2xl text-center">
-          <h1 className="text-3xl font-serif font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl">
+          <h1 className="font-serif text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl">
             {post.title}
           </h1>
           <div className="mt-4 flex items-center justify-center gap-x-4 text-xs">
             {post.publishDate && (
-              <time dateTime={post.publishDate} className="text-[var(--color-text-main)] opacity-50 font-medium">
+              <time dateTime={post.publishDate} className="font-medium text-[var(--color-text-main)] opacity-50">
                 {new Date(post.publishDate).toLocaleDateString()}
               </time>
             )}
@@ -72,14 +72,14 @@ export function BlogPost({ post }: BlogPostProps) {
                     <TooltipTrigger asChild>
                       <Badge
                         variant="secondary"
-                        className="cursor-default bg-[var(--color-primary-teal)]/10 text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] border-none uppercase tracking-tighter text-[10px] font-bold px-3 py-1.5"
+                        className="cursor-default border-none bg-[var(--color-primary-teal)]/10 px-3 py-1.5 text-[10px] font-bold tracking-tighter text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]"
                       >
                         {tag}
                       </Badge>
                     </TooltipTrigger>
                     <TooltipContent
                       side="bottom"
-                      className="bg-[var(--color-background)] text-[var(--color-text-main)] border border-[var(--color-primary-teal)]/10 shadow-lg text-xs"
+                      className="border border-[var(--color-primary-teal)]/10 bg-[var(--color-background)] text-xs text-[var(--color-text-main)] shadow-lg"
                     >
                       Browse posts tagged: {tag}
                     </TooltipContent>
@@ -91,7 +91,7 @@ export function BlogPost({ post }: BlogPostProps) {
         </div>
 
         {post.imageUrl && (
-          <div className="mt-10 aspect-[16/9] w-full rounded-2xl bg-[var(--color-primary-teal)]/5 object-cover sm:aspect-[2/1] overflow-hidden relative border border-[var(--color-primary-teal)]/10">
+          <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--color-primary-teal)]/10 bg-[var(--color-primary-teal)]/5 object-cover sm:aspect-[2/1]">
             <Image src={post.imageUrl} alt={post.title} fill className="object-cover" priority />
           </div>
         )}
@@ -105,9 +105,9 @@ export function BlogPost({ post }: BlogPostProps) {
             <p className="text-lg leading-8">{post.summary}</p>
           )}
 
-          <Card className="my-10 border border-[var(--color-primary-teal)]/10 bg-[var(--color-primary-teal)]/5 rounded-2xl shadow-sm">
+          <Card className="my-10 rounded-2xl border border-[var(--color-primary-teal)]/10 bg-[var(--color-primary-teal)]/5 shadow-sm">
             <CardContent className="p-8 text-center">
-              <h3 className="text-lg font-serif font-bold text-[var(--color-text-main)]">Inspired by this voyage?</h3>
+              <h3 className="font-serif text-lg font-bold text-[var(--color-text-main)]">Inspired by this voyage?</h3>
               <p className="mt-2 text-[var(--color-text-main)] opacity-70">
                 Let our concierge help you chart a similar magical journey for your family.
               </p>

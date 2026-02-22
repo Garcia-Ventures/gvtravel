@@ -17,7 +17,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@gv-tech/design-system';
+} from '@gv-tech/ui-web';
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
 import { Logo } from './Logo';
@@ -34,14 +34,14 @@ export function Header() {
 
   if (!isMounted) {
     return (
-      <header className="sticky top-0 z-50 w-full border-b border-[var(--color-primary-teal)]/10 bg-[var(--color-nav-bg)] backdrop-blur-md h-16" />
+      <header className="sticky top-0 z-50 h-16 w-full border-b border-[var(--color-primary-teal)]/10 bg-[var(--color-nav-bg)] backdrop-blur-md" />
     );
   }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[var(--color-primary-teal)]/10 bg-[var(--color-nav-bg)] backdrop-blur-md transition-colors duration-300">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href="/" className="group flex items-center gap-2">
           <Logo className="h-10 w-auto text-[var(--color-logo)] transition-colors duration-300" />
         </Link>
 
@@ -53,7 +53,7 @@ export function Header() {
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                   <Link
                     href={item.href}
-                    className="!bg-transparent !text-[var(--color-primary-teal)] dark:!text-[var(--color-text-main)] hover:!text-[var(--color-accent-magic)] hover:!bg-[var(--color-primary-teal)]/5 !font-medium !text-sm transition-colors"
+                    className="!bg-transparent !text-sm !font-medium !text-[var(--color-primary-teal)] transition-colors hover:!bg-[var(--color-primary-teal)]/5 hover:!text-[var(--color-accent-magic)] dark:!text-[var(--color-text-main)]"
                   >
                     {item.label}
                   </Link>
@@ -70,14 +70,14 @@ export function Header() {
               <TooltipTrigger asChild>
                 <Button
                   asChild
-                  className="hidden sm:inline-flex rounded-full bg-[var(--color-accent-magic)] px-5 py-2 text-sm font-bold text-[var(--color-cta-text)] shadow-sm hover:scale-105 active:scale-95 hover:bg-[var(--color-secondary-coral)]"
+                  className="hidden rounded-full bg-[var(--color-accent-magic)] px-5 py-2 text-sm font-bold text-[var(--color-cta-text)] shadow-sm hover:scale-105 hover:bg-[var(--color-secondary-coral)] active:scale-95 sm:inline-flex"
                 >
                   <Link href="/start-planning">Start Planning</Link>
                 </Button>
               </TooltipTrigger>
               <TooltipContent
                 side="bottom"
-                className="bg-[var(--color-background)] text-[var(--color-text-main)] border border-[var(--color-primary-teal)]/10 shadow-lg text-xs"
+                className="border border-[var(--color-primary-teal)]/10 bg-[var(--color-background)] text-xs text-[var(--color-text-main)] shadow-lg"
               >
                 Plan your family&apos;s next magical adventure ✨
               </TooltipContent>
@@ -97,13 +97,13 @@ export function Header() {
                   <span className="sr-only">Toggle navigation menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-[var(--color-background)] border-[var(--color-primary-teal)]/10">
+              <SheetContent side="right" className="border-[var(--color-primary-teal)]/10 bg-[var(--color-background)]">
                 <SheetHeader>
                   <SheetTitle className="text-left font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
                     GV Travel
                   </SheetTitle>
                 </SheetHeader>
-                <div className="flex flex-col gap-6 mt-10">
+                <div className="mt-10 flex flex-col gap-6">
                   <Link
                     href="/about"
                     className="text-lg font-medium text-[var(--color-text-main)] transition-colors hover:text-[var(--color-accent-magic)]"

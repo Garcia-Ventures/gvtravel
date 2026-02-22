@@ -1,7 +1,7 @@
 'use client';
 
 import { portableTextComponents } from '@/lib/portabletext';
-import { Card, CardContent, Separator } from '@gv-tech/design-system';
+import { Card, CardContent, Separator } from '@gv-tech/ui-web';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 
@@ -14,15 +14,15 @@ interface AboutContentProps {
 
 export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
   return (
-    <div className="bg-[var(--color-background)] py-24 sm:py-32 transition-colors duration-300">
+    <div className="bg-[var(--color-background)] py-24 transition-colors duration-300 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="lg:pr-8 lg:pt-4">
+          <div className="lg:pt-4 lg:pr-8">
             <div className="lg:max-w-lg">
-              <h2 className="text-base font-serif font-bold leading-7 text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] uppercase tracking-widest">
+              <h2 className="font-serif text-base leading-7 font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
                 Our Compass Story
               </h2>
-              <p className="mt-2 text-3xl font-serif font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl">
+              <p className="mt-2 font-serif text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl">
                 {title}
               </p>
 
@@ -38,10 +38,10 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
                       is found when families explore the horizon together.
                     </p>
 
-                    <div className="mt-10 grid gap-4 not-prose">
-                      <Card className="border border-[var(--color-primary-teal)]/10 bg-[var(--color-primary-teal)]/5 rounded-xl shadow-sm">
-                        <CardContent className="p-5 flex items-start gap-4">
-                          <span className="text-2xl mt-0.5 shrink-0">⚓</span>
+                    <div className="not-prose mt-10 grid gap-4">
+                      <Card className="rounded-xl border border-[var(--color-primary-teal)]/10 bg-[var(--color-primary-teal)]/5 shadow-sm">
+                        <CardContent className="flex items-start gap-4 p-5">
+                          <span className="mt-0.5 shrink-0 text-2xl">⚓</span>
                           <div>
                             <h3 className="font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
                               Seamless Adventure
@@ -54,9 +54,9 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
                         </CardContent>
                       </Card>
 
-                      <Card className="border border-[var(--color-primary-teal)]/10 bg-[var(--color-primary-teal)]/5 rounded-xl shadow-sm">
-                        <CardContent className="p-5 flex items-start gap-4">
-                          <span className="text-2xl mt-0.5 shrink-0">✨</span>
+                      <Card className="rounded-xl border border-[var(--color-primary-teal)]/10 bg-[var(--color-primary-teal)]/5 shadow-sm">
+                        <CardContent className="flex items-start gap-4 p-5">
+                          <span className="mt-0.5 shrink-0 text-2xl">✨</span>
                           <div>
                             <h3 className="font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
                               Boutique Concierge
@@ -75,7 +75,7 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
             </div>
           </div>
           <div className="relative">
-            <div className="aspect-[3/2] w-full rounded-xl bg-zinc-100 dark:bg-zinc-800 object-cover lg:aspect-[4/5] lg:w-[36rem] lg:max-w-none overflow-hidden relative">
+            <div className="relative aspect-[3/2] w-full overflow-hidden rounded-xl bg-zinc-100 object-cover lg:aspect-[4/5] lg:w-[36rem] lg:max-w-none dark:bg-zinc-800">
               <Image src={imageUrl} alt={title} fill className="object-cover" suppressHydrationWarning />
             </div>
           </div>

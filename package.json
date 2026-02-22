@@ -27,7 +27,7 @@
   "prettier": "@eng618/prettier-config",
   "dependencies": {
     "@formspree/react": "^3.0.0",
-    "@gv-tech/design-system": "2.3.0",
+    "@gv-tech/ui-web": "^2.15.0",
     "@portabletext/react": "^6.0.2",
     "@sanity/client": "^7.14.1",
     "@sanity/icons": "^3.7.4",
@@ -45,7 +45,7 @@
     "styled-components": "^6.3.9"
   },
   "devDependencies": {
-    "@eng618/prettier-config": "^2.7.0",
+    "@eng618/prettier-config": "^2.9.0",
     "@gv-tech/eslint-config": "^0.1.8",
     "@next/eslint-plugin-next": "^16.1.6",
     "@tailwindcss/postcss": "^4.1.18",

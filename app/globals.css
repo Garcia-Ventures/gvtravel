@@ -1,5 +1,5 @@
 @import 'tailwindcss';
-@source '../node_modules/@gv-tech/design-system/dist/**/*.js';
+@source '../node_modules/@gv-tech/ui-web/dist/**/*.js';
 
 @layer base {
   :root {
@@ -81,7 +81,7 @@
   --color-logo: var(--color-logo-hex);
   --font-serif: var(--font-playfair);
 
-  /* Design system standard names (required for @gv-tech/design-system components) */
+  /* Design system standard names (required for @gv-tech/ui-web components) */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));

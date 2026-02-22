@@ -1,1 +1,1 @@
-export { cn } from '@gv-tech/design-system';
+export { cn } from '@gv-tech/ui-web';

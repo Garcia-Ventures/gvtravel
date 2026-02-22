@@ -16,7 +16,7 @@ import {
   DialogTitle,
   Separator,
   Skeleton,
-} from '@gv-tech/design-system';
+} from '@gv-tech/ui-web';
 import Image from 'next/image';
 import React from 'react';
 
@@ -59,7 +59,9 @@ export function GalleryGrid({ items }: GalleryGridProps) {
   const [api, setApi] = React.useState<CarouselApi>(); // Added api state
 
   React.useEffect(() => {
-    if (selectedIndex === null || !api) return;
+    if (selectedIndex === null || !api) {
+      return;
+    }
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') {
@@ -80,7 +82,7 @@ export function GalleryGrid({ items }: GalleryGridProps) {
         {items.map((item, index) => (
           <Card
             key={item.id || index}
-            className="group relative overflow-hidden rounded-2xl border-none shadow-lg bg-[var(--color-primary-teal)]/5 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl cursor-default sm:cursor-pointer"
+            className="group relative cursor-default overflow-hidden rounded-2xl border-none bg-[var(--color-primary-teal)]/5 shadow-lg transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl sm:cursor-pointer"
             onClick={() => {
               if (window.innerWidth >= 640) {
                 setSelectedIndex(index);
@@ -97,9 +99,9 @@ export function GalleryGrid({ items }: GalleryGridProps) {
             </AspectRatio>
             {(item.title || item.destination || item.tripDate) && (
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[var(--color-primary-teal)]/60 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <div className="translate-y-2 transition-transform duration-300 group-hover:translate-y-0 text-left">
+                <div className="translate-y-2 text-left transition-transform duration-300 group-hover:translate-y-0">
                   {item.title && (
-                    <p className="text-sm font-serif font-bold text-[var(--color-background)]">{item.title}</p>
+                    <p className="font-serif text-sm font-bold text-[var(--color-background)]">{item.title}</p>
                   )}
                   {/* {(item.destination || item.tripDate) && (
                     <p className="text-xs text-[var(--color-background)]/80">
@@ -116,7 +118,7 @@ export function GalleryGrid({ items }: GalleryGridProps) {
       </div>
 
       <Dialog open={selectedIndex !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
-        <DialogContent className="max-w-4xl bg-black/90 border-none p-0 text-white overflow-hidden">
+        <DialogContent className="max-w-4xl overflow-hidden border-none bg-black/90 p-0 text-white">
           <DialogTitle className="sr-only">Image Gallery Carousel</DialogTitle>
           <DialogDescription className="sr-only">
             View full-screen images from the travel gallery in a carousel.
@@ -128,12 +130,12 @@ export function GalleryGrid({ items }: GalleryGridProps) {
                 startIndex: selectedIndex,
                 loop: true,
               }}
-              className="w-full h-full"
+              className="h-full w-full"
             >
               <CarouselContent>
                 {items.map((item, index) => (
                   <CarouselItem key={item.id || index} className="flex flex-col items-center justify-center p-4">
-                    <div className="relative aspect-[3/2] w-full max-h-[70vh]">
+                    <div className="relative aspect-[3/2] max-h-[70vh] w-full">
                       <Image
                         src={item.imageUrl}
                         alt={item.title || 'Gallery image'}
@@ -142,9 +144,9 @@ export function GalleryGrid({ items }: GalleryGridProps) {
                         priority
                       />
                     </div>
-                    <div className="mt-8 text-center px-6">
+                    <div className="mt-8 px-6 text-center">
                       {item.title && (
-                        <h3 className="text-xl font-serif font-bold text-[var(--color-accent-magic)]">{item.title}</h3>
+                        <h3 className="font-serif text-xl font-bold text-[var(--color-accent-magic)]">{item.title}</h3>
                       )}
                       {/* {(item.destination || item.tripDate) && (
                         <p className="mt-2 text-sm text-white/80">
@@ -158,8 +160,8 @@ export function GalleryGrid({ items }: GalleryGridProps) {
                 ))}
               </CarouselContent>
               <div className="hidden sm:block">
-                <CarouselPrevious className="left-4 bg-white/10 border-white/20 text-white hover:bg-white/20" />
-                <CarouselNext className="right-4 bg-white/10 border-white/20 text-white hover:bg-white/20" />
+                <CarouselPrevious className="left-4 border-white/20 bg-white/10 text-white hover:bg-white/20" />
+                <CarouselNext className="right-4 border-white/20 bg-white/10 text-white hover:bg-white/20" />
               </div>
             </Carousel>
           )}

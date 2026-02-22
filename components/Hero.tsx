@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@gv-tech/design-system';
+import { Button } from '@gv-tech/ui-web';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -33,7 +33,7 @@ export function Hero() {
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h1 className="text-4xl font-serif font-bold tracking-tight text-white sm:text-6xl">
+          <h1 className="font-serif text-4xl font-bold tracking-tight text-white sm:text-6xl">
             Unforgettable magic. Seamless adventure.
           </h1>
           <p className="mt-6 text-lg leading-8 text-white opacity-90">
@@ -44,7 +44,7 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="w-full sm:w-auto rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral-hex)]"
+              className="w-full rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral-hex)] sm:w-auto"
             >
               <Link href="/start-planning">Start Planning Your Magic</Link>
             </Button>

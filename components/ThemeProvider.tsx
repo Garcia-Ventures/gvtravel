@@ -1,6 +1,6 @@
 'use client';
 
-import { ThemeProvider as GVThemesProvider } from '@gv-tech/design-system';
+import { ThemeProvider as GVThemesProvider } from '@gv-tech/ui-web';
 import { type ReactNode } from 'react';
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

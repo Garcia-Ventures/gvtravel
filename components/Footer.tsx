@@ -1,6 +1,6 @@
 'use client';
 
-import { Separator, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@gv-tech/design-system';
+import { Separator, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@gv-tech/ui-web';
 import Link from 'next/link';
 import { Logo } from './Logo';
 
@@ -10,31 +10,31 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
-            <Link href="/" className="mb-4 inline-block group">
+            <Link href="/" className="group mb-4 inline-block">
               <Logo className="h-10 w-auto text-[var(--color-logo)] transition-colors duration-300" />
             </Link>
-            <p className="text-sm text-[var(--color-text-main)] opacity-70 max-w-xs font-medium">
+            <p className="max-w-xs text-sm font-medium text-[var(--color-text-main)] opacity-70">
               Expertly crafted magic and seamless adventure. Let our compass guide your next family experience.
             </p>
           </div>
 
           <div>
-            <h3 className="text-sm font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] mb-4 uppercase tracking-widest">
+            <h3 className="mb-4 font-serif text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
               Explore
             </h3>
             <ul className="space-y-3 text-sm text-[var(--color-text-main)] opacity-80">
               <li>
-                <Link href="/about" className="hover:text-[var(--color-accent-magic)] transition-colors">
+                <Link href="/about" className="transition-colors hover:text-[var(--color-accent-magic)]">
                   Our Compass Story
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-[var(--color-accent-magic)] transition-colors">
+                <Link href="/gallery" className="transition-colors hover:text-[var(--color-accent-magic)]">
                   Magic Gallery
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-[var(--color-accent-magic)] transition-colors">
+                <Link href="/blog" className="transition-colors hover:text-[var(--color-accent-magic)]">
                   Travel Log
                 </Link>
               </li>
@@ -42,14 +42,14 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] mb-4 uppercase tracking-widest">
+            <h3 className="mb-4 font-serif text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
               Connect
             </h3>
             <ul className="space-y-3 text-sm text-[var(--color-text-main)] opacity-80">
               <li>
                 <Link
                   href="/start-planning"
-                  className="hover:text-[var(--color-accent-magic)] transition-colors font-bold"
+                  className="font-bold transition-colors hover:text-[var(--color-accent-magic)]"
                 >
                   Start Planning
                 </Link>
@@ -60,14 +60,14 @@ export function Footer() {
                     <TooltipTrigger asChild>
                       <a
                         href="mailto:lindsay@gv-travel.com"
-                        className="hover:text-[var(--color-accent-magic)] transition-colors"
+                        className="transition-colors hover:text-[var(--color-accent-magic)]"
                       >
                         Email the Concierge
                       </a>
                     </TooltipTrigger>
                     <TooltipContent
                       side="top"
-                      className="bg-[var(--color-background)] text-[var(--color-text-main)] border border-[var(--color-primary-teal)]/10 shadow-lg text-xs"
+                      className="border border-[var(--color-primary-teal)]/10 bg-[var(--color-background)] text-xs text-[var(--color-text-main)] shadow-lg"
                     >
                       lindsay@gv-travel.com
                     </TooltipContent>
@@ -80,7 +80,7 @@ export function Footer() {
 
         <Separator className="my-8 bg-[var(--color-primary-teal)]/10" />
 
-        <p className="text-xs text-center text-[var(--color-text-main)] opacity-50 font-medium">
+        <p className="text-center text-xs font-medium text-[var(--color-text-main)] opacity-50">
           &copy; {new Date().getFullYear()} GV Travel. Guided by Garcia Ventures.
         </p>
       </div>
