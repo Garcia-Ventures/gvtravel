@@ -1,4 +1,5 @@
+.husky
 .next
-node_modules
-dist
 .sanity
+dist
+node_modules
