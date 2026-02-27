@@ -10,7 +10,9 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 
 // We apply the same quote-stripping logic here manually to avoid circular dependencies or import issues in CLI
 function cleanValue(v: string | undefined): string | undefined {
-  if (!v) return v;
+  if (!v) {
+    return v;
+  }
   let value = v.trim();
   if ((value.startsWith('"') || value.startsWith("'")) && (value.endsWith('"') || value.endsWith("'"))) {
     value = value.slice(1, -1);

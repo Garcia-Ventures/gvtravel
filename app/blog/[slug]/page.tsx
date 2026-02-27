@@ -34,7 +34,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await client.fetch(POST_QUERY, { slug });
-  if (!post) return { title: 'Post Not Found' };
+  if (!post) {
+    return { title: 'Post Not Found' };
+  }
 
   return {
     title: `${post.title} - GV Travel`,

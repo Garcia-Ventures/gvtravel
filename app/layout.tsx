@@ -38,7 +38,7 @@ export default function RootLayout({
         <ThemeFavicon />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased flex min-h-screen flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} flex min-h-screen flex-col antialiased`}
         suppressHydrationWarning
       >
         <ThemeProvider>

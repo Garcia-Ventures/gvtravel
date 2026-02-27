@@ -3,26 +3,26 @@ import { PortableTextComponents } from '@portabletext/react';
 export const portableTextComponents: PortableTextComponents = {
   block: {
     h1: ({ children }) => (
-      <h1 className="text-4xl font-serif font-bold tracking-tight text-[var(--color-text-main)] mt-12 mb-4 first:mt-0">
+      <h1 className="mt-12 mb-4 font-serif text-4xl font-bold tracking-tight text-[var(--color-text-main)] first:mt-0">
         {children}
       </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="text-3xl font-serif font-bold tracking-tight text-[var(--color-text-main)] mt-10 mb-4 first:mt-0">
+      <h2 className="mt-10 mb-4 font-serif text-3xl font-bold tracking-tight text-[var(--color-text-main)] first:mt-0">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-2xl font-serif font-bold text-[var(--color-text-main)] mt-8 mb-3 first:mt-0">{children}</h3>
+      <h3 className="mt-8 mb-3 font-serif text-2xl font-bold text-[var(--color-text-main)] first:mt-0">{children}</h3>
     ),
     h4: ({ children }) => (
-      <h4 className="text-xl font-serif font-bold text-[var(--color-text-main)] mt-6 mb-2 first:mt-0">{children}</h4>
+      <h4 className="mt-6 mb-2 font-serif text-xl font-bold text-[var(--color-text-main)] first:mt-0">{children}</h4>
     ),
     normal: ({ children }) => (
-      <p className="text-base leading-7 text-[var(--color-text-main)] opacity-85 mb-5 last:mb-0">{children}</p>
+      <p className="mb-5 text-base leading-7 text-[var(--color-text-main)] opacity-85 last:mb-0">{children}</p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-[var(--color-primary-teal)]/30 pl-6 my-6 italic text-[var(--color-text-main)] opacity-75">
+      <blockquote className="my-6 border-l-4 border-[var(--color-primary-teal)]/30 pl-6 text-[var(--color-text-main)] italic opacity-75">
         {children}
       </blockquote>
     ),
@@ -36,7 +36,7 @@ export const portableTextComponents: PortableTextComponents = {
       return (
         <a
           href={href}
-          className="text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] underline underline-offset-2 decoration-[var(--color-primary-teal)]/30 hover:decoration-[var(--color-primary-teal)] transition-colors"
+          className="text-[var(--color-primary-teal)] underline decoration-[var(--color-primary-teal)]/30 underline-offset-2 transition-colors hover:decoration-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]"
           {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         >
           {children}
@@ -46,12 +46,12 @@ export const portableTextComponents: PortableTextComponents = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc list-outside pl-6 space-y-2 my-5 text-[var(--color-text-main)] opacity-85">
+      <ul className="my-5 list-outside list-disc space-y-2 pl-6 text-[var(--color-text-main)] opacity-85">
         {children}
       </ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal list-outside pl-6 space-y-2 my-5 text-[var(--color-text-main)] opacity-85">
+      <ol className="my-5 list-outside list-decimal space-y-2 pl-6 text-[var(--color-text-main)] opacity-85">
         {children}
       </ol>
     ),
