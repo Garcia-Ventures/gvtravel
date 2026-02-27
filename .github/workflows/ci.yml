@@ -6,10 +6,18 @@ on:
   pull_request:
     branches: [main, develop]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
   quality:
     name: Quality (Lint & Format)
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout Code
         uses: actions/checkout@v6
@@ -31,6 +39,10 @@ jobs:
   build:
     name: Build Test
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pull-requests: write
     env:
       NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ vars.NEXT_PUBLIC_SANITY_PROJECT_ID }}
       NEXT_PUBLIC_SANITY_DATASET: ${{ vars.NEXT_PUBLIC_SANITY_DATASET }}
