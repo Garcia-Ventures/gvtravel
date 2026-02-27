@@ -23,11 +23,7 @@ import Link from 'next/link';
 import { Logo } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
 
-const navItems = [
-  { href: '/about', label: 'About' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/blog', label: 'Blog' },
-];
+const navItems = [{ href: '/about', label: 'About' }];
 
 export function Header() {
   const isMounted = useIsMounted();
@@ -109,18 +105,6 @@ export function Header() {
                     className="text-lg font-medium text-[var(--color-text-main)] transition-colors hover:text-[var(--color-accent-magic)]"
                   >
                     Our Compass Story
-                  </Link>
-                  <Link
-                    href="/gallery"
-                    className="text-lg font-medium text-[var(--color-text-main)] transition-colors hover:text-[var(--color-accent-magic)]"
-                  >
-                    Magic Gallery
-                  </Link>
-                  <Link
-                    href="/blog"
-                    className="text-lg font-medium text-[var(--color-text-main)] transition-colors hover:text-[var(--color-accent-magic)]"
-                  >
-                    Travel Log
                   </Link>
                   <Button
                     asChild

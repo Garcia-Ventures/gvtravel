@@ -28,16 +28,6 @@ export function Footer() {
                   Our Compass Story
                 </Link>
               </li>
-              <li>
-                <Link href="/gallery" className="transition-colors hover:text-[var(--color-accent-magic)]">
-                  Magic Gallery
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="transition-colors hover:text-[var(--color-accent-magic)]">
-                  Travel Log
-                </Link>
-              </li>
             </ul>
           </div>
 

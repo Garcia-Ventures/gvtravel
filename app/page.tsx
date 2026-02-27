@@ -46,15 +46,6 @@ export default function Home() {
               >
                 <Link href="/start-planning">Request Your Proposal</Link>
               </Button>
-              <Button
-                asChild
-                variant="link"
-                className="text-[var(--color-background)] hover:text-[var(--color-accent-magic)]"
-              >
-                <Link href="/gallery">
-                  Explore the Magic <span aria-hidden="true">→</span>
-                </Link>
-              </Button>
             </div>
           </div>
         </div>
