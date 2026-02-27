@@ -16,7 +16,7 @@ updates:
   #   schedule:
   #     interval: "monthly"
 
-  # Enable version updates for npm/yarn
+  # Enable version updates for bun
   - package-ecosystem: "npm"
     directory: "/"
     schedule:

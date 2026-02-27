@@ -18,7 +18,7 @@
 
 "type: configuration":
   - changed-files:
-      - any-glob-to-any-file: ["package.json", "yarn.lock", "tsconfig.json", "next.config.ts", ".github/**/*"]
+      - any-glob-to-any-file: ["package.json", "bun.lock", "tsconfig.json", "next.config.ts", ".github/**/*"]
 
 "type: styles":
   - changed-files:

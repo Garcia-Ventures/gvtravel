@@ -163,7 +163,7 @@ gitGraph
    git checkout main
    git merge hotfix/critical-bug-fix
    git push origin main
-
+   
    # Then to develop
    git checkout develop
    git merge hotfix/critical-bug-fix
@@ -176,7 +176,7 @@ To enforce this branching strategy, it's recommended to enable branch protection
 
 ### Recommended Protection Rules
 
-#### For `main` Branch:
+#### For `main` Branch
 
 - ✅ Require pull request reviews before merging (at least 1-2 reviewers)
 - ✅ Require status checks to pass before merging
@@ -186,7 +186,7 @@ To enforce this branching strategy, it's recommended to enable branch protection
 - ✅ Optionally: Require linear history
 - ✅ Do not allow bypassing the above settings
 
-#### For `develop` Branch:
+#### For `develop` Branch
 
 - ✅ Require pull request reviews before merging (at least 1 reviewer)
 - ✅ Require status checks to pass before merging

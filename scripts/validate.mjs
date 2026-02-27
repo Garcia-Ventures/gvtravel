@@ -55,7 +55,7 @@ async function validate() {
   // We'll skip it for now to avoid errors, as observed in package.json.
 
   // 5. Build
-  if (!runCommand('yarn', ['build'], 'Build')) {
+  if (!runCommand('bun', ['run', 'build'], 'Build')) {
     success = false;
   }
 

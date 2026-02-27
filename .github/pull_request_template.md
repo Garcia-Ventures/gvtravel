@@ -14,9 +14,9 @@
 
 <!-- Please describe the tests that you ran to verify your changes. -->
 
-- [ ] Local build (`yarn build`)
-- [ ] Lint check (`yarn lint`)
-- [ ] Formatting check (`yarn format`)
+- [ ] Local build (`bun run build`)
+- [ ] Lint check (`bun run lint`)
+- [ ] Formatting check (`bun run format`)
 
 ## Checklist
 
