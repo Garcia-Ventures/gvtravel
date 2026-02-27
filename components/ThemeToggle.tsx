@@ -1,8 +1,7 @@
 'use client';
 
 import { useIsMounted } from '@/lib/hooks';
-import { ThemeToggle as GVThemeToggle } from '@gv-tech/ui-web';
-import { useTheme } from 'next-themes';
+import { ThemeToggle as GVThemeToggle, useTheme } from '@gv-tech/ui-web';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
