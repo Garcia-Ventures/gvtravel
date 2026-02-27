@@ -34,8 +34,8 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
                 ) : (
                   <>
                     <p>
-                      Hello! We are the Garcia family. GV Travel was born from our belief that the most profound magic
-                      is found when families explore the horizon together.
+                      Hello! We are the Garcia family. GV Travel was born from our belief that the most profound
+                      connections are made when families explore the horizon together.
                     </p>
 
                     <div className="not-prose mt-10 grid gap-4">
@@ -47,8 +47,8 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
                               Seamless Adventure
                             </h3>
                             <p className="mt-1 text-sm text-[var(--color-text-main)] opacity-80">
-                              Having navigated dozens of voyages and magical destinations, we bring firsthand clarity to
-                              your family&apos;s journey.
+                              Having navigated dozens of voyages and world-class destinations, we bring firsthand
+                              clarity to your family&apos;s journey.
                             </p>
                           </div>
                         </CardContent>
@@ -63,7 +63,7 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
                             </h3>
                             <p className="mt-1 text-sm text-[var(--color-text-main)] opacity-80">
                               We treat every expedition as if it were our own family&apos;s legacy, with obsessive
-                              attention to the details that create magic.
+                              attention to the details that elevate the experience.
                             </p>
                           </div>
                         </CardContent>

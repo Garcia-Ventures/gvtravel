@@ -34,11 +34,11 @@ export function Hero() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="font-serif text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Unforgettable magic. Seamless adventure.
+            Extraordinary journeys. Expertly charted.
           </h1>
           <p className="mt-6 text-lg leading-8 text-white opacity-90">
-            Expertly crafted cruise vacations and Disney experiences. Let GV Travel handle the details while you focus
-            on making the magic happen.
+            Boutique cruise vacations and curated Disney experiences. Let GV Travel navigate the complexities while you
+            immersion yourself in the voyage.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-y-4 sm:flex-row sm:gap-x-6">
             <Button
@@ -46,7 +46,7 @@ export function Hero() {
               size="lg"
               className="w-full rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral-hex)] sm:w-auto"
             >
-              <Link href="/start-planning">Start Planning Your Magic</Link>
+              <Link href="/start-planning">Chart Your Next Journey</Link>
             </Button>
             <Button asChild variant="link" className="text-white hover:text-[var(--color-accent-magic-hex)]">
               <Link href="/about">

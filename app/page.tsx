@@ -20,8 +20,8 @@ export default function Home() {
               We guide. You make memories.
             </p>
             <p className="mt-6 text-lg leading-8 text-[var(--color-text-main)] opacity-80">
-              From uncovering hidden magical gems to navigating complex maritime itineraries, we chart the course so
-              your family can focus on the wonder.
+              From uncovering hidden gems to navigating complex maritime itineraries, we chart the course so your family
+              can focus on the experience.
             </p>
           </div>
         </div>
@@ -36,7 +36,7 @@ export default function Home() {
             </h2>
             <p className="mt-6 text-lg leading-8 text-[var(--color-background)] opacity-90">
               Share your vision with our boutique concierge, and we&apos;ll craft a unique proposal that captures the
-              magic.
+              essence of your journey.
             </p>
             <div className="mt-10 flex flex-col items-start gap-y-4 sm:flex-row sm:items-center sm:gap-x-6">
               <Button

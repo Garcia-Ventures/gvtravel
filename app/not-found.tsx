@@ -55,7 +55,7 @@ export default function NotFound() {
             size="lg"
             className="rounded-full text-[var(--color-primary-teal)] hover:bg-[var(--color-primary-teal)]/10 hover:!text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] dark:hover:bg-[var(--color-accent-magic)]/10 dark:hover:!text-[var(--color-accent-magic)]"
           >
-            <Link href="/start-planning">Recalculate Your Magic</Link>
+            <Link href="/start-planning">Redesign Your Route</Link>
           </Button>
         </div>
       </div>

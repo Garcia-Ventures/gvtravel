@@ -23,8 +23,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'GV Travel | Unforgettable Magic & Seamless Adventure',
-  description: 'Expertly crafted cruise vacations and Disney experiences for families who value magic and adventure.',
+  title: 'GV Travel | Bespoke Journeys & Expertly Charted Adventures',
+  description:
+    'Boutique travel concierge specializing in curated cruise vacations and extraordinary family itineraries.',
 };
 
 export default function RootLayout({

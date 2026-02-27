@@ -45,7 +45,7 @@ export function TripInquiryForm() {
       <Card className="mx-auto max-w-2xl overflow-hidden rounded-2xl border-[var(--color-primary-teal)]/20 bg-[var(--color-primary-teal)]/10 shadow-xl transition-all duration-300">
         <CardContent className="p-8 text-center">
           <h3 className="font-serif text-xl font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
-            Magic in the works!
+            Your Journey is Being Charted
           </h3>
           <p className="mt-2 text-[var(--color-text-main)] opacity-80">
             Thank you for trusting GV Travel. Our concierge team is already charting your personalized course.
@@ -55,7 +55,7 @@ export function TripInquiryForm() {
             onClick={() => window.location.reload()}
             className="mt-6 text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]"
           >
-            Send another bit of magic
+            Send another inquiry
           </Button>
         </CardContent>
       </Card>
@@ -154,7 +154,7 @@ export function TripInquiryForm() {
 
             <div className="space-y-2">
               <Label htmlFor="details" className="font-bold text-[var(--color-text-main-hex)] opacity-90">
-                Describe Your Magical Destination
+                Describe Your Ideal Destination
               </Label>
               <Textarea
                 id="details"

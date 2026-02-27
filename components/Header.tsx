@@ -75,7 +75,7 @@ export function Header() {
                 side="bottom"
                 className="border border-[var(--color-primary-teal)]/10 bg-[var(--color-background)] text-xs text-[var(--color-text-main)] shadow-lg"
               >
-                Plan your family&apos;s next magical adventure ✨
+                Plan your family&apos;s next extraordinary journey
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -110,7 +110,7 @@ export function Header() {
                     asChild
                     className="mt-4 rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:bg-[var(--color-secondary-coral)]"
                   >
-                    <Link href="/start-planning">Start Planning Your Magic</Link>
+                    <Link href="/start-planning">Begin Your Bespoke Journey</Link>
                   </Button>
                 </div>
               </SheetContent>
