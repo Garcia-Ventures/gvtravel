@@ -1,6 +1,5 @@
 'use client';
 
-import * as Plausible from '@plausible-analytics/tracker';
 import { useEffect } from 'react';
 
 export function PlausibleProvider({
@@ -9,13 +8,15 @@ export function PlausibleProvider({
   children: React.ReactNode;
 }>) {
   useEffect(() => {
-    // Initialize Plausible analytics
-    Plausible.init({
-      domain: 'gv-travel.com',
-      endpoint: 'https://stats.garciaericn.com/api/event',
-      autoCapturePageviews: true,
-      formSubmissions: true,
-      outboundLinks: true,
+    // Dynamically import Plausible to ensure it only runs on the client
+    import('@plausible-analytics/tracker').then((Plausible) => {
+      Plausible.init({
+        domain: 'gv-travel.com',
+        endpoint: 'https://stats.garciaericn.com/api/event',
+        autoCapturePageviews: true,
+        formSubmissions: true,
+        outboundLinks: true,
+      });
     });
   }, []);
 
