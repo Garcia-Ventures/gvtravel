@@ -1,5 +1,8 @@
 import { spawnSync } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
 import process from 'node:process';
+import { fileURLToPath } from 'node:url';
 
 const args = process.argv.slice(2);
 const isFix = args.includes('--fix');
@@ -23,6 +26,53 @@ function runCommand(command, args, name) {
   }
 
   console.log(`${colors.green}✔ ${name} passed!${colors.reset}`);
+  return true;
+}
+
+function runRegressionChecks() {
+  console.log(`\n${colors.bright}${colors.cyan}=== Running Regression Checks ===${colors.reset}`);
+
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  const formFilePath = path.resolve(__dirname, '../components/TripInquiryForm.tsx');
+
+  if (!fs.existsSync(formFilePath)) {
+    console.error(`${colors.red}✖ Regression check failed: TripInquiryForm.tsx not found.${colors.reset}`);
+    return false;
+  }
+
+  const source = fs.readFileSync(formFilePath, 'utf8');
+  const checks = [
+    {
+      label: 'Submit must not forward event object to Formspree',
+      passed: !/handleFormspreeSubmit\(event\s+as\s+React\.FormEvent<\s*HTMLFormElement\s*>\)/.test(source),
+    },
+    {
+      label: 'Submit should use value-based Formspree payload',
+      passed:
+        /handleFormspreeSubmit\(\{[\s\S]*'trip-type':\s*values\.tripType[\s\S]*consent:\s*values\.consent\s*\?\s*'yes'\s*:\s*'no'[\s\S]*\}\)/.test(
+          source,
+        ),
+    },
+    {
+      label: 'Form submit should stay wired through react-hook-form handleSubmit',
+      passed: /onSubmit=\{form\.handleSubmit\(onSubmit\)\}/.test(source),
+    },
+    {
+      label: 'Form submit should not bypass react-hook-form with direct Formspree handler',
+      passed: !/onSubmit=\{handleFormspreeSubmit\}/.test(source),
+    },
+  ];
+
+  const failedChecks = checks.filter((check) => !check.passed);
+  if (failedChecks.length > 0) {
+    for (const failedCheck of failedChecks) {
+      console.error(`${colors.red}✖ ${failedCheck.label}${colors.reset}`);
+    }
+    return false;
+  }
+
+  console.log(`${colors.green}✔ Regression checks passed!${colors.reset}`);
   return true;
 }
 
@@ -50,9 +100,10 @@ async function validate() {
     success = false;
   }
 
-  // 4. Tests (Check if test script exists in package.json)
-  // For now, we see there is no test script, but we can add a placeholder or skip if not found.
-  // We'll skip it for now to avoid errors, as observed in package.json.
+  // 4. Regression Checks
+  if (!runRegressionChecks()) {
+    success = false;
+  }
 
   // 5. Build
   if (!runCommand('bun', ['run', 'build'], 'Build')) {

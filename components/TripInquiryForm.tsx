@@ -1,6 +1,6 @@
 'use client';
 
-import { useForm } from '@formspree/react';
+import { useForm as useFormspree } from '@formspree/react';
 import {
   Alert,
   AlertDescription,
@@ -12,8 +12,13 @@ import {
   CardHeader,
   CardTitle,
   Checkbox,
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
   Input,
-  Label,
   Select,
   SelectContent,
   SelectItem,
@@ -23,16 +28,44 @@ import {
   Textarea,
 } from '@gv-tech/ui-web';
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 import { useIsMounted } from '@/lib/hooks';
 
+type TripInquiryValues = {
+  name: string;
+  email: string;
+  tripType: string;
+  budget: string;
+  details: string;
+  consent: boolean;
+};
+
 export function TripInquiryForm() {
   const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID || 'missing-form-id';
-  const [state, handleSubmit] = useForm(formId);
-  const [tripType, setTripType] = React.useState('cruise');
-  const [budget, setBudget] = React.useState('2k-5k');
-  const [consent, setConsent] = React.useState(false);
+  const [state, handleFormspreeSubmit] = useFormspree(formId);
   const isMounted = useIsMounted();
+  const form = useForm<TripInquiryValues>({
+    defaultValues: {
+      name: '',
+      email: '',
+      tripType: 'cruise',
+      budget: '2k-5k',
+      details: '',
+      consent: false,
+    },
+  });
+
+  const onSubmit = async (values: TripInquiryValues) => {
+    await handleFormspreeSubmit({
+      name: values.name,
+      email: values.email,
+      details: values.details,
+      'trip-type': values.tripType,
+      budget: values.budget,
+      consent: values.consent ? 'yes' : 'no',
+    });
+  };
 
   React.useEffect(() => {
     if (formId === 'missing-form-id' && process.env.NODE_ENV === 'development') {
@@ -89,142 +122,193 @@ export function TripInquiryForm() {
           </Alert>
         )}
 
-        <form name="trip-inquiry" onSubmit={handleSubmit} className="space-y-8">
-          {/* Contact Info */}
-          <div className="space-y-4">
-            <h3 className="font-serif text-lg text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
-              Contact Information
-            </h3>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="name" className="font-bold text-[var(--color-text-main-hex)] opacity-90">
-                  Full Name
-                </Label>
-                <Input
-                  type="text"
+        <Form {...form}>
+          <form name="trip-inquiry" onSubmit={form.handleSubmit(onSubmit)} className="space-y-8" noValidate>
+            <div className="space-y-4">
+              <h3 className="font-serif text-lg text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
+                Contact Information
+              </h3>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <FormField
+                  control={form.control}
                   name="name"
-                  id="name"
-                  required
-                  className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus-visible:ring-[var(--color-accent-magic-hex)]"
+                  rules={{ required: 'Please enter your full name.' }}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="font-bold text-[var(--color-text-main-hex)] opacity-90">
+                        Full Name
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          type="text"
+                          {...field}
+                          className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus-visible:ring-[var(--color-accent-magic-hex)]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email" className="font-bold text-[var(--color-text-main-hex)] opacity-90">
-                  Email
-                </Label>
-                <Input
-                  type="email"
+
+                <FormField
+                  control={form.control}
                   name="email"
-                  id="email"
-                  required
-                  className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus-visible:ring-[var(--color-accent-magic-hex)]"
+                  rules={{
+                    required: 'Please enter your email.',
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: 'Please enter a valid email address.',
+                    },
+                  }}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="font-bold text-[var(--color-text-main-hex)] opacity-90">Email</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="email"
+                          {...field}
+                          className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus-visible:ring-[var(--color-accent-magic-hex)]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
               </div>
             </div>
-          </div>
 
-          <Separator className="bg-[var(--color-primary-teal)]/10" />
+            <Separator className="bg-[var(--color-primary-teal)]/10" />
 
-          {/* Trip Basics */}
-          <div className="space-y-4">
-            <h3 className="font-serif text-lg text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
-              Trip Basics
-            </h3>
+            <div className="space-y-4">
+              <h3 className="font-serif text-lg text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
+                Trip Basics
+              </h3>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="trip-type" className="font-bold text-[var(--color-text-main)] opacity-90">
-                  Trip Type
-                </Label>
-                <Select value={tripType} onValueChange={setTripType} name="trip-type">
-                  <SelectTrigger className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus:ring-[var(--color-accent-magic-hex)]">
-                    <SelectValue placeholder="Select trip type" />
-                  </SelectTrigger>
-                  <SelectContent className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] text-[var(--color-text-main-hex)]">
-                    <SelectItem value="cruise">Cruise</SelectItem>
-                    <SelectItem value="disney-cruise">Disney Cruise</SelectItem>
-                    <SelectItem value="disney-park">Disney Parks</SelectItem>
-                    <SelectItem value="resort">All-Inclusive Resort</SelectItem>
-                    <SelectItem value="combo">Combo / Custom</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-                <input type="hidden" name="trip-type" value={tripType} />
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <FormField
+                  control={form.control}
+                  name="tripType"
+                  rules={{ required: 'Please select a trip type.' }}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="font-bold text-[var(--color-text-main)] opacity-90">Trip Type</FormLabel>
+                      <FormControl>
+                        <Select value={field.value} onValueChange={field.onChange}>
+                          <SelectTrigger className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus:ring-[var(--color-accent-magic-hex)]">
+                            <SelectValue placeholder="Select trip type" />
+                          </SelectTrigger>
+                          <SelectContent className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] text-[var(--color-text-main-hex)]">
+                            <SelectItem value="cruise">Cruise</SelectItem>
+                            <SelectItem value="disney-cruise">Disney Cruise</SelectItem>
+                            <SelectItem value="disney-park">Disney Parks</SelectItem>
+                            <SelectItem value="resort">All-Inclusive Resort</SelectItem>
+                            <SelectItem value="combo">Combo / Custom</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="budget"
+                  rules={{ required: 'Please select your budget range.' }}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="font-bold text-[var(--color-text-main-hex)] opacity-90">
+                        Budget Range
+                      </FormLabel>
+                      <FormControl>
+                        <Select value={field.value} onValueChange={field.onChange}>
+                          <SelectTrigger className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus:ring-[var(--color-accent-magic-hex)]">
+                            <SelectValue placeholder="Select budget range" />
+                          </SelectTrigger>
+                          <SelectContent className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] text-[var(--color-text-main-hex)]">
+                            <SelectItem value="under-2k">Under $2,000</SelectItem>
+                            <SelectItem value="2k-5k">$2,000 - $5,000</SelectItem>
+                            <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
+                            <SelectItem value="10k-plus">$10,000+</SelectItem>
+                            <SelectItem value="not-sure">Not sure yet</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="budget" className="font-bold text-[var(--color-text-main-hex)] opacity-90">
-                  Budget Range
-                </Label>
-                <Select value={budget} onValueChange={setBudget} name="budget">
-                  <SelectTrigger className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus:ring-[var(--color-accent-magic-hex)]">
-                    <SelectValue placeholder="Select budget range" />
-                  </SelectTrigger>
-                  <SelectContent className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] text-[var(--color-text-main-hex)]">
-                    <SelectItem value="under-2k">Under $2,000</SelectItem>
-                    <SelectItem value="2k-5k">$2,000 - $5,000</SelectItem>
-                    <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                    <SelectItem value="10k-plus">$10,000+</SelectItem>
-                    <SelectItem value="not-sure">Not sure yet</SelectItem>
-                  </SelectContent>
-                </Select>
-                <input type="hidden" name="budget" value={budget} />
-              </div>
-            </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="details" className="font-bold text-[var(--color-text-main-hex)] opacity-90">
-                What does your ideal trip look like?
-              </Label>
-              <Textarea
-                id="details"
+              <FormField
+                control={form.control}
                 name="details"
-                rows={4}
-                className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus-visible:ring-[var(--color-accent-magic-hex)]"
-                placeholder="Share destination ideas, who is traveling, timing, and anything important for comfort or budget."
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-bold text-[var(--color-text-main-hex)] opacity-90">
+                      What does your ideal trip look like?
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        rows={4}
+                        {...field}
+                        className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus-visible:ring-[var(--color-accent-magic-hex)]"
+                        placeholder="Share destination ideas, who is traveling, timing, and anything important for comfort or budget."
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
             </div>
-          </div>
 
-          <Separator className="bg-[var(--color-primary-teal)]/10" />
+            <Separator className="bg-[var(--color-primary-teal)]/10" />
 
-          <div className="flex items-center gap-x-3">
-            <Checkbox
-              id="consent"
+            <FormField
+              control={form.control}
               name="consent"
-              required
-              checked={consent}
-              onCheckedChange={(checked) => setConsent(checked === true)}
-              className="h-5 w-5 rounded-sm border-2 border-[var(--color-primary-teal-hex)]/40 transition-all data-[state=checked]:border-[var(--color-primary-teal-hex)] data-[state=checked]:bg-[var(--color-primary-teal-hex)]"
+              rules={{ validate: (value) => value || 'Please agree to be contacted to continue.' }}
+              render={({ field }) => (
+                <FormItem>
+                  <div className="flex items-center gap-x-3">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={(checked) => field.onChange(checked === true)}
+                        className="h-5 w-5 rounded-sm border-2 border-[var(--color-primary-teal-hex)]/40 transition-all data-[state=checked]:border-[var(--color-primary-teal-hex)] data-[state=checked]:bg-[var(--color-primary-teal-hex)]"
+                      />
+                    </FormControl>
+                    <FormLabel className="cursor-pointer text-sm leading-6 font-medium text-[var(--color-text-main-hex)] opacity-80">
+                      I agree to be contacted about my trip inquiry.
+                    </FormLabel>
+                  </div>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-            <input type="hidden" name="consent" value={consent ? 'yes' : 'no'} />
-            <Label
-              htmlFor="consent"
-              className="cursor-pointer text-sm leading-6 font-medium text-[var(--color-text-main-hex)] opacity-80"
-            >
-              I agree to be contacted about my trip inquiry.
-            </Label>
-          </div>
 
-          <div>
-            <Button
-              type="submit"
-              disabled={state.submitting}
-              className="w-full rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:bg-[var(--color-secondary-coral-hex)] disabled:cursor-not-allowed disabled:opacity-50"
-              size="lg"
-            >
-              {state.submitting ? 'Submitting...' : 'Send My Trip Request'}
-            </Button>
+            <div>
+              <Button
+                type="submit"
+                disabled={state.submitting}
+                className="w-full rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:bg-[var(--color-secondary-coral-hex)] disabled:cursor-not-allowed disabled:opacity-50"
+                size="lg"
+              >
+                {state.submitting ? 'Submitting...' : 'Send My Trip Request'}
+              </Button>
 
-            {state.errors && (
-              <Alert variant="destructive" className="mt-4 text-left">
-                <AlertTitle>Submission failed</AlertTitle>
-                <AlertDescription>
-                  Something went wrong. Please try again, or email lindsay@gv-travel.com.
-                </AlertDescription>
-              </Alert>
-            )}
-          </div>
-        </form>
+              {state.errors && (
+                <Alert variant="destructive" className="mt-4 text-left">
+                  <AlertTitle>Submission failed</AlertTitle>
+                  <AlertDescription>
+                    Something went wrong. Please try again, or email lindsay@gv-travel.com.
+                  </AlertDescription>
+                </Alert>
+              )}
+            </div>
+          </form>
+        </Form>
       </CardContent>
     </Card>
   );
