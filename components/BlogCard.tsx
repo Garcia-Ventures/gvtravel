@@ -1,7 +1,7 @@
 'use client';
 
 import { BlogPost } from '@/lib/types';
-import { AspectRatio, Badge, Button, Card, CardContent, CardFooter, CardHeader } from '@gv-tech/ui-web';
+import { AspectRatio, Badge, Button, Card, CardContent, CardFooter, CardHeader, Text } from '@gv-tech/ui-web';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -42,12 +42,20 @@ export function BlogCard({ post }: BlogCardProps) {
             </Badge>
           ))}
         </div>
-        <h3 className="mt-4 font-serif text-xl leading-tight font-bold text-[var(--color-text-main)] transition-colors group-hover:text-[var(--color-primary-teal)] dark:group-hover:text-[var(--color-accent-magic)]">
+        <Text
+          as="h3"
+          variant="h4"
+          className="mt-4 font-serif leading-tight font-bold text-[var(--color-text-main)] transition-colors group-hover:text-[var(--color-primary-teal)] dark:group-hover:text-[var(--color-accent-magic)]"
+        >
           <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-        </h3>
-        <p className="mt-3 line-clamp-3 text-sm leading-6 font-medium text-[var(--color-text-main)] opacity-70">
+        </Text>
+        <Text
+          as="p"
+          variant="bodySmall"
+          className="mt-3 line-clamp-3 font-medium text-[var(--color-text-main)] opacity-70"
+        >
           {post.summary}
-        </p>
+        </Text>
       </CardContent>
       <CardFooter className="p-5 pt-0">
         <Button asChild variant="outline" className="w-full rounded-full">

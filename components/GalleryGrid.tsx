@@ -18,6 +18,7 @@ import {
   DialogTitle,
   Separator,
   Skeleton,
+  Text,
 } from '@gv-tech/ui-web';
 import Image from 'next/image';
 import React from 'react';
@@ -107,7 +108,9 @@ export function GalleryGrid({ items }: GalleryGridProps) {
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[var(--color-primary-teal)]/60 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 <div className="translate-y-2 text-left transition-transform duration-300 group-hover:translate-y-0">
                   {item.title && (
-                    <p className="font-serif text-sm font-bold text-[var(--color-background)]">{item.title}</p>
+                    <Text as="p" variant="bodySmall" className="font-serif font-bold text-[var(--color-background)]">
+                      {item.title}
+                    </Text>
                   )}
                   {/* {(item.destination || item.tripDate) && (
                     <p className="text-xs text-[var(--color-background)]/80">
@@ -162,7 +165,9 @@ export function GalleryGrid({ items }: GalleryGridProps) {
                     </div>
                     <div className="mt-8 px-6 text-center">
                       {item.title && (
-                        <h3 className="font-serif text-xl font-bold text-[var(--color-accent-magic)]">{item.title}</h3>
+                        <Text as="h3" variant="h4" className="font-serif font-bold text-[var(--color-accent-magic)]">
+                          {item.title}
+                        </Text>
                       )}
                       {/* {(item.destination || item.tripDate) && (
                         <p className="mt-2 text-sm text-white/80">

@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@gv-tech/ui-web';
+import { Button, Text } from '@gv-tech/ui-web';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -34,13 +34,13 @@ export function Hero() {
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h1 className="font-serif text-4xl font-bold tracking-tight text-white sm:text-6xl">
+          <Text as="h1" variant="h1" className="font-serif font-bold tracking-tight text-white sm:text-6xl">
             Family travel planned with heart, value, and care.
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-white opacity-90">
+          </Text>
+          <Text as="p" variant="body" className="mt-6 text-lg leading-8 text-white opacity-90">
             I help busy families plan cruises, Disney vacations, and Caribbean getaways that feel special without
             stretching the budget. You bring the dream, and I&apos;ll handle the details.
-          </p>
+          </Text>
           <div className="mt-10 flex flex-col items-center justify-center gap-y-4 sm:flex-row sm:gap-x-6">
             <Button
               asChild

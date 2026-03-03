@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@gv-tech/ui-web';
+import { Button, Text } from '@gv-tech/ui-web';
 import { Compass, Home, Map } from 'lucide-react';
 import Link from 'next/link';
 
@@ -27,15 +27,23 @@ export default function NotFound() {
           <Map className="absolute inset-4 h-24 w-24 text-[var(--color-accent-magic)]" />
         </div>
 
-        <h1 className="font-serif text-4xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-6xl">
+        <Text
+          as="h1"
+          variant="h1"
+          className="font-serif font-bold tracking-tight text-[var(--color-text-main)] sm:text-6xl"
+        >
           Drifted Off Course?
-        </h1>
+        </Text>
 
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-text-main)] opacity-80">
+        <Text
+          as="p"
+          variant="body"
+          className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-text-main)] opacity-80"
+        >
           It looks like this destination isn&apos;t on our current charts. Even the most seasoned travelers find
           themselves in uncharted waters sometimes, but don&apos;t worry—at GV Travel, we specialize in finding the
           perfect route.
-        </p>
+        </Text>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-y-4 sm:flex-row sm:gap-x-6">
           <Button

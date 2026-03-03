@@ -14,6 +14,7 @@ import {
   Card,
   CardContent,
   Separator,
+  Text,
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -102,15 +103,19 @@ export function BlogPost({ post }: BlogPostProps) {
           {post.body ? (
             <PortableText value={post.body} components={portableTextComponents} />
           ) : (
-            <p className="text-lg leading-8">{post.summary}</p>
+            <Text as="p" variant="body" className="text-lg leading-8">
+              {post.summary}
+            </Text>
           )}
 
           <Card className="my-10 rounded-2xl border border-[var(--color-primary-teal)]/10 bg-[var(--color-primary-teal)]/5 shadow-sm">
             <CardContent className="p-8 text-center">
-              <h3 className="font-serif text-lg font-bold text-[var(--color-text-main)]">Inspired by this voyage?</h3>
-              <p className="mt-2 text-[var(--color-text-main)] opacity-70">
+              <Text as="h3" variant="h4" className="font-serif font-bold text-[var(--color-text-main)]">
+                Inspired by this voyage?
+              </Text>
+              <Text as="p" variant="body" className="mt-2 text-[var(--color-text-main)] opacity-70">
                 Let our concierge help you chart a similar magical journey for your family.
-              </p>
+              </Text>
               <Button
                 asChild
                 className="mt-6 rounded-full bg-[var(--color-accent-magic)] px-6 py-2 text-sm font-bold text-[var(--color-cta-text)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral)]"

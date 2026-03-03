@@ -1,11 +1,13 @@
 'use client';
 
 import {
+  Button,
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   Separator,
+  Text,
   Tooltip,
   TooltipContent,
   TooltipProvider,
@@ -23,15 +25,19 @@ export function Footer() {
             <Link href="/" className="group mb-4 inline-block">
               <Logo className="h-10 w-auto text-[var(--color-logo)] transition-colors duration-300" />
             </Link>
-            <p className="max-w-xs text-sm font-medium text-[var(--color-text-main)] opacity-70">
+            <Text as="p" variant="bodySmall" className="max-w-xs font-medium text-[var(--color-text-main)] opacity-70">
               Thoughtful travel planning for families who want memorable trips, smart spending, and less stress.
-            </p>
+            </Text>
           </div>
 
           <div>
-            <h3 className="mb-4 font-serif text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
+            <Text
+              as="h3"
+              variant="overline"
+              className="mb-4 font-serif font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]"
+            >
               Explore
-            </h3>
+            </Text>
             <NavigationMenu orientation="vertical" className="max-w-none justify-start">
               <NavigationMenuList className="flex-col items-start gap-3 text-sm text-[var(--color-text-main)] opacity-80">
                 <NavigationMenuItem>
@@ -46,9 +52,13 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 font-serif text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
+            <Text
+              as="h3"
+              variant="overline"
+              className="mb-4 font-serif font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]"
+            >
               Connect
-            </h3>
+            </Text>
             <NavigationMenu orientation="vertical" className="max-w-none justify-start">
               <NavigationMenuList className="flex-col items-start gap-3 text-sm text-[var(--color-text-main)] opacity-80">
                 <NavigationMenuItem>
@@ -65,12 +75,13 @@ export function Footer() {
                   <TooltipProvider delayDuration={250}>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <a
-                          href="mailto:lindsay@gv-travel.com"
-                          className="transition-colors hover:text-[var(--color-accent-magic)]"
+                        <Button
+                          asChild
+                          variant="link"
+                          className="h-auto p-0 text-sm hover:text-[var(--color-accent-magic)]"
                         >
-                          Email Lindsay
-                        </a>
+                          <a href="mailto:lindsay@gv-travel.com">Email Lindsay</a>
+                        </Button>
                       </TooltipTrigger>
                       <TooltipContent
                         side="top"
@@ -88,9 +99,9 @@ export function Footer() {
 
         <Separator className="my-8 bg-[var(--color-primary-teal)]/10" />
 
-        <p className="text-center text-xs font-medium text-[var(--color-text-main)] opacity-50">
+        <Text as="p" variant="caption" className="text-center font-medium text-[var(--color-text-main)] opacity-50">
           &copy; {new Date().getFullYear()} GV Travel. Guided by Garcia Ventures.
-        </p>
+        </Text>
       </div>
     </footer>
   );

@@ -1,30 +1,49 @@
+import { Text } from '@gv-tech/ui-web';
 import { PortableTextComponents } from '@portabletext/react';
 
 export const portableTextComponents: PortableTextComponents = {
   block: {
     h1: ({ children }) => (
-      <h1 className="mt-12 mb-4 font-serif text-4xl font-bold tracking-tight text-[var(--color-text-main)] first:mt-0">
+      <Text
+        as="h1"
+        variant="h1"
+        className="mt-12 mb-4 font-serif font-bold tracking-tight text-[var(--color-text-main)] first:mt-0"
+      >
         {children}
-      </h1>
+      </Text>
     ),
     h2: ({ children }) => (
-      <h2 className="mt-10 mb-4 font-serif text-3xl font-bold tracking-tight text-[var(--color-text-main)] first:mt-0">
+      <Text
+        as="h2"
+        variant="h2"
+        className="mt-10 mb-4 font-serif font-bold tracking-tight text-[var(--color-text-main)] first:mt-0"
+      >
         {children}
-      </h2>
+      </Text>
     ),
     h3: ({ children }) => (
-      <h3 className="mt-8 mb-3 font-serif text-2xl font-bold text-[var(--color-text-main)] first:mt-0">{children}</h3>
+      <Text as="h3" variant="h3" className="mt-8 mb-3 font-serif font-bold text-[var(--color-text-main)] first:mt-0">
+        {children}
+      </Text>
     ),
     h4: ({ children }) => (
-      <h4 className="mt-6 mb-2 font-serif text-xl font-bold text-[var(--color-text-main)] first:mt-0">{children}</h4>
+      <Text as="h4" variant="h4" className="mt-6 mb-2 font-serif font-bold text-[var(--color-text-main)] first:mt-0">
+        {children}
+      </Text>
     ),
     normal: ({ children }) => (
-      <p className="mb-5 text-base leading-7 text-[var(--color-text-main)] opacity-85 last:mb-0">{children}</p>
+      <Text as="p" variant="body" className="mb-5 text-[var(--color-text-main)] opacity-85 last:mb-0">
+        {children}
+      </Text>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="my-6 border-l-4 border-[var(--color-primary-teal)]/30 pl-6 text-[var(--color-text-main)] italic opacity-75">
+      <Text
+        as="blockquote"
+        variant="body"
+        className="my-6 border-l-4 border-[var(--color-primary-teal)]/30 pl-6 text-[var(--color-text-main)] italic opacity-75"
+      >
         {children}
-      </blockquote>
+      </Text>
     ),
   },
   marks: {
@@ -57,7 +76,15 @@ export const portableTextComponents: PortableTextComponents = {
     ),
   },
   listItem: {
-    bullet: ({ children }) => <li className="text-base leading-7">{children}</li>,
-    number: ({ children }) => <li className="text-base leading-7">{children}</li>,
+    bullet: ({ children }) => (
+      <Text as="li" variant="body" className="text-base">
+        {children}
+      </Text>
+    ),
+    number: ({ children }) => (
+      <Text as="li" variant="body" className="text-base">
+        {children}
+      </Text>
+    ),
   },
 };

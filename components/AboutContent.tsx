@@ -1,7 +1,7 @@
 'use client';
 
 import { portableTextComponents } from '@/lib/portabletext';
-import { Card, CardContent, Separator } from '@gv-tech/ui-web';
+import { Card, CardContent, Separator, Text } from '@gv-tech/ui-web';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 
@@ -19,12 +19,20 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pt-4 lg:pr-8">
             <div className="lg:max-w-lg">
-              <h2 className="font-serif text-base leading-7 font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
+              <Text
+                as="h2"
+                variant="overline"
+                className="font-serif leading-7 font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]"
+              >
                 Meet Your Travel Advisor
-              </h2>
-              <p className="mt-2 font-serif text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl">
+              </Text>
+              <Text
+                as="p"
+                variant="h2"
+                className="mt-2 font-serif font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl"
+              >
                 {title}
-              </p>
+              </Text>
 
               <Separator className="my-8 bg-[var(--color-primary-teal)]/10" />
 
@@ -33,28 +41,32 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
                   <PortableText value={content} components={portableTextComponents} />
                 ) : (
                   <>
-                    <p>
+                    <Text as="p" variant="body" className="text-lg leading-8">
                       I specialize in helping families and budget-conscious travelers plan stress-free Caribbean,
                       cruise, and Disney vacations with strong value and high-quality experiences.
-                    </p>
-                    <p className="mt-6">
+                    </Text>
+                    <Text as="p" variant="body" className="mt-6 text-lg leading-8">
                       As a homeschool mom of three boys, I understand how important it is to build trips that are
                       family-friendly, well-paced, and realistic for your budget. I help you sort through options, avoid
                       overwhelm, and move forward with confidence.
-                    </p>
+                    </Text>
 
                     <div className="not-prose mt-10 grid gap-4">
                       <Card className="rounded-xl border border-[var(--color-primary-teal)]/10 bg-[var(--color-primary-teal)]/5 shadow-sm">
                         <CardContent className="flex items-start gap-4 p-5">
                           <span className="mt-0.5 shrink-0 text-2xl">⚓</span>
                           <div>
-                            <h3 className="font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
+                            <Text
+                              as="h3"
+                              variant="h4"
+                              className="font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]"
+                            >
                               Family-First Planning
-                            </h3>
-                            <p className="mt-1 text-sm text-[var(--color-text-main)] opacity-80">
+                            </Text>
+                            <Text as="p" variant="bodySmall" className="mt-1 text-[var(--color-text-main)] opacity-80">
                               From room types and cruise ships to park tickets and resort choices, I help you choose
                               what fits your family best.
-                            </p>
+                            </Text>
                           </div>
                         </CardContent>
                       </Card>
@@ -63,13 +75,17 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
                         <CardContent className="flex items-start gap-4 p-5">
                           <span className="mt-0.5 shrink-0 text-2xl">✨</span>
                           <div>
-                            <h3 className="font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
+                            <Text
+                              as="h3"
+                              variant="h4"
+                              className="font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]"
+                            >
                               Value Without Sacrificing Experience
-                            </h3>
-                            <p className="mt-1 text-sm text-[var(--color-text-main)] opacity-80">
+                            </Text>
+                            <Text as="p" variant="bodySmall" className="mt-1 text-[var(--color-text-main)] opacity-80">
                               I focus on where to save, what to prioritize, and how to get the most out of your budget
                               so your vacation still feels special.
-                            </p>
+                            </Text>
                           </div>
                         </CardContent>
                       </Card>
