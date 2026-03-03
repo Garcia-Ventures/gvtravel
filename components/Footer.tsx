@@ -45,7 +45,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <TooltipProvider delayDuration={200}>
+                <TooltipProvider delayDuration={250}>
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <a

@@ -3,7 +3,9 @@
 import { GalleryItem } from '@/lib/types';
 import {
   AspectRatio,
+  Button,
   Card,
+  CardContent,
   Carousel,
   CarouselApi,
   CarouselContent,
@@ -82,12 +84,7 @@ export function GalleryGrid({ items }: GalleryGridProps) {
         {items.map((item, index) => (
           <Card
             key={item.id || index}
-            className="group relative cursor-default overflow-hidden rounded-2xl border-none bg-[var(--color-primary-teal)]/5 shadow-lg transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl sm:cursor-pointer"
-            onClick={() => {
-              if (window.innerWidth >= 640) {
-                setSelectedIndex(index);
-              }
-            }}
+            className="group relative overflow-hidden rounded-2xl border-none bg-[var(--color-primary-teal)]/5 shadow-lg transition-all duration-500 hover:shadow-2xl"
           >
             <AspectRatio ratio={3 / 2} className="w-full">
               <GalleryImage
@@ -96,6 +93,15 @@ export function GalleryGrid({ items }: GalleryGridProps) {
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               />
+
+              <Button
+                type="button"
+                variant="ghost"
+                onClick={() => setSelectedIndex(index)}
+                className="absolute inset-0 hidden h-full w-full rounded-none bg-transparent p-0 hover:bg-transparent sm:flex"
+              >
+                <span className="sr-only">Open gallery image {item.title || index + 1}</span>
+              </Button>
             </AspectRatio>
             {(item.title || item.destination || item.tripDate) && (
               <div className="absolute inset-0 flex items-end bg-gradient-to-t from-[var(--color-primary-teal)]/60 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -113,6 +119,16 @@ export function GalleryGrid({ items }: GalleryGridProps) {
                 </div>
               </div>
             )}
+
+            <CardContent className="p-4 sm:hidden">
+              <Button
+                type="button"
+                onClick={() => setSelectedIndex(index)}
+                className="w-full rounded-full bg-[var(--color-accent-magic)] text-[var(--color-cta-text)] hover:bg-[var(--color-secondary-coral)]"
+              >
+                View Photo
+              </Button>
+            </CardContent>
           </Card>
         ))}
       </div>

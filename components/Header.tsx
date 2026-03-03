@@ -61,7 +61,7 @@ export function Header() {
 
         <div className="flex items-center gap-2 sm:gap-4">
           <ThemeToggle />
-          <TooltipProvider delayDuration={300}>
+          <TooltipProvider delayDuration={250}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button

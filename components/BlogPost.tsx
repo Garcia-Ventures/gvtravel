@@ -65,7 +65,7 @@ export function BlogPost({ post }: BlogPostProps) {
           </div>
 
           {post.tags && post.tags.length > 0 && (
-            <TooltipProvider delayDuration={200}>
+            <TooltipProvider delayDuration={250}>
               <div className="mt-4 flex items-center justify-center gap-x-2">
                 {post.tags.map((tag) => (
                   <Tooltip key={tag}>

@@ -2,9 +2,13 @@
 
 import { useForm } from '@formspree/react';
 import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
   Button,
   Card,
   CardContent,
+  CardDescription,
   CardHeader,
   CardTitle,
   Checkbox,
@@ -43,14 +47,16 @@ export function TripInquiryForm() {
   if (state.succeeded) {
     return (
       <Card className="mx-auto max-w-2xl overflow-hidden rounded-2xl border-[var(--color-primary-teal)]/20 bg-[var(--color-primary-teal)]/10 shadow-xl transition-all duration-300">
-        <CardContent className="p-8 text-center">
-          <h3 className="font-serif text-xl font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
+        <CardHeader className="pb-0 text-center">
+          <CardTitle className="font-serif text-xl text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
             Your Trip Request Was Received
-          </h3>
-          <p className="mt-2 text-[var(--color-text-main)] opacity-80">
+          </CardTitle>
+          <CardDescription className="mx-auto mt-2 max-w-xl text-[var(--color-text-main)] opacity-80">
             Thank you for reaching out. I&apos;ll review your details and follow up soon with next steps tailored to
             your family and budget.
-          </p>
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="p-8 pt-6 text-center">
           <Button
             variant="link"
             onClick={() => window.location.reload()}
@@ -69,11 +75,20 @@ export function TripInquiryForm() {
         <CardTitle className="font-serif text-2xl font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
           Tell Me About Your Trip
         </CardTitle>
-        <p className="text-sm text-[var(--color-text-main)] opacity-70">
+        <CardDescription className="text-sm text-[var(--color-text-main)] opacity-70">
           A few quick details help me recommend the best-fit options for your family.
-        </p>
+        </CardDescription>
       </CardHeader>
       <CardContent className="p-8">
+        {formId === 'missing-form-id' && process.env.NODE_ENV === 'development' && (
+          <Alert variant="warning" className="mb-6 border-[var(--color-primary-teal)]/20">
+            <AlertTitle>Form configuration needed</AlertTitle>
+            <AlertDescription>
+              Set `NEXT_PUBLIC_FORMSPREE_ID` in your environment to enable inquiry submissions.
+            </AlertDescription>
+          </Alert>
+        )}
+
         <form name="trip-inquiry" onSubmit={handleSubmit} className="space-y-8">
           {/* Contact Info */}
           <div className="space-y-4">
@@ -201,9 +216,12 @@ export function TripInquiryForm() {
             </Button>
 
             {state.errors && (
-              <p className="mt-2 text-center text-sm text-red-600 dark:text-red-400">
-                Something went wrong. Please try again later.
-              </p>
+              <Alert variant="destructive" className="mt-4 text-left">
+                <AlertTitle>Submission failed</AlertTitle>
+                <AlertDescription>
+                  Something went wrong. Please try again, or email lindsay@gv-travel.com.
+                </AlertDescription>
+              </Alert>
             )}
           </div>
         </form>
