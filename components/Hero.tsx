@@ -23,7 +23,7 @@ export function Hero() {
       <div className="absolute inset-0 -z-10 h-full w-full">
         <Image
           src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?auto=format&fit=crop&q=80&w=2000"
-          alt="Cruise ship in Alaska"
+          alt="Family cruise and beach vacation inspiration"
           fill
           className="object-cover object-center opacity-40"
           priority
@@ -34,11 +34,11 @@ export function Hero() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="font-serif text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Extraordinary journeys. Expertly charted.
+            Family travel planned with heart, value, and care.
           </h1>
           <p className="mt-6 text-lg leading-8 text-white opacity-90">
-            Boutique cruise vacations and curated Disney experiences. Let GV Travel navigate the complexities while you
-            immersion yourself in the voyage.
+            I help busy families plan cruises, Disney vacations, and Caribbean getaways that feel special without
+            stretching the budget. You bring the dream, and I&apos;ll handle the details.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-y-4 sm:flex-row sm:gap-x-6">
             <Button
@@ -46,11 +46,11 @@ export function Hero() {
               size="lg"
               className="w-full rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral-hex)] sm:w-auto"
             >
-              <Link href="/start-planning">Chart Your Next Journey</Link>
+              <Link href="/start-planning">Start Planning with Me</Link>
             </Button>
             <Button asChild variant="link" className="text-white hover:text-[var(--color-accent-magic-hex)]">
               <Link href="/about">
-                Our Compass Story <span aria-hidden="true">→</span>
+                Meet Your Travel Advisor <span aria-hidden="true">→</span>
               </Link>
             </Button>
           </div>

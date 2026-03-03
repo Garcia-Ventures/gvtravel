@@ -20,7 +20,7 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
           <div className="lg:pt-4 lg:pr-8">
             <div className="lg:max-w-lg">
               <h2 className="font-serif text-base leading-7 font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
-                Our Compass Story
+                Meet Your Travel Advisor
               </h2>
               <p className="mt-2 font-serif text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl">
                 {title}
@@ -34,8 +34,13 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
                 ) : (
                   <>
                     <p>
-                      Hello! We are the Garcia family. GV Travel was born from our belief that the most profound
-                      connections are made when families explore the horizon together.
+                      I specialize in helping families and budget-conscious travelers plan stress-free Caribbean,
+                      cruise, and Disney vacations with strong value and high-quality experiences.
+                    </p>
+                    <p className="mt-6">
+                      As a homeschool mom of three boys, I understand how important it is to build trips that are
+                      family-friendly, well-paced, and realistic for your budget. I help you sort through options, avoid
+                      overwhelm, and move forward with confidence.
                     </p>
 
                     <div className="not-prose mt-10 grid gap-4">
@@ -44,11 +49,11 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
                           <span className="mt-0.5 shrink-0 text-2xl">⚓</span>
                           <div>
                             <h3 className="font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
-                              Seamless Adventure
+                              Family-First Planning
                             </h3>
                             <p className="mt-1 text-sm text-[var(--color-text-main)] opacity-80">
-                              Having navigated dozens of voyages and world-class destinations, we bring firsthand
-                              clarity to your family&apos;s journey.
+                              From room types and cruise ships to park tickets and resort choices, I help you choose
+                              what fits your family best.
                             </p>
                           </div>
                         </CardContent>
@@ -59,11 +64,11 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
                           <span className="mt-0.5 shrink-0 text-2xl">✨</span>
                           <div>
                             <h3 className="font-serif font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
-                              Boutique Concierge
+                              Value Without Sacrificing Experience
                             </h3>
                             <p className="mt-1 text-sm text-[var(--color-text-main)] opacity-80">
-                              We treat every expedition as if it were our own family&apos;s legacy, with obsessive
-                              attention to the details that elevate the experience.
+                              I focus on where to save, what to prioritize, and how to get the most out of your budget
+                              so your vacation still feels special.
                             </p>
                           </div>
                         </CardContent>

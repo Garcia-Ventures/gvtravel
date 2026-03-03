@@ -45,10 +45,11 @@ export function TripInquiryForm() {
       <Card className="mx-auto max-w-2xl overflow-hidden rounded-2xl border-[var(--color-primary-teal)]/20 bg-[var(--color-primary-teal)]/10 shadow-xl transition-all duration-300">
         <CardContent className="p-8 text-center">
           <h3 className="font-serif text-xl font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
-            Your Journey is Being Charted
+            Your Trip Request Was Received
           </h3>
           <p className="mt-2 text-[var(--color-text-main)] opacity-80">
-            Thank you for trusting GV Travel. Our concierge team is already charting your personalized course.
+            Thank you for reaching out. I&apos;ll review your details and follow up soon with next steps tailored to
+            your family and budget.
           </p>
           <Button
             variant="link"
@@ -66,16 +67,18 @@ export function TripInquiryForm() {
     <Card className="mx-auto max-w-2xl overflow-hidden rounded-2xl border-[var(--color-primary-teal)]/10 bg-[var(--color-background)] shadow-2xl">
       <CardHeader className="border-b border-[var(--color-primary-teal)]/10 bg-[var(--color-primary-teal)]/5 p-8">
         <CardTitle className="font-serif text-2xl font-bold text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]">
-          Chart Your Next Adventure
+          Tell Me About Your Trip
         </CardTitle>
-        <p className="text-sm text-[var(--color-text-main)] opacity-70">Share your vision with our concierge team.</p>
+        <p className="text-sm text-[var(--color-text-main)] opacity-70">
+          A few quick details help me recommend the best-fit options for your family.
+        </p>
       </CardHeader>
       <CardContent className="p-8">
         <form name="trip-inquiry" onSubmit={handleSubmit} className="space-y-8">
           {/* Contact Info */}
           <div className="space-y-4">
             <h3 className="font-serif text-lg text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
-              Personal Details
+              Contact Information
             </h3>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="space-y-2">
@@ -110,22 +113,23 @@ export function TripInquiryForm() {
           {/* Trip Basics */}
           <div className="space-y-4">
             <h3 className="font-serif text-lg text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
-              The Journey Vision
+              Trip Basics
             </h3>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label htmlFor="trip-type" className="font-bold text-[var(--color-text-main)] opacity-90">
-                  Type of Experience
+                  Trip Type
                 </Label>
                 <Select value={tripType} onValueChange={setTripType} name="trip-type">
                   <SelectTrigger className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus:ring-[var(--color-accent-magic-hex)]">
-                    <SelectValue placeholder="Select experience type" />
+                    <SelectValue placeholder="Select trip type" />
                   </SelectTrigger>
                   <SelectContent className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] text-[var(--color-text-main-hex)]">
                     <SelectItem value="cruise">Cruise</SelectItem>
+                    <SelectItem value="disney-cruise">Disney Cruise</SelectItem>
+                    <SelectItem value="disney-park">Disney Parks</SelectItem>
                     <SelectItem value="resort">All-Inclusive Resort</SelectItem>
-                    <SelectItem value="tour">Guided Land Tour</SelectItem>
                     <SelectItem value="combo">Combo / Custom</SelectItem>
                     <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
@@ -134,7 +138,7 @@ export function TripInquiryForm() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="budget" className="font-bold text-[var(--color-text-main-hex)] opacity-90">
-                  Investment Range
+                  Budget Range
                 </Label>
                 <Select value={budget} onValueChange={setBudget} name="budget">
                   <SelectTrigger className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus:ring-[var(--color-accent-magic-hex)]">
@@ -154,14 +158,14 @@ export function TripInquiryForm() {
 
             <div className="space-y-2">
               <Label htmlFor="details" className="font-bold text-[var(--color-text-main-hex)] opacity-90">
-                Describe Your Ideal Destination
+                What does your ideal trip look like?
               </Label>
               <Textarea
                 id="details"
                 name="details"
                 rows={4}
                 className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus-visible:ring-[var(--color-accent-magic-hex)]"
-                placeholder="Where do you hear the sea calling? Who is part of your crew? Share your dream dates."
+                placeholder="Share destination ideas, who is traveling, timing, and anything important for comfort or budget."
               />
             </div>
           </div>
@@ -182,7 +186,7 @@ export function TripInquiryForm() {
               htmlFor="consent"
               className="cursor-pointer text-sm leading-6 font-medium text-[var(--color-text-main-hex)] opacity-80"
             >
-              I trust GV Travel to guide my inquiry with care.
+              I agree to be contacted about my trip inquiry.
             </Label>
           </div>
 
@@ -193,7 +197,7 @@ export function TripInquiryForm() {
               className="w-full rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:bg-[var(--color-secondary-coral-hex)] disabled:cursor-not-allowed disabled:opacity-50"
               size="lg"
             >
-              {state.submitting ? 'Submitting...' : 'Send Inquiry'}
+              {state.submitting ? 'Submitting...' : 'Send My Trip Request'}
             </Button>
 
             {state.errors && (

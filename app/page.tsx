@@ -14,14 +14,14 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="font-serif text-base leading-7 font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
-              Why Choose Our Compass
+              Why Families Choose GV Travel
             </h2>
             <p className="mt-2 font-serif text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl">
-              We guide. You make memories.
+              Less stress. Better value. More meaningful memories.
             </p>
             <p className="mt-6 text-lg leading-8 text-[var(--color-text-main)] opacity-80">
-              From uncovering hidden gems to navigating complex maritime itineraries, we chart the course so your family
-              can focus on the experience.
+              From choosing the right cruise ship or Disney resort to finding where your dollars go furthest, we help
+              you plan smart so your family can focus on enjoying the trip.
             </p>
           </div>
         </div>
@@ -32,11 +32,11 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h2 className="font-serif text-3xl font-bold tracking-tight text-[var(--color-background)] sm:text-4xl">
-              Ready to set sail on your next adventure?
+              Ready to plan a trip your family will truly enjoy?
             </h2>
             <p className="mt-6 text-lg leading-8 text-[var(--color-background)] opacity-90">
-              Share your vision with our boutique concierge, and we&apos;ll craft a unique proposal that captures the
-              essence of your journey.
+              Tell us your goals, budget, and travel style, and we&apos;ll help you build a high-quality vacation that
+              feels doable from day one.
             </p>
             <div className="mt-10 flex flex-col items-start gap-y-4 sm:flex-row sm:items-center sm:gap-x-6">
               <Button
@@ -44,7 +44,7 @@ export default function Home() {
                 size="lg"
                 className="w-full rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral)] sm:w-auto"
               >
-                <Link href="/start-planning">Request Your Proposal</Link>
+                <Link href="/start-planning">Start My Family Trip Plan</Link>
               </Button>
             </div>
           </div>

@@ -14,7 +14,7 @@ export function Footer() {
               <Logo className="h-10 w-auto text-[var(--color-logo)] transition-colors duration-300" />
             </Link>
             <p className="max-w-xs text-sm font-medium text-[var(--color-text-main)] opacity-70">
-              Expertly crafted magic and seamless adventure. Let our compass guide your next family experience.
+              Thoughtful travel planning for families who want memorable trips, smart spending, and less stress.
             </p>
           </div>
 
@@ -25,7 +25,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-[var(--color-text-main)] opacity-80">
               <li>
                 <Link href="/about" className="transition-colors hover:text-[var(--color-accent-magic)]">
-                  Our Compass Story
+                  Meet Your Travel Advisor
                 </Link>
               </li>
             </ul>
@@ -52,7 +52,7 @@ export function Footer() {
                         href="mailto:lindsay@gv-travel.com"
                         className="transition-colors hover:text-[var(--color-accent-magic)]"
                       >
-                        Email the Concierge
+                        Email Lindsay
                       </a>
                     </TooltipTrigger>
                     <TooltipContent

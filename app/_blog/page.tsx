@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Blog - GV Travel',
-  description: 'Trip reports, reviews, and travel tips from our family adventures.',
+  description: 'Family travel tips, cruise insights, and budget-friendly planning ideas from real trips.',
 };
 
 export default async function BlogIndex() {
@@ -26,13 +26,14 @@ export default async function BlogIndex() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="mb-4 font-serif text-sm font-bold tracking-[0.3em] text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
-            The Captain&apos;s Journal
+            Travel Tips & Real Experiences
           </h2>
           <h1 className="font-serif text-4xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-5xl">
-            Travel Log & Magic Insights
+            Family Travel Notes
           </h1>
           <p className="mt-6 text-lg leading-8 font-medium text-[var(--color-text-main)] opacity-80">
-            Discover trip reports, hidden magical gems, and maritime reviews from our latest voyages.
+            Browse practical planning tips, honest reviews, and destination ideas from a homeschool mom who loves
+            quality travel on a realistic budget.
           </p>
         </div>
         <BlogList posts={posts} />

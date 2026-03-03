@@ -23,7 +23,7 @@ import Link from 'next/link';
 import { Logo } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
 
-const navItems = [{ href: '/about', label: 'About' }];
+const navItems = [{ href: '/about', label: 'Meet Your Advisor' }];
 
 export function Header() {
   const isMounted = useIsMounted();
@@ -75,7 +75,7 @@ export function Header() {
                 side="bottom"
                 className="border border-[var(--color-primary-teal)]/10 bg-[var(--color-background)] text-xs text-[var(--color-text-main)] shadow-lg"
               >
-                Plan your family&apos;s next extraordinary journey
+                Plan your family&apos;s trip with practical, personal guidance
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -104,13 +104,13 @@ export function Header() {
                     href="/about"
                     className="text-lg font-medium text-[var(--color-text-main)] transition-colors hover:text-[var(--color-accent-magic)]"
                   >
-                    Our Compass Story
+                    Meet Your Travel Advisor
                   </Link>
                   <Button
                     asChild
                     className="mt-4 rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:bg-[var(--color-secondary-coral)]"
                   >
-                    <Link href="/start-planning">Begin Your Bespoke Journey</Link>
+                    <Link href="/start-planning">Start Planning</Link>
                   </Button>
                 </div>
               </SheetContent>

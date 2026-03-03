@@ -10,11 +10,11 @@ export default function ThankYouPage() {
         <CardContent className="p-10">
           <div className="mb-6 text-5xl">⚓</div>
           <h1 className="font-serif text-3xl font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl">
-            Thank You!
+            Thanks for Reaching Out!
           </h1>
           <p className="mt-4 text-base leading-7 font-medium text-[var(--color-text-main)] opacity-70">
-            We have received your trip inquiry and our concierge team is already charting your course. We&apos;ll be in
-            touch shortly with your personalized voyage plan.
+            Your trip details are in, and I&apos;ll follow up soon to help you map out options that match your family,
+            priorities, and budget.
           </p>
 
           <Separator className="my-8 bg-[var(--color-primary-teal)]/10" />
@@ -33,7 +33,7 @@ export default function ThankYouPage() {
               className="text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]"
             >
               <Link href="/blog">
-                Read our travel blog <span aria-hidden="true">&rarr;</span>
+                Read family travel tips <span aria-hidden="true">&rarr;</span>
               </Link>
             </Button>
           </div>
