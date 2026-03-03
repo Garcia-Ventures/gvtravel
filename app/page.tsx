@@ -1,6 +1,7 @@
 'use client';
 
 import { Hero } from '@/components/Hero';
+import { PRIMARY_CTA_BUTTON_CLASS } from '@/lib/utils';
 import { Button } from '@gv-tech/ui-web';
 import Link from 'next/link';
 
@@ -42,7 +43,7 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className="w-full rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral)] sm:w-auto"
+                className={`w-full text-base hover:scale-105 sm:w-auto ${PRIMARY_CTA_BUTTON_CLASS}`}
               >
                 <Link href="/start-planning">Start My Family Trip Plan</Link>
               </Button>

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { useIsMounted } from '@/lib/hooks';
+import { PRIMARY_CTA_BUTTON_CLASS_HEX } from '@/lib/utils';
 
 export function Hero() {
   const isMounted = useIsMounted();
@@ -44,7 +45,7 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="w-full rounded-full bg-[var(--color-accent-magic-hex)] px-6 py-3 text-base font-bold text-[var(--color-cta-text-hex)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral-hex)] sm:w-auto"
+              className={`w-full text-base hover:scale-105 sm:w-auto ${PRIMARY_CTA_BUTTON_CLASS_HEX}`}
             >
               <Link href="/start-planning">Start Planning with Me</Link>
             </Button>

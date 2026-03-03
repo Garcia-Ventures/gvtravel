@@ -1,6 +1,7 @@
 'use client';
 
 import { useIsMounted } from '@/lib/hooks';
+import { PRIMARY_CTA_BUTTON_CLASS } from '@/lib/utils';
 import {
   Button,
   NavigationMenu,
@@ -66,7 +67,7 @@ export function Header() {
               <TooltipTrigger asChild>
                 <Button
                   asChild
-                  className="hidden rounded-full bg-[var(--color-accent-magic)] px-5 py-2 text-sm font-bold text-[var(--color-cta-text)] shadow-sm hover:scale-105 hover:bg-[var(--color-secondary-coral)] active:scale-95 sm:inline-flex"
+                  className={`hidden px-5 py-2 text-sm hover:scale-105 active:scale-95 sm:inline-flex ${PRIMARY_CTA_BUTTON_CLASS}`}
                 >
                   <Link href="/start-planning">Start Planning</Link>
                 </Button>
@@ -116,10 +117,7 @@ export function Header() {
                       ))}
                     </NavigationMenuList>
                   </NavigationMenu>
-                  <Button
-                    asChild
-                    className="mt-4 rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:bg-[var(--color-secondary-coral)]"
-                  >
+                  <Button asChild className={`mt-4 text-base ${PRIMARY_CTA_BUTTON_CLASS}`}>
                     <Link href="/start-planning">Start Planning</Link>
                   </Button>
                 </div>

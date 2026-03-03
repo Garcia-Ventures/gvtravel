@@ -1,5 +1,6 @@
 'use client';
 
+import { PRIMARY_CTA_BUTTON_CLASS } from '@/lib/utils';
 import {
   Button,
   Card,
@@ -35,7 +36,7 @@ export default function ThankYouPage() {
               <Button
                 asChild
                 size="lg"
-                className="w-full rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral)] sm:w-auto"
+                className={`w-full text-base hover:scale-105 sm:w-auto ${PRIMARY_CTA_BUTTON_CLASS}`}
               >
                 <Link href="/">Back to Home</Link>
               </Button>
