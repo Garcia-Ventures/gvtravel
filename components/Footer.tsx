@@ -1,6 +1,16 @@
 'use client';
 
-import { Separator, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@gv-tech/ui-web';
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  Separator,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@gv-tech/ui-web';
 import Link from 'next/link';
 import { Logo } from './Logo';
 
@@ -22,49 +32,57 @@ export function Footer() {
             <h3 className="mb-4 font-serif text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
               Explore
             </h3>
-            <ul className="space-y-3 text-sm text-[var(--color-text-main)] opacity-80">
-              <li>
-                <Link href="/about" className="transition-colors hover:text-[var(--color-accent-magic)]">
-                  Meet Your Travel Advisor
-                </Link>
-              </li>
-            </ul>
+            <NavigationMenu orientation="vertical" className="max-w-none justify-start">
+              <NavigationMenuList className="flex-col items-start gap-3 text-sm text-[var(--color-text-main)] opacity-80">
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link href="/about" className="transition-colors hover:text-[var(--color-accent-magic)]">
+                      Meet Your Travel Advisor
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
 
           <div>
             <h3 className="mb-4 font-serif text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
               Connect
             </h3>
-            <ul className="space-y-3 text-sm text-[var(--color-text-main)] opacity-80">
-              <li>
-                <Link
-                  href="/start-planning"
-                  className="font-bold transition-colors hover:text-[var(--color-accent-magic)]"
-                >
-                  Start Planning
-                </Link>
-              </li>
-              <li>
-                <TooltipProvider delayDuration={250}>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <a
-                        href="mailto:lindsay@gv-travel.com"
-                        className="transition-colors hover:text-[var(--color-accent-magic)]"
-                      >
-                        Email Lindsay
-                      </a>
-                    </TooltipTrigger>
-                    <TooltipContent
-                      side="top"
-                      className="border border-[var(--color-primary-teal)]/10 bg-[var(--color-background)] text-xs text-[var(--color-text-main)] shadow-lg"
+            <NavigationMenu orientation="vertical" className="max-w-none justify-start">
+              <NavigationMenuList className="flex-col items-start gap-3 text-sm text-[var(--color-text-main)] opacity-80">
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href="/start-planning"
+                      className="font-bold transition-colors hover:text-[var(--color-accent-magic)]"
                     >
-                      lindsay@gv-travel.com
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-              </li>
-            </ul>
+                      Start Planning
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <TooltipProvider delayDuration={250}>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <a
+                          href="mailto:lindsay@gv-travel.com"
+                          className="transition-colors hover:text-[var(--color-accent-magic)]"
+                        >
+                          Email Lindsay
+                        </a>
+                      </TooltipTrigger>
+                      <TooltipContent
+                        side="top"
+                        className="border border-[var(--color-primary-teal)]/10 bg-[var(--color-background)] text-xs text-[var(--color-text-main)] shadow-lg"
+                      >
+                        lindsay@gv-travel.com
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
         </div>
 

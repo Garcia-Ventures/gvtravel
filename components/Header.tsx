@@ -100,12 +100,22 @@ export function Header() {
                   </SheetTitle>
                 </SheetHeader>
                 <div className="mt-10 flex flex-col gap-6">
-                  <Link
-                    href="/about"
-                    className="text-lg font-medium text-[var(--color-text-main)] transition-colors hover:text-[var(--color-accent-magic)]"
-                  >
-                    Meet Your Travel Advisor
-                  </Link>
+                  <NavigationMenu orientation="vertical" className="max-w-none justify-start">
+                    <NavigationMenuList className="flex-col items-start gap-2">
+                      {navItems.map((item) => (
+                        <NavigationMenuItem key={item.href}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              href={item.href}
+                              className="text-lg font-medium text-[var(--color-text-main)] transition-colors hover:text-[var(--color-accent-magic)]"
+                            >
+                              {item.label}
+                            </Link>
+                          </NavigationMenuLink>
+                        </NavigationMenuItem>
+                      ))}
+                    </NavigationMenuList>
+                  </NavigationMenu>
                   <Button
                     asChild
                     className="mt-4 rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-base font-bold text-[var(--color-cta-text)] shadow-xl hover:bg-[var(--color-secondary-coral)]"
