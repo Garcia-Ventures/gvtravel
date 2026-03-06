@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@eng618/prettier-config": "^2.9.1",
-    "@gv-tech/eslint-config": "^0.1.8",
+    "@gv-tech/eslint-config": "^0.1.14",
     "@next/eslint-plugin-next": "^16.1.6",
     "@tailwindcss/postcss": "^4.2.1",
     "@types/node": "^24.10.15",
