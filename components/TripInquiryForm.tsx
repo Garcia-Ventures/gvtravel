@@ -31,6 +31,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useIsMounted } from '@/lib/hooks';
+import { trackEvent } from '@/lib/plausible';
 
 type TripInquiryValues = {
   name: string;
@@ -72,6 +73,13 @@ export function TripInquiryForm() {
       console.warn('Formspree ID is missing. Please set NEXT_PUBLIC_FORMSPREE_ID in your .env file.');
     }
   }, [formId]);
+
+  React.useEffect(() => {
+    if (state.succeeded) {
+      const { tripType, budget } = form.getValues();
+      trackEvent('TripInquirySubmitted', { tripType, budget });
+    }
+  }, [state.succeeded, form]);
 
   if (!isMounted) {
     return null;

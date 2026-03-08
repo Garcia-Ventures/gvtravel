@@ -16,6 +16,7 @@ export function PlausibleProvider({
         autoCapturePageviews: true,
         formSubmissions: true,
         outboundLinks: true,
+        captureOnLocalhost: process.env.NODE_ENV === 'development',
       });
     });
   }, []);
