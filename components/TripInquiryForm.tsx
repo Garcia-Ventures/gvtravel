@@ -122,7 +122,7 @@ export function TripInquiryForm() {
       </CardHeader>
       <CardContent className="p-8">
         {formId === 'missing-form-id' && process.env.NODE_ENV === 'development' && (
-          <Alert variant="warning" className="mb-6 border-[var(--color-primary-teal)]/20">
+          <Alert variant="destructive" className="mb-6 border-[var(--color-primary-teal)]/20">
             <AlertTitle>Form configuration needed</AlertTitle>
             <AlertDescription>
               Set `NEXT_PUBLIC_FORMSPREE_ID` in your environment to enable inquiry submissions.
@@ -283,7 +283,7 @@ export function TripInquiryForm() {
                     <FormControl>
                       <Checkbox
                         checked={field.value}
-                        onCheckedChange={(checked) => field.onChange(checked === true)}
+                        onCheckedChange={(checked: boolean | 'indeterminate') => field.onChange(checked === true)}
                         className="h-5 w-5 rounded-sm border-2 border-[var(--color-primary-teal-hex)]/40 transition-all data-[state=checked]:border-[var(--color-primary-teal-hex)] data-[state=checked]:bg-[var(--color-primary-teal-hex)]"
                       />
                     </FormControl>

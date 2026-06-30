@@ -136,7 +136,7 @@ export function GalleryGrid({ items }: GalleryGridProps) {
         ))}
       </div>
 
-      <Dialog open={selectedIndex !== null} onOpenChange={(open) => !open && setSelectedIndex(null)}>
+      <Dialog open={selectedIndex !== null} onOpenChange={(open: boolean) => !open && setSelectedIndex(null)}>
         <DialogContent className="max-w-4xl overflow-hidden border-none bg-black/90 p-0 text-white">
           <DialogTitle className="sr-only">Image Gallery Carousel</DialogTitle>
           <DialogDescription className="sr-only">

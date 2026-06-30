@@ -20,7 +20,9 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@sanity/image-url": ["./node_modules/@sanity/image-url/lib/index.d.ts"]
+      "@sanity/image-url": ["./node_modules/@sanity/image-url/lib/index.d.ts"],
+      "@gv-tech/ui-web": ["./node_modules/@gv-tech/ui-web/src/index.ts"],
+      "@gv-tech/ui-core": ["./node_modules/@gv-tech/ui-core/src/index.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/dev/types/**/*.ts", "**/*.mts"],
