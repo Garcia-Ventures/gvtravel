@@ -113,6 +113,83 @@ export function trackNotFoundRecovered(action: string): void {
   trackEvent('not_found_recovered', { action });
 }
 
+export type AnalyticsEnvironment = {
+  environment: 'production' | 'preview' | 'development';
+  deployment_type: string;
+  branch: string;
+  host: string;
+  commit_sha?: string;
+};
+
+/**
+ * Determine the runtime deployment environment, branch, and host.
+ */
+export function getAnalyticsEnvironment(): AnalyticsEnvironment {
+  const branchEnv = process.env.NEXT_PUBLIC_CF_PAGES_BRANCH || '';
+  const commitSha = process.env.NEXT_PUBLIC_CF_PAGES_COMMIT_SHA || '';
+  const isDev = process.env.NODE_ENV === 'development';
+
+  if (typeof window === 'undefined') {
+    return {
+      environment: isDev ? 'development' : 'production',
+      deployment_type: isDev ? 'local_ssr' : 'static_export',
+      branch: branchEnv || 'unknown',
+      host: 'server',
+      ...(commitSha ? { commit_sha: commitSha.slice(0, 7) } : {}),
+    };
+  }
+
+  const hostname = window.location.hostname;
+
+  let environment: 'production' | 'preview' | 'development' = 'production';
+  let deploymentType = 'custom_domain';
+
+  if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname.endsWith('.local')) {
+    environment = 'development';
+    deploymentType = 'localhost';
+  } else if (hostname === 'gv-travel.com' || hostname === 'www.gv-travel.com') {
+    environment = 'production';
+    deploymentType = 'production_custom_domain';
+  } else if (hostname.endsWith('.pages.dev')) {
+    if (hostname.startsWith('develop.') || branchEnv === 'develop') {
+      environment = 'preview';
+      deploymentType = 'develop_branch_preview';
+    } else if (hostname.startsWith('main.') || branchEnv === 'main') {
+      environment = 'production';
+      deploymentType = 'main_pages_dev';
+    } else {
+      environment = 'preview';
+      deploymentType = 'pr_branch_preview';
+    }
+  }
+
+  const inferredBranch =
+    branchEnv ||
+    (hostname.startsWith('develop.')
+      ? 'develop'
+      : hostname === 'gv-travel.com' || hostname.startsWith('main.')
+        ? 'main'
+        : 'unknown');
+
+  return {
+    environment,
+    deployment_type: deploymentType,
+    branch: inferredBranch,
+    host: hostname,
+    ...(commitSha ? { commit_sha: commitSha.slice(0, 7) } : {}),
+  };
+}
+
+/**
+ * Set global properties across all OpenPanel tracking calls.
+ */
+export function setGlobalProperties(properties: Record<string, unknown>): void {
+  const op = getOpenPanel();
+  if (op) {
+    op('setGlobalProperties', properties);
+  }
+}
+
 /**
  * Set user profile metadata in OpenPanel on the client.
  */
