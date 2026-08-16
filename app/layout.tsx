@@ -1,6 +1,6 @@
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
-import { PlausibleProvider } from '@/components/PlausibleProvider';
+import { OpenPanelProvider } from '@/components/OpenPanelProvider';
 import { ThemeFavicon } from '@/components/ThemeFavicon';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import type { Metadata } from 'next';
@@ -43,13 +43,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} flex min-h-screen flex-col antialiased`}
         suppressHydrationWarning
       >
-        <PlausibleProvider>
-          <ThemeProvider>
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </ThemeProvider>
-        </PlausibleProvider>
+        <OpenPanelProvider />
+        <ThemeProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

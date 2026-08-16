@@ -31,7 +31,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useIsMounted } from '@/lib/hooks';
-import { trackEvent } from '@/lib/plausible';
+import { trackEvent } from '@/lib/openpanel';
 
 type TripInquiryValues = {
   name: string;
