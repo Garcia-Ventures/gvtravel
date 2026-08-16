@@ -1,6 +1,7 @@
 'use client';
 
 import { useIsMounted } from '@/lib/hooks';
+import { trackCtaClick, trackNavigationClick } from '@/lib/openpanel';
 import { PRIMARY_CTA_BUTTON_CLASS } from '@/lib/utils';
 import {
   Button,
@@ -38,7 +39,11 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[var(--color-primary-teal)]/10 bg-[var(--color-nav-bg)] backdrop-blur-md transition-colors duration-300">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="group flex items-center gap-2">
+        <Link
+          href="/"
+          className="group flex items-center gap-2"
+          onClick={() => trackNavigationClick({ location: 'header', label: 'logo', target: '/' })}
+        >
           <Logo className="h-10 w-auto text-[var(--color-logo)] transition-colors duration-300" />
         </Link>
 
@@ -50,6 +55,13 @@ export function Header() {
                 <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
                   <Link
                     href={item.href}
+                    onClick={() =>
+                      trackNavigationClick({
+                        location: 'header',
+                        label: item.label,
+                        target: item.href,
+                      })
+                    }
                     className="!bg-transparent !text-sm !font-medium !text-[var(--color-primary-teal)] transition-colors hover:!bg-[var(--color-primary-teal)]/5 hover:!text-[var(--color-accent-magic)] dark:!text-[var(--color-text-main)]"
                   >
                     {item.label}
@@ -69,7 +81,18 @@ export function Header() {
                   asChild
                   className={`hidden px-5 py-2 text-sm hover:scale-105 active:scale-95 sm:inline-flex ${PRIMARY_CTA_BUTTON_CLASS}`}
                 >
-                  <Link href="/start-planning">Start Planning</Link>
+                  <Link
+                    href="/start-planning"
+                    onClick={() =>
+                      trackCtaClick({
+                        location: 'header_desktop',
+                        label: 'Start Planning',
+                        target: '/start-planning',
+                      })
+                    }
+                  >
+                    Start Planning
+                  </Link>
                 </Button>
               </TooltipTrigger>
               <TooltipContent
@@ -108,6 +131,13 @@ export function Header() {
                           <NavigationMenuLink asChild>
                             <Link
                               href={item.href}
+                              onClick={() =>
+                                trackNavigationClick({
+                                  location: 'header_mobile',
+                                  label: item.label,
+                                  target: item.href,
+                                })
+                              }
                               className="text-lg font-medium text-[var(--color-text-main)] transition-colors hover:text-[var(--color-accent-magic)]"
                             >
                               {item.label}
@@ -118,7 +148,18 @@ export function Header() {
                     </NavigationMenuList>
                   </NavigationMenu>
                   <Button asChild className={`mt-4 text-base ${PRIMARY_CTA_BUTTON_CLASS}`}>
-                    <Link href="/start-planning">Start Planning</Link>
+                    <Link
+                      href="/start-planning"
+                      onClick={() =>
+                        trackCtaClick({
+                          location: 'header_mobile',
+                          label: 'Start Planning',
+                          target: '/start-planning',
+                        })
+                      }
+                    >
+                      Start Planning
+                    </Link>
                   </Button>
                 </div>
               </SheetContent>

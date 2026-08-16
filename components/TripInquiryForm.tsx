@@ -31,7 +31,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useIsMounted } from '@/lib/hooks';
-import { trackEvent } from '@/lib/openpanel';
+import { trackInquiryFailed, trackInquiryRestarted, trackInquiryStarted, trackInquirySubmitted } from '@/lib/openpanel';
 
 type TripInquiryValues = {
   name: string;
@@ -46,6 +46,7 @@ export function TripInquiryForm() {
   const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID || 'missing-form-id';
   const [state, handleFormspreeSubmit] = useFormspree(formId);
   const isMounted = useIsMounted();
+  const hasStartedRef = React.useRef(false);
   const form = useForm<TripInquiryValues>({
     defaultValues: {
       name: '',
@@ -75,11 +76,29 @@ export function TripInquiryForm() {
   }, [formId]);
 
   React.useEffect(() => {
+    if (form.formState.isDirty && !hasStartedRef.current) {
+      hasStartedRef.current = true;
+      trackInquiryStarted('trip_inquiry_form');
+    }
+  }, [form.formState.isDirty]);
+
+  React.useEffect(() => {
     if (state.succeeded) {
-      const { tripType, budget } = form.getValues();
-      trackEvent('TripInquirySubmitted', { tripType, budget });
+      const values = form.getValues();
+      trackInquirySubmitted({
+        trip_type: values.tripType,
+        budget: values.budget,
+        has_details: Boolean(values.details?.trim()),
+        consent: values.consent,
+      });
     }
   }, [state.succeeded, form]);
+
+  React.useEffect(() => {
+    if (state.errors && (Array.isArray(state.errors) ? state.errors.length > 0 : Boolean(state.errors))) {
+      trackInquiryFailed();
+    }
+  }, [state.errors]);
 
   if (!isMounted) {
     return null;
@@ -100,7 +119,10 @@ export function TripInquiryForm() {
         <CardContent className="p-8 pt-6 text-center">
           <Button
             variant="link"
-            onClick={() => window.location.reload()}
+            onClick={() => {
+              trackInquiryRestarted();
+              window.location.reload();
+            }}
             className="mt-6 text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]"
           >
             Send another inquiry

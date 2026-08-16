@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { useIsMounted } from '@/lib/hooks';
+import { trackCtaClick } from '@/lib/openpanel';
 import { PRIMARY_CTA_BUTTON_CLASS_HEX } from '@/lib/utils';
 
 export function Hero() {
@@ -47,10 +48,30 @@ export function Hero() {
               size="lg"
               className={`w-full text-base hover:scale-105 sm:w-auto ${PRIMARY_CTA_BUTTON_CLASS_HEX}`}
             >
-              <Link href="/start-planning">Start Planning with Me</Link>
+              <Link
+                href="/start-planning"
+                onClick={() =>
+                  trackCtaClick({
+                    location: 'hero_primary',
+                    label: 'Start Planning with Me',
+                    target: '/start-planning',
+                  })
+                }
+              >
+                Start Planning with Me
+              </Link>
             </Button>
             <Button asChild variant="link" className="text-white hover:text-[var(--color-accent-magic-hex)]">
-              <Link href="/about">
+              <Link
+                href="/about"
+                onClick={() =>
+                  trackCtaClick({
+                    location: 'hero_secondary',
+                    label: 'Meet Your Travel Advisor',
+                    target: '/about',
+                  })
+                }
+              >
                 Meet Your Travel Advisor <span aria-hidden="true">→</span>
               </Link>
             </Button>
