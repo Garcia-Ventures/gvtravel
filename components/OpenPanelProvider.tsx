@@ -23,6 +23,10 @@ export function OpenPanelProvider() {
     <OpenPanelComponent
       clientId={clientId}
       apiUrl={apiUrl}
+      // First-party script to avoid adblockers blocking openpanel.dev.
+      // Vendored from https://openpanel.dev/op1.js?v=1.5.1 into public/op1.js
+      // (plus public/op1-replay.js). Refresh on @openpanel/nextjs upgrades.
+      scriptUrl="/op1.js"
       trackScreenViews={true}
       trackOutgoingLinks={true}
       trackAttributes={true}
