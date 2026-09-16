@@ -1,5 +1,6 @@
 'use client';
 
+import { trackEmailClick, trackNavigationClick } from '@/lib/openpanel';
 import {
   Button,
   NavigationMenu,
@@ -22,7 +23,11 @@ export function Footer() {
       <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="md:col-span-2">
-            <Link href="/" className="group mb-4 inline-block">
+            <Link
+              href="/"
+              className="group mb-4 inline-block"
+              onClick={() => trackNavigationClick({ location: 'footer', label: 'logo', target: '/' })}
+            >
               <Logo className="h-10 w-auto text-[var(--color-logo)] transition-colors duration-300" />
             </Link>
             <Text as="p" variant="bodySmall" className="max-w-xs font-medium text-[var(--color-text-main)] opacity-70">
@@ -42,7 +47,17 @@ export function Footer() {
               <NavigationMenuList className="flex-col items-start gap-3 text-sm text-[var(--color-text-main)] opacity-80">
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
-                    <Link href="/about" className="transition-colors hover:text-[var(--color-accent-magic)]">
+                    <Link
+                      href="/about"
+                      onClick={() =>
+                        trackNavigationClick({
+                          location: 'footer',
+                          label: 'Meet Your Travel Advisor',
+                          target: '/about',
+                        })
+                      }
+                      className="transition-colors hover:text-[var(--color-accent-magic)]"
+                    >
                       Meet Your Travel Advisor
                     </Link>
                   </NavigationMenuLink>
@@ -65,6 +80,13 @@ export function Footer() {
                   <NavigationMenuLink asChild>
                     <Link
                       href="/start-planning"
+                      onClick={() =>
+                        trackNavigationClick({
+                          location: 'footer',
+                          label: 'Start Planning',
+                          target: '/start-planning',
+                        })
+                      }
                       className="font-bold transition-colors hover:text-[var(--color-accent-magic)]"
                     >
                       Start Planning
@@ -80,7 +102,12 @@ export function Footer() {
                           variant="link"
                           className="h-auto p-0 text-sm hover:text-[var(--color-accent-magic)]"
                         >
-                          <a href="mailto:lindsay@gv-travel.com">Email Lindsay</a>
+                          <a
+                            href="mailto:lindsay@gv-travel.com"
+                            onClick={() => trackEmailClick('footer', 'lindsay@gv-travel.com')}
+                          >
+                            Email Lindsay
+                          </a>
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent

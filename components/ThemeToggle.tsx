@@ -1,6 +1,7 @@
 'use client';
 
 import { useIsMounted } from '@/lib/hooks';
+import { trackThemeToggle } from '@/lib/openpanel';
 import { ThemeToggle as GVThemeToggle, useTheme } from '@gv-tech/ui-web';
 
 export function ThemeToggle() {
@@ -11,5 +12,10 @@ export function ThemeToggle() {
     return <div className="h-9 w-9" />;
   }
 
-  return <GVThemeToggle variant="ternary" customTheme={theme} onThemeChange={setTheme} />;
+  const handleThemeChange = (newTheme: string) => {
+    setTheme(newTheme);
+    trackThemeToggle(newTheme);
+  };
+
+  return <GVThemeToggle variant="ternary" customTheme={theme} onThemeChange={handleThemeChange} />;
 }

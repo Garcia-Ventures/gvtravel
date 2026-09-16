@@ -1,6 +1,7 @@
 'use client';
 
 import { Hero } from '@/components/Hero';
+import { trackCtaClick } from '@/lib/openpanel';
 import { PRIMARY_CTA_BUTTON_CLASS } from '@/lib/utils';
 import { Button, Text } from '@gv-tech/ui-web';
 import Link from 'next/link';
@@ -57,7 +58,18 @@ export default function Home() {
                 size="lg"
                 className={`w-full text-base hover:scale-105 sm:w-auto ${PRIMARY_CTA_BUTTON_CLASS}`}
               >
-                <Link href="/start-planning">Start My Family Trip Plan</Link>
+                <Link
+                  href="/start-planning"
+                  onClick={() =>
+                    trackCtaClick({
+                      location: 'home_bottom_banner',
+                      label: 'Start My Family Trip Plan',
+                      target: '/start-planning',
+                    })
+                  }
+                >
+                  Start My Family Trip Plan
+                </Link>
               </Button>
             </div>
           </div>

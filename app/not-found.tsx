@@ -1,10 +1,16 @@
 'use client';
 
+import { trackNotFoundRecovered, trackNotFoundViewed } from '@/lib/openpanel';
 import { Button, Text } from '@gv-tech/ui-web';
 import { Compass, Home, Map } from 'lucide-react';
 import Link from 'next/link';
+import { useEffect } from 'react';
 
 export default function NotFound() {
+  useEffect(() => {
+    trackNotFoundViewed();
+  }, []);
+
   return (
     <div className="relative isolate flex min-h-[70vh] flex-col items-center justify-center overflow-hidden bg-[var(--color-background)] px-6 py-24 text-center sm:py-32 lg:px-8">
       {/* Decorative background element */}
@@ -51,7 +57,7 @@ export default function NotFound() {
             size="lg"
             className="rounded-full bg-[var(--color-accent-magic)] px-6 py-3 text-sm font-bold text-[var(--color-cta-text)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral)] sm:text-base"
           >
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2" onClick={() => trackNotFoundRecovered('return_to_port')}>
               <Home className="h-4 w-4" />
               Return to Port
             </Link>
@@ -63,7 +69,9 @@ export default function NotFound() {
             size="lg"
             className="rounded-full text-[var(--color-primary-teal)] hover:bg-[var(--color-primary-teal)]/10 hover:!text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)] dark:hover:bg-[var(--color-accent-magic)]/10 dark:hover:!text-[var(--color-accent-magic)]"
           >
-            <Link href="/start-planning">Redesign Your Route</Link>
+            <Link href="/start-planning" onClick={() => trackNotFoundRecovered('redesign_route')}>
+              Redesign Your Route
+            </Link>
           </Button>
         </div>
       </div>
