@@ -40,7 +40,7 @@ export interface TripInquiry {
   consent: boolean;
 }
 
-import { PortableTextBlock } from 'sanity';
+import type { PortableTextBlock } from 'sanity';
 
 export interface SanityPost {
   slug: string;

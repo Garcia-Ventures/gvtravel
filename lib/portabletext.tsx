@@ -1,5 +1,5 @@
 import { Text } from '@gv-tech/ui-web';
-import { PortableTextComponents } from '@portabletext/react';
+import type { PortableTextComponents } from '@portabletext/react';
 
 export const portableTextComponents: PortableTextComponents = {
   block: {
