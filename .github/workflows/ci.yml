@@ -67,6 +67,6 @@ jobs:
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           install-script: "bun install --frozen-lockfile"
-          build-script: "build"
+          build-script: "bun run build"
           pattern: ".next/static/**/*.{js,css}"
           strip-hash: "\\.[0-9a-f]{16}\\."
