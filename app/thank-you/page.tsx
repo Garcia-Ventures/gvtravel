@@ -1,5 +1,6 @@
 'use client';
 
+import { trackCtaClick } from '@/lib/openpanel';
 import { PRIMARY_CTA_BUTTON_CLASS } from '@/lib/utils';
 import {
   Button,
@@ -38,14 +39,34 @@ export default function ThankYouPage() {
                 size="lg"
                 className={`w-full text-base hover:scale-105 sm:w-auto ${PRIMARY_CTA_BUTTON_CLASS}`}
               >
-                <Link href="/">Back to Home</Link>
+                <Link
+                  href="/"
+                  onClick={() =>
+                    trackCtaClick({
+                      location: 'thank_you',
+                      label: 'Back to Home',
+                      target: '/',
+                    })
+                  }
+                >
+                  Back to Home
+                </Link>
               </Button>
               <Button
                 asChild
                 variant="link"
                 className="text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]"
               >
-                <Link href="/blog">
+                <Link
+                  href="/blog"
+                  onClick={() =>
+                    trackCtaClick({
+                      location: 'thank_you',
+                      label: 'Read family travel tips',
+                      target: '/blog',
+                    })
+                  }
+                >
                   Read family travel tips <span aria-hidden="true">&rarr;</span>
                 </Link>
               </Button>
