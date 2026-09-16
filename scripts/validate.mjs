@@ -80,18 +80,18 @@ async function validate() {
   const startTime = Date.now();
   let success = true;
 
-  // 1. Formatting
+  // 1. Formatting (oxfmt - see package.json format / format:ci scripts)
   const formatArgs = isFix ? ['--write', '.'] : ['--check', '.'];
-  if (!runCommand('npx prettier', formatArgs, 'Formatting')) {
+  if (!runCommand('npx oxfmt', formatArgs, 'Formatting')) {
     success = false;
     if (!isFix) {
       console.log(`${colors.yellow}Tip: Run with --fix to automatically fix formatting.${colors.reset}`);
     }
   }
 
-  // 2. Linting
-  const lintArgs = isFix ? ['.', '--cache', '--fix'] : ['.', '--cache'];
-  if (!runCommand('npx eslint', lintArgs, 'Linting')) {
+  // 2. Linting (oxlint - see package.json lint / lint:fix scripts)
+  const lintArgs = isFix ? ['.', '--fix'] : ['.'];
+  if (!runCommand('npx oxlint', lintArgs, 'Linting')) {
     success = false;
   }
 

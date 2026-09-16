@@ -1,7 +1,6 @@
 'use client';
 
-import type {
-  CarouselApi} from '@gv-tech/ui-web';
+import type { CarouselApi } from '@gv-tech/ui-web';
 import {
   AspectRatio,
   Button,
