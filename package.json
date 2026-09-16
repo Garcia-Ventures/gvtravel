@@ -38,7 +38,7 @@
     "styled-components": "^6.5.3"
   },
   "devDependencies": {
-    "@gv-tech/oxc-config": "^0.1.0",
+    "@gv-tech/oxc-config": "^1.1.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^25.9.7",
     "@types/prop-types": "^15.7.15",
