@@ -1,9 +1,10 @@
 'use client';
 
-import { useIsMounted } from '@/lib/hooks';
-import { getAnalyticsEnvironment } from '@/lib/openpanel';
 import { OpenPanelComponent } from '@openpanel/nextjs';
 import { useEffect } from 'react';
+
+import { useIsMounted } from '@/lib/hooks';
+import { getAnalyticsEnvironment } from '@/lib/openpanel';
 
 export function OpenPanelProvider() {
   const clientId = process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID || 'e6e37bb6-cfe2-4873-ab58-d5c8d63e1e1d';

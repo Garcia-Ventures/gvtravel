@@ -1,9 +1,10 @@
+import { Text } from '@gv-tech/ui-web';
+import type { Metadata } from 'next';
+
 import { BlogList } from '@/components/BlogList';
-import { BlogPost, SanityPost } from '@/lib/types';
+import type { BlogPost, SanityPost } from '@/lib/types';
 import { client } from '@/sanity/lib/client';
 import { POSTS_QUERY } from '@/sanity/lib/queries';
-import { Text } from '@gv-tech/ui-web';
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Blog - GV Travel',

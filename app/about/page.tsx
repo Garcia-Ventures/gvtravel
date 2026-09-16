@@ -1,7 +1,8 @@
+import type { Metadata } from 'next';
+
 import { AboutContent } from '@/components/AboutContent';
 import { client } from '@/sanity/lib/client';
 import { ABOUT_QUERY } from '@/sanity/lib/queries';
-import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'About Us - GV Travel',

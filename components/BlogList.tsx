@@ -1,7 +1,9 @@
 'use client';
 
-import { BlogPost } from '@/lib/types';
 import { Separator } from '@gv-tech/ui-web';
+
+import type { BlogPost } from '@/lib/types';
+
 import { BlogCard } from './BlogCard';
 
 interface BlogListProps {

@@ -1,6 +1,7 @@
-import { TripInquiryForm } from '@/components/TripInquiryForm';
 import { Text } from '@gv-tech/ui-web';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+
+import { TripInquiryForm } from '@/components/TripInquiryForm';
 
 export const metadata: Metadata = {
   title: 'Start Planning - GV Travel',

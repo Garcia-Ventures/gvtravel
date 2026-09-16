@@ -1,8 +1,9 @@
 'use client';
 
+import { ThemeToggle as GVThemeToggle, useTheme } from '@gv-tech/ui-web';
+
 import { useIsMounted } from '@/lib/hooks';
 import { trackThemeToggle } from '@/lib/openpanel';
-import { ThemeToggle as GVThemeToggle, useTheme } from '@gv-tech/ui-web';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();

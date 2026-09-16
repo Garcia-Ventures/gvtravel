@@ -1,9 +1,10 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+
 import { BlogPost } from '@/components/BlogPost';
-import { SanityPost } from '@/lib/types';
+import type { SanityPost } from '@/lib/types';
 import { client } from '@/sanity/lib/client';
 import { POST_QUERY, POSTS_QUERY } from '@/sanity/lib/queries';
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
 interface Props {
   params: Promise<{ slug: string }>;

@@ -1,10 +1,11 @@
 'use client';
 
-import { trackNotFoundRecovered, trackNotFoundViewed } from '@/lib/openpanel';
 import { Button, Text } from '@gv-tech/ui-web';
 import { Compass, Home, Map } from 'lucide-react';
 import Link from 'next/link';
 import { useEffect } from 'react';
+
+import { trackNotFoundRecovered, trackNotFoundViewed } from '@/lib/openpanel';
 
 export default function NotFound() {
   useEffect(() => {

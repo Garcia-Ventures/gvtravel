@@ -1,9 +1,10 @@
 'use client';
 
-import { BlogPost } from '@/lib/types';
 import { AspectRatio, Badge, Button, Card, CardContent, CardFooter, CardHeader, Text } from '@gv-tech/ui-web';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import type { BlogPost } from '@/lib/types';
 
 interface BlogCardProps {
   post: BlogPost;

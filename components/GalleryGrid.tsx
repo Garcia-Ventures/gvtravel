@@ -1,13 +1,13 @@
 'use client';
 
-import { GalleryItem } from '@/lib/types';
+import type {
+  CarouselApi} from '@gv-tech/ui-web';
 import {
   AspectRatio,
   Button,
   Card,
   CardContent,
   Carousel,
-  CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
@@ -22,6 +22,8 @@ import {
 } from '@gv-tech/ui-web';
 import Image from 'next/image';
 import React from 'react';
+
+import type { GalleryItem } from '@/lib/types';
 
 function GalleryImage({
   src,

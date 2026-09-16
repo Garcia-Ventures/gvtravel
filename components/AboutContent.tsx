@@ -1,9 +1,10 @@
 'use client';
 
-import { portableTextComponents } from '@/lib/portabletext';
 import { Card, CardContent, Separator, Text } from '@gv-tech/ui-web';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
+
+import { portableTextComponents } from '@/lib/portabletext';
 
 interface AboutContentProps {
   title: string;

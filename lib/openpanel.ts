@@ -10,9 +10,7 @@ function getOpenPanel(): OpenPanelFunction | undefined {
   return typeof win.op === 'function' ? win.op : undefined;
 }
 
-/**
- * Fire a custom OpenPanel event on the client.
- */
+/** Fire a custom OpenPanel event on the client. */
 export function trackEvent(name: string, props?: OpenPanelProps): void {
   const op = getOpenPanel();
   if (op) {
@@ -20,9 +18,7 @@ export function trackEvent(name: string, props?: OpenPanelProps): void {
   }
 }
 
-/**
- * Track Call-To-Action button clicks.
- */
+/** Track Call-To-Action button clicks. */
 export function trackCtaClick(params: { location: string; label: string; target?: string }): void {
   trackEvent('cta_clicked', {
     location: params.location,
@@ -31,9 +27,7 @@ export function trackCtaClick(params: { location: string; label: string; target?
   });
 }
 
-/**
- * Track Header/Footer or internal navigation link clicks.
- */
+/** Track Header/Footer or internal navigation link clicks. */
 export function trackNavigationClick(params: { location: string; label: string; target?: string }): void {
   trackEvent('navigation_link_clicked', {
     location: params.location,
@@ -42,16 +36,12 @@ export function trackNavigationClick(params: { location: string; label: string; 
   });
 }
 
-/**
- * Track theme switch interactions.
- */
+/** Track theme switch interactions. */
 export function trackThemeToggle(theme: string): void {
   trackEvent('theme_toggled', { theme });
 }
 
-/**
- * Track email mailto clicks.
- */
+/** Track email mailto clicks. */
 export function trackEmailClick(location: string, emailTarget = 'lindsay@gv-travel.com'): void {
   trackEvent('email_link_clicked', {
     location,
@@ -59,16 +49,12 @@ export function trackEmailClick(location: string, emailTarget = 'lindsay@gv-trav
   });
 }
 
-/**
- * Track when a user begins interacting with the trip inquiry form.
- */
+/** Track when a user begins interacting with the trip inquiry form. */
 export function trackInquiryStarted(entryPoint = 'start_planning_page'): void {
   trackEvent('trip_inquiry_started', { entry_point: entryPoint });
 }
 
-/**
- * Track successful trip inquiry submission with sanitized non-PII properties.
- */
+/** Track successful trip inquiry submission with sanitized non-PII properties. */
 export function trackInquirySubmitted(data: {
   trip_type: string;
   budget: string;
@@ -83,32 +69,24 @@ export function trackInquirySubmitted(data: {
   });
 }
 
-/**
- * Track when a trip inquiry form submission fails.
- */
+/** Track when a trip inquiry form submission fails. */
 export function trackInquiryFailed(): void {
   trackEvent('trip_inquiry_failed', { has_errors: true });
 }
 
-/**
- * Track when a user resets/restarts the trip inquiry form after success.
- */
+/** Track when a user resets/restarts the trip inquiry form after success. */
 export function trackInquiryRestarted(): void {
   trackEvent('trip_inquiry_restarted');
 }
 
-/**
- * Track 404 page impression.
- */
+/** Track 404 page impression. */
 export function trackNotFoundViewed(path?: string): void {
   trackEvent('not_found_viewed', {
     path: path || (typeof window !== 'undefined' ? window.location.pathname : undefined),
   });
 }
 
-/**
- * Track recovery link clicks from the 404 page.
- */
+/** Track recovery link clicks from the 404 page. */
 export function trackNotFoundRecovered(action: string): void {
   trackEvent('not_found_recovered', { action });
 }
@@ -121,9 +99,7 @@ export type AnalyticsEnvironment = {
   commit_sha?: string;
 };
 
-/**
- * Determine the runtime deployment environment, branch, and host.
- */
+/** Determine the runtime deployment environment, branch, and host. */
 export function getAnalyticsEnvironment(): AnalyticsEnvironment {
   const branchEnv = process.env.NEXT_PUBLIC_CF_PAGES_BRANCH || '';
   const commitSha = process.env.NEXT_PUBLIC_CF_PAGES_COMMIT_SHA || '';
@@ -180,9 +156,7 @@ export function getAnalyticsEnvironment(): AnalyticsEnvironment {
   };
 }
 
-/**
- * Set global properties across all OpenPanel tracking calls.
- */
+/** Set global properties across all OpenPanel tracking calls. */
 export function setGlobalProperties(properties: Record<string, unknown>): void {
   const op = getOpenPanel();
   if (op) {
@@ -190,9 +164,7 @@ export function setGlobalProperties(properties: Record<string, unknown>): void {
   }
 }
 
-/**
- * Set user profile metadata in OpenPanel on the client.
- */
+/** Set user profile metadata in OpenPanel on the client. */
 export function setProfile(profile: Record<string, unknown>): void {
   const op = getOpenPanel();
   if (op) {
@@ -200,9 +172,7 @@ export function setProfile(profile: Record<string, unknown>): void {
   }
 }
 
-/**
- * Identify a user in OpenPanel on the client.
- */
+/** Identify a user in OpenPanel on the client. */
 export function identifyUser(profileId: string): void {
   const op = getOpenPanel();
   if (op) {
@@ -210,9 +180,7 @@ export function identifyUser(profileId: string): void {
   }
 }
 
-/**
- * Clear the current profile in OpenPanel on the client.
- */
+/** Clear the current profile in OpenPanel on the client. */
 export function clearProfile(): void {
   const op = getOpenPanel();
   if (op) {

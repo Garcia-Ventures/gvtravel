@@ -1,6 +1,5 @@
 'use client';
 
-import { trackEmailClick, trackNavigationClick } from '@/lib/openpanel';
 import {
   Button,
   NavigationMenu,
@@ -15,6 +14,9 @@ import {
   TooltipTrigger,
 } from '@gv-tech/ui-web';
 import Link from 'next/link';
+
+import { trackEmailClick, trackNavigationClick } from '@/lib/openpanel';
+
 import { Logo } from './Logo';
 
 export function Footer() {

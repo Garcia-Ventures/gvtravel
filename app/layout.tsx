@@ -1,11 +1,13 @@
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google';
+import { type ReactNode } from 'react';
+
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { OpenPanelProvider } from '@/components/OpenPanelProvider';
 import { ThemeFavicon } from '@/components/ThemeFavicon';
 import { ThemeProvider } from '@/components/ThemeProvider';
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google';
-import { type ReactNode } from 'react';
+
 import './globals.css';
 
 const geistSans = Geist({

@@ -163,7 +163,7 @@ gitGraph
    git checkout main
    git merge hotfix/critical-bug-fix
    git push origin main
-   
+
    # Then to develop
    git checkout develop
    git merge hotfix/critical-bug-fix

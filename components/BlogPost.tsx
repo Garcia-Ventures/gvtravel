@@ -1,7 +1,5 @@
 'use client';
 
-import { portableTextComponents } from '@/lib/portabletext';
-import { SanityPost } from '@/lib/types';
 import {
   Badge,
   Breadcrumb,
@@ -23,6 +21,9 @@ import {
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { portableTextComponents } from '@/lib/portabletext';
+import type { SanityPost } from '@/lib/types';
 
 interface BlogPostProps {
   post: SanityPost;

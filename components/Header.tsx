@@ -1,8 +1,5 @@
 'use client';
 
-import { useIsMounted } from '@/lib/hooks';
-import { trackCtaClick, trackNavigationClick } from '@/lib/openpanel';
-import { PRIMARY_CTA_BUTTON_CLASS } from '@/lib/utils';
 import {
   Button,
   NavigationMenu,
@@ -22,6 +19,11 @@ import {
 } from '@gv-tech/ui-web';
 import { Menu } from 'lucide-react';
 import Link from 'next/link';
+
+import { useIsMounted } from '@/lib/hooks';
+import { trackCtaClick, trackNavigationClick } from '@/lib/openpanel';
+import { PRIMARY_CTA_BUTTON_CLASS } from '@/lib/utils';
+
 import { Logo } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
 

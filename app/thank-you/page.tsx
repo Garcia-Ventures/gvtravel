@@ -1,7 +1,5 @@
 'use client';
 
-import { trackCtaClick } from '@/lib/openpanel';
-import { PRIMARY_CTA_BUTTON_CLASS } from '@/lib/utils';
 import {
   Button,
   Card,
@@ -13,6 +11,9 @@ import {
   Separator,
 } from '@gv-tech/ui-web';
 import Link from 'next/link';
+
+import { trackCtaClick } from '@/lib/openpanel';
+import { PRIMARY_CTA_BUTTON_CLASS } from '@/lib/utils';
 
 export default function ThankYouPage() {
   return (

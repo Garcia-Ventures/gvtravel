@@ -1,10 +1,11 @@
 'use client';
 
+import { Button, Text } from '@gv-tech/ui-web';
+import Link from 'next/link';
+
 import { Hero } from '@/components/Hero';
 import { trackCtaClick } from '@/lib/openpanel';
 import { PRIMARY_CTA_BUTTON_CLASS } from '@/lib/utils';
-import { Button, Text } from '@gv-tech/ui-web';
-import Link from 'next/link';
 
 export default function Home() {
   return (
