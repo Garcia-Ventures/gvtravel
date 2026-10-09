@@ -16,9 +16,9 @@ const colors = {
   cyan: '\x1b[36m',
 };
 
-function runCommand(command, args, name) {
+function runCommand(command, cmdArgs, name) {
   console.log(`\n${colors.bright}${colors.cyan}=== Running ${name} ===${colors.reset}`);
-  const result = spawnSync(command, args, { stdio: 'inherit', shell: true });
+  const result = spawnSync(command, cmdArgs, { stdio: 'inherit', shell: true });
 
   if (result.status !== 0) {
     console.error(`\n${colors.red}✖ ${name} failed!${colors.reset}`);
