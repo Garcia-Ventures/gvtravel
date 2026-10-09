@@ -71,6 +71,8 @@ export function TripInquiryForm() {
 
   React.useEffect(() => {
     if (formId === 'missing-form-id' && process.env.NODE_ENV === 'development') {
+      // Intentional dev-only warning for missing form configuration.
+      // eslint-disable-next-line no-console
       console.warn('Formspree ID is missing. Please set NEXT_PUBLIC_FORMSPREE_ID in your .env file.');
     }
   }, [formId]);

@@ -19,6 +19,8 @@ import { trackEmailClick, trackNavigationClick } from '@/lib/openpanel';
 
 import { Logo } from './Logo';
 
+const currentYear = new Date().getFullYear();
+
 export function Footer() {
   return (
     <footer className="border-t border-[var(--color-primary-teal)]/10 bg-[var(--color-background)] transition-colors duration-300">
@@ -129,7 +131,7 @@ export function Footer() {
         <Separator className="my-8 bg-[var(--color-primary-teal)]/10" />
 
         <Text as="p" variant="caption" className="text-center font-medium text-[var(--color-text-main)] opacity-50">
-          &copy; {new Date().getFullYear()} GV Travel. Guided by Garcia Ventures.
+          &copy; {currentYear} GV Travel. Guided by Garcia Ventures.
         </Text>
       </div>
     </footer>
