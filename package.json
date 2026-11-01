@@ -35,7 +35,7 @@
     "react-dom": "^19.3.0",
     "react-is": "^19.3.0",
     "sanity": "^6.17.0",
-    "styled-components": "^6.5.3"
+    "styled-components": "^6.6.0"
   },
   "devDependencies": {
     "@gv-tech/oxc-config": "^1.1.2",
