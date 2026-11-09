@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
-    "@gv-tech/design-tokens": "^2.29.2",
-    "@gv-tech/ui-core": "^2.29.2",
-    "@gv-tech/ui-web": "^2.29.2",
+    "@gv-tech/design-tokens": "^2.29.3",
+    "@gv-tech/ui-core": "^2.29.3",
+    "@gv-tech/ui-web": "^2.29.3",
     "@openpanel/nextjs": "^1.5.4",
     "@portabletext/react": "^8.0.1",
     "@sanity/client": "^8.15.0",

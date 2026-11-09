@@ -12,7 +12,7 @@
 
 - Formatter/linter come from `@gv-tech/oxc-config` (`oxfmt.config.ts`, `oxlint.config.ts`). Its local `OxlintConfig`/`OxfmtConfig` types diverge from `oxlint`/`oxfmt` `defineConfig` types, so both config files need the existing `as unknown as` casts. Removing them breaks `tsc` and `next build`.
 - `ignorePatterns` from the extended preset do **not** propagate to oxlint. Any new vendored/ignored file needs an explicit entry in the local `oxlint.config.ts` `ignorePatterns`.
-- `@/*` maps to repo root (`./*`), not `./src/*`. `tsconfig` also remaps `@sanity/image-url` and `@gv-tech/ui-web`/`ui-core` into `node_modules` — respect those instead of "fixing" imports.
+- `@/*` maps to repo root (`./*`), not `./src/*`. `tsconfig` remaps `@sanity/image-url` to its declaration file — respect that instead of "fixing" the import. Do not path-map `@gv-tech/ui-web` or `@gv-tech/ui-core` onto `node_modules/**/src`. That pulls package source into `tsc`. Use their published `dist` types.
 
 ## Architecture
 
