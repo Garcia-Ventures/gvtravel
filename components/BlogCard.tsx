@@ -4,6 +4,7 @@ import { AspectRatio, Badge, Button, Card, CardContent, CardFooter, CardHeader, 
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { trackBlogPostOpened } from '@/lib/openpanel';
 import type { BlogPost } from '@/lib/types';
 
 interface BlogCardProps {
@@ -15,7 +16,12 @@ export function BlogCard({ post }: BlogCardProps) {
     <Card className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--color-primary-teal)]/10 bg-[var(--color-background)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:border-[var(--color-primary-teal)]/25 hover:shadow-xl">
       <CardHeader className="p-0">
         {post.imageUrl && (
-          <Link href={`/blog/${post.slug}`} className="block" aria-label={`Read ${post.title}`}>
+          <Link
+            href={`/blog/${post.slug}`}
+            className="block"
+            aria-label={`Read ${post.title}`}
+            onClick={() => trackBlogPostOpened({ slug: post.slug, title: post.title, location: 'blog_card_image' })}
+          >
             <AspectRatio ratio={3 / 2} className="overflow-hidden bg-[var(--color-primary-teal)]/5">
               <Image
                 src={post.imageUrl}
@@ -48,7 +54,12 @@ export function BlogCard({ post }: BlogCardProps) {
           variant="h4"
           className="mt-4 font-serif leading-tight font-bold text-[var(--color-text-main)] transition-colors group-hover:text-[var(--color-primary-teal)] dark:group-hover:text-[var(--color-accent-magic)]"
         >
-          <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+          <Link
+            href={`/blog/${post.slug}`}
+            onClick={() => trackBlogPostOpened({ slug: post.slug, title: post.title, location: 'blog_card_title' })}
+          >
+            {post.title}
+          </Link>
         </Text>
         <Text
           as="p"
@@ -60,7 +71,12 @@ export function BlogCard({ post }: BlogCardProps) {
       </CardContent>
       <CardFooter className="p-5 pt-0">
         <Button asChild variant="outline" className="w-full rounded-full">
-          <Link href={`/blog/${post.slug}`}>Read Post</Link>
+          <Link
+            href={`/blog/${post.slug}`}
+            onClick={() => trackBlogPostOpened({ slug: post.slug, title: post.title, location: 'blog_card_button' })}
+          >
+            Read Post
+          </Link>
         </Button>
       </CardFooter>
     </Card>

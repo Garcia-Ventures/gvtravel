@@ -1,5 +1,14 @@
+'use client';
+
 import { Text } from '@gv-tech/ui-web';
 import type { PortableTextComponents } from '@portabletext/react';
+import type { ReactNode } from 'react';
+
+import { trackEmailClick, trackNavigationClick } from '@/lib/openpanel';
+
+function linkLabel(children: ReactNode, href: string): string {
+  return typeof children === 'string' && children.trim() ? children.trim() : href;
+}
 
 export const portableTextComponents: PortableTextComponents = {
   block: {
@@ -57,6 +66,19 @@ export const portableTextComponents: PortableTextComponents = {
           href={href}
           className="text-[var(--color-primary-teal)] underline decoration-[var(--color-primary-teal)]/30 underline-offset-2 transition-colors hover:decoration-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]"
           {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          onClick={() => {
+            if (href.startsWith('mailto:')) {
+              trackEmailClick('content', href.slice('mailto:'.length));
+              return;
+            }
+            if (href.startsWith('/')) {
+              trackNavigationClick({
+                location: 'content',
+                label: linkLabel(children, href),
+                target: href,
+              });
+            }
+          }}
         >
           {children}
         </a>

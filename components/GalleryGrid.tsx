@@ -22,6 +22,7 @@ import {
 import Image from 'next/image';
 import React from 'react';
 
+import { trackGalleryImageOpened } from '@/lib/openpanel';
 import type { GalleryItem } from '@/lib/types';
 
 function GalleryImage({
@@ -60,6 +61,16 @@ interface GalleryGridProps {
 
 export function GalleryGrid({ items }: GalleryGridProps) {
   const [selectedIndex, setSelectedIndex] = React.useState<number | null>(null);
+
+  const openImage = (index: number) => {
+    const item = items[index];
+    trackGalleryImageOpened({
+      title: item?.title,
+      destination: item?.destination,
+      index,
+    });
+    setSelectedIndex(index);
+  };
   const [api, setApi] = React.useState<CarouselApi>(); // Added api state
 
   React.useEffect(() => {
@@ -99,7 +110,7 @@ export function GalleryGrid({ items }: GalleryGridProps) {
               <Button
                 type="button"
                 variant="ghost"
-                onClick={() => setSelectedIndex(index)}
+                onClick={() => openImage(index)}
                 className="absolute inset-0 hidden h-full w-full rounded-none bg-transparent p-0 hover:bg-transparent sm:flex"
               >
                 <span className="sr-only">Open gallery image {item.title || index + 1}</span>
@@ -127,7 +138,7 @@ export function GalleryGrid({ items }: GalleryGridProps) {
             <CardContent className="p-4 sm:hidden">
               <Button
                 type="button"
-                onClick={() => setSelectedIndex(index)}
+                onClick={() => openImage(index)}
                 className="w-full rounded-full bg-[var(--color-accent-magic)] text-[var(--color-cta-text)] hover:bg-[var(--color-secondary-coral)]"
               >
                 View Photo

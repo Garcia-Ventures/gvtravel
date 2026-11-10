@@ -15,7 +15,7 @@ import {
 } from '@gv-tech/ui-web';
 import Link from 'next/link';
 
-import { trackEmailClick, trackNavigationClick } from '@/lib/openpanel';
+import { trackCtaClick, trackEmailClick, trackNavigationClick } from '@/lib/openpanel';
 
 import { Logo } from './Logo';
 
@@ -86,7 +86,7 @@ export function Footer() {
                     <Link
                       href="/start-planning"
                       onClick={() =>
-                        trackNavigationClick({
+                        trackCtaClick({
                           location: 'footer',
                           label: 'Start Planning',
                           target: '/start-planning',
