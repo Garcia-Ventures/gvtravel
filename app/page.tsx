@@ -21,18 +21,18 @@ export default function Home() {
               variant="overline"
               className="font-serif leading-7 font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]"
             >
-              Why Families Choose GV Travel
+              Why families book with GV Travel
             </Text>
             <Text
               as="p"
               variant="h2"
               className="mt-2 font-serif font-bold tracking-tight text-[var(--color-text-main)] sm:text-4xl"
             >
-              Less stress. Better value. More meaningful memories.
+              Start with the right cruise. Keep every other option open.
             </Text>
             <Text as="p" variant="body" className="mt-6 text-lg leading-8 text-[var(--color-text-main)] opacity-80">
-              From choosing the right cruise ship or Disney resort to finding where your dollars go furthest, we help
-              you plan smart so your family can focus on enjoying the trip.
+              We start with the ship, the cabin, what&apos;s included, and the ports. When a cruise is not the goal, the
+              same planning covers Disney resorts and other family trips, with the budget kept in view.
             </Text>
           </div>
         </div>
@@ -57,7 +57,7 @@ export default function Home() {
               <Button
                 asChild
                 size="lg"
-                className={`w-full text-base hover:scale-105 sm:w-auto ${PRIMARY_CTA_BUTTON_CLASS}`}
+                className={`w-full text-base transition-transform duration-200 ease-out hover:scale-[1.02] sm:w-auto ${PRIMARY_CTA_BUTTON_CLASS}`}
               >
                 <Link
                   href="/start-planning"

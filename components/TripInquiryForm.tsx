@@ -286,7 +286,7 @@ export function TripInquiryForm() {
                         rows={4}
                         {...field}
                         className="border-[var(--color-primary-teal-hex)]/20 bg-[var(--color-background-hex)] focus-visible:ring-[var(--color-accent-magic-hex)]"
-                        placeholder="Share destination ideas, who is traveling, timing, and anything important for comfort or budget."
+                        placeholder="Share a ship or another destination, who is traveling, timing, and anything important for comfort or budget."
                       />
                     </FormControl>
                     <FormMessage />
