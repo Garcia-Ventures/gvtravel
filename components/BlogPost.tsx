@@ -22,6 +22,7 @@ import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { trackCtaClick, trackNavigationClick } from '@/lib/openpanel';
 import { portableTextComponents } from '@/lib/portabletext';
 import type { SanityPost } from '@/lib/types';
 
@@ -37,13 +38,23 @@ export function BlogPost({ post }: BlogPostProps) {
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/">Home</Link>
+                <Link
+                  href="/"
+                  onClick={() => trackNavigationClick({ location: 'blog_post', label: 'Home', target: '/' })}
+                >
+                  Home
+                </Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/blog">Blog</Link>
+                <Link
+                  href="/blog"
+                  onClick={() => trackNavigationClick({ location: 'blog_post', label: 'Blog', target: '/blog' })}
+                >
+                  Blog
+                </Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
@@ -121,7 +132,18 @@ export function BlogPost({ post }: BlogPostProps) {
                 asChild
                 className="mt-6 rounded-full bg-[var(--color-accent-magic)] px-6 py-2 text-sm font-bold text-[var(--color-cta-text)] shadow-xl hover:scale-105 hover:bg-[var(--color-secondary-coral)]"
               >
-                <Link href="/start-planning">Start Planning</Link>
+                <Link
+                  href="/start-planning"
+                  onClick={() =>
+                    trackCtaClick({
+                      location: 'blog_post',
+                      label: 'Start Planning',
+                      target: '/start-planning',
+                    })
+                  }
+                >
+                  Start Planning
+                </Link>
               </Button>
             </CardContent>
           </Card>

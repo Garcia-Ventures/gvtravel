@@ -49,9 +49,38 @@ export function trackEmailClick(location: string, emailTarget = 'lindsay@gv-trav
   });
 }
 
-/** Track when a user begins interacting with the trip inquiry form. */
+let inquiryStartTracked = false;
+
+/** Track when a user begins interacting with the trip inquiry form. Fires once per page load. */
 export function trackInquiryStarted(entryPoint = 'start_planning_page'): void {
+  if (inquiryStartTracked) {
+    return;
+  }
+  inquiryStartTracked = true;
   trackEvent('trip_inquiry_started', { entry_point: entryPoint });
+}
+
+/** Track a valid inquiry submit, before Formspree responds. */
+export function trackInquirySubmitAttempted(data: {
+  trip_type: string;
+  budget: string;
+  has_details: boolean;
+  consent: boolean;
+}): void {
+  trackEvent('trip_inquiry_submit_attempted', {
+    trip_type: data.trip_type,
+    budget: data.budget,
+    has_details: data.has_details,
+    consent: data.consent,
+  });
+}
+
+/** Track client-side validation failures. Field names only, never values. */
+export function trackInquiryValidationFailed(fields: string[]): void {
+  trackEvent('trip_inquiry_validation_failed', {
+    fields: fields.toSorted().join(','),
+    field_count: fields.length,
+  });
 }
 
 /** Track successful trip inquiry submission with sanitized non-PII properties. */
@@ -89,6 +118,24 @@ export function trackNotFoundViewed(path?: string): void {
 /** Track recovery link clicks from the 404 page. */
 export function trackNotFoundRecovered(action: string): void {
   trackEvent('not_found_recovered', { action });
+}
+
+/** Track a blog post open from a card or in-post link. */
+export function trackBlogPostOpened(params: { slug: string; title: string; location: string }): void {
+  trackEvent('blog_post_opened', {
+    slug: params.slug,
+    title: params.title,
+    location: params.location,
+  });
+}
+
+/** Track opening a gallery photo. */
+export function trackGalleryImageOpened(params: { title?: string; destination?: string; index: number }): void {
+  trackEvent('gallery_image_opened', {
+    title: params.title,
+    destination: params.destination,
+    index: params.index,
+  });
 }
 
 export type AnalyticsEnvironment = {

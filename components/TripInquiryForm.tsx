@@ -28,10 +28,18 @@ import {
   Textarea,
 } from '@gv-tech/ui-web';
 import React from 'react';
+import type { FieldErrors } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 
 import { useIsMounted } from '@/lib/hooks';
-import { trackInquiryFailed, trackInquiryRestarted, trackInquiryStarted, trackInquirySubmitted } from '@/lib/openpanel';
+import {
+  trackInquiryFailed,
+  trackInquiryRestarted,
+  trackInquiryStarted,
+  trackInquirySubmitAttempted,
+  trackInquirySubmitted,
+  trackInquiryValidationFailed,
+} from '@/lib/openpanel';
 
 type TripInquiryValues = {
   name: string;
@@ -46,7 +54,9 @@ export function TripInquiryForm() {
   const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID || 'missing-form-id';
   const [state, handleFormspreeSubmit] = useFormspree(formId);
   const isMounted = useIsMounted();
-  const hasStartedRef = React.useRef(false);
+  const [attempt, setAttempt] = React.useState(0);
+  const reportedFailureAttemptRef = React.useRef(0);
+  const submittedRef = React.useRef(false);
   const form = useForm<TripInquiryValues>({
     defaultValues: {
       name: '',
@@ -59,6 +69,14 @@ export function TripInquiryForm() {
   });
 
   const onSubmit = async (values: TripInquiryValues) => {
+    trackInquiryStarted('trip_inquiry_form');
+    setAttempt((current) => current + 1);
+    trackInquirySubmitAttempted({
+      trip_type: values.tripType,
+      budget: values.budget,
+      has_details: Boolean(values.details?.trim()),
+      consent: values.consent,
+    });
     await handleFormspreeSubmit({
       name: values.name,
       email: values.email,
@@ -67,6 +85,11 @@ export function TripInquiryForm() {
       budget: values.budget,
       consent: values.consent ? 'yes' : 'no',
     });
+  };
+
+  const onInvalid = (errors: FieldErrors<TripInquiryValues>) => {
+    trackInquiryStarted('trip_inquiry_form');
+    trackInquiryValidationFailed(Object.keys(errors));
   };
 
   React.useEffect(() => {
@@ -78,29 +101,33 @@ export function TripInquiryForm() {
   }, [formId]);
 
   React.useEffect(() => {
-    if (form.formState.isDirty && !hasStartedRef.current) {
-      hasStartedRef.current = true;
+    if (form.formState.isDirty) {
       trackInquiryStarted('trip_inquiry_form');
     }
   }, [form.formState.isDirty]);
 
   React.useEffect(() => {
-    if (state.succeeded) {
-      const values = form.getValues();
-      trackInquirySubmitted({
-        trip_type: values.tripType,
-        budget: values.budget,
-        has_details: Boolean(values.details?.trim()),
-        consent: values.consent,
-      });
+    if (!state.succeeded || submittedRef.current) {
+      return;
     }
+    submittedRef.current = true;
+    const values = form.getValues();
+    trackInquirySubmitted({
+      trip_type: values.tripType,
+      budget: values.budget,
+      has_details: Boolean(values.details?.trim()),
+      consent: values.consent,
+    });
   }, [state.succeeded, form]);
 
   React.useEffect(() => {
-    if (state.errors && (Array.isArray(state.errors) ? state.errors.length > 0 : Boolean(state.errors))) {
-      trackInquiryFailed();
+    const hasErrors = Boolean(state.errors && (Array.isArray(state.errors) ? state.errors.length > 0 : state.errors));
+    if (!hasErrors || attempt === 0 || reportedFailureAttemptRef.current >= attempt) {
+      return;
     }
-  }, [state.errors]);
+    reportedFailureAttemptRef.current = attempt;
+    trackInquiryFailed();
+  }, [state.errors, attempt]);
 
   if (!isMounted) {
     return null;
@@ -155,7 +182,7 @@ export function TripInquiryForm() {
         )}
 
         <Form {...form}>
-          <form name="trip-inquiry" onSubmit={form.handleSubmit(onSubmit)} className="space-y-8" noValidate>
+          <form name="trip-inquiry" onSubmit={form.handleSubmit(onSubmit, onInvalid)} className="space-y-8" noValidate>
             <div className="space-y-4">
               <h3 className="font-serif text-lg text-sm font-bold tracking-widest text-[var(--color-primary-teal)] uppercase dark:text-[var(--color-accent-magic)]">
                 Contact Information
