@@ -2,7 +2,13 @@
 
 ## Getting Started
 
-First, run the development server:
+Copy the example environment file, then fill in `NEXT_PUBLIC_FORMSPREE_ID` so the inquiry form can submit:
+
+```bash
+cp .env.example .env.local
+```
+
+Run the development server:
 
 ```bash
 bun dev
