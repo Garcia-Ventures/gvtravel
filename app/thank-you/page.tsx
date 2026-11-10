@@ -25,8 +25,8 @@ export default function ThankYouPage() {
             Thanks for Reaching Out!
           </CardTitle>
           <CardDescription className="mt-4 text-base leading-7 font-medium text-[var(--color-text-main)] opacity-70">
-            Your trip details are in, and I&apos;ll follow up soon to help you map out options that match your family,
-            priorities, and budget.
+            Your trip details are in, and I&apos;ll follow up soon to help you map out a cruise — or another trip — that
+            matches your family, priorities, and budget.
           </CardDescription>
         </CardHeader>
 
@@ -59,16 +59,16 @@ export default function ThankYouPage() {
                 className="text-[var(--color-primary-teal)] dark:text-[var(--color-accent-magic)]"
               >
                 <Link
-                  href="/blog"
+                  href="/about"
                   onClick={() =>
                     trackCtaClick({
                       location: 'thank_you',
-                      label: 'Read family travel tips',
-                      target: '/blog',
+                      label: 'Meet your advisor',
+                      target: '/about',
                     })
                   }
                 >
-                  Read family travel tips <span aria-hidden="true">&rarr;</span>
+                  Meet your advisor <span aria-hidden="true">&rarr;</span>
                 </Link>
               </Button>
             </div>

@@ -101,7 +101,7 @@ export function Header() {
                 side="bottom"
                 className="border border-[var(--color-primary-teal)]/10 bg-[var(--color-background)] text-xs text-[var(--color-text-main)] shadow-lg"
               >
-                Plan your family&apos;s trip with practical, personal guidance
+                Plan a cruise, or another family trip, with practical guidance
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

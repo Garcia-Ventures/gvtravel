@@ -43,8 +43,8 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
                 ) : (
                   <>
                     <Text as="p" variant="body" className="text-lg leading-8">
-                      I specialize in helping families and budget-conscious travelers plan stress-free Caribbean,
-                      cruise, and Disney vacations with strong value and high-quality experiences.
+                      I specialize in helping families and budget-conscious travelers plan cruises with strong value and
+                      an easy pace. I also plan Caribbean getaways and Disney vacations when that is the better fit.
                     </Text>
                     <Text as="p" variant="body" className="mt-6 text-lg leading-8">
                       As a homeschool mom of three boys, I understand how important it is to build trips that are
@@ -65,8 +65,8 @@ export function AboutContent({ title, imageUrl, content }: AboutContentProps) {
                               Family-First Planning
                             </Text>
                             <Text as="p" variant="bodySmall" className="mt-1 text-[var(--color-text-main)] opacity-80">
-                              From room types and cruise ships to park tickets and resort choices, I help you choose
-                              what fits your family best.
+                              From cabins, ships, and ports to park tickets and resort choices, I help you choose what
+                              fits your family best.
                             </Text>
                           </div>
                         </CardContent>

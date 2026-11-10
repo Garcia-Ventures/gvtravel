@@ -5,7 +5,7 @@ import { TripInquiryForm } from '@/components/TripInquiryForm';
 
 export const metadata: Metadata = {
   title: 'Start Planning - GV Travel',
-  description: 'Share your trip goals and budget to get personalized, family-friendly travel guidance.',
+  description: 'Share a cruise or another family trip, plus your budget, for personalized travel guidance.',
 };
 
 export default function StartPlanningPage() {
@@ -32,8 +32,8 @@ export default function StartPlanningPage() {
             variant="body"
             className="mt-6 text-lg leading-8 font-medium text-[var(--color-text-main)] opacity-80"
           >
-            Tell us where you want to go, who&apos;s traveling, and your budget comfort zone. We&apos;ll help you turn
-            your ideas into a trip that feels exciting, realistic, and well organized.
+            Tell us the cruise you have in mind — ship, sailing, and who&apos;s going — or another trip if that is the
+            better fit. We&apos;ll help you turn it into a plan that feels exciting, realistic, and well organized.
           </Text>
         </div>
         <TripInquiryForm />
