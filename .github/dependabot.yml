@@ -9,28 +9,87 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
-
-  # Enable version updates for go
-  # - package-ecosystem: gomod
-  #   directory: "/"
-  #   schedule:
-  #     interval: "monthly"
+      time: "09:00"
+      timezone: "America/New_York"
 
   # Enable version updates for bun
   - package-ecosystem: "bun"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
     open-pull-requests-limit: 10
+    groups:
+      # Internal GVTech packages are versioned and released together, so keep them in one PR.
+      gv-tech-packages:
+        patterns:
+          - "@gv-tech/*"
+        update-types:
+          - "minor"
+          - "patch"
 
-  # Enable version updates for Docker
-  # - package-ecosystem: "docker"
-  #   directory: "/"
-  #   schedule:
-  #     interval: "monthly"
+      # React ecosystem — keep the UI layer in sync.
+      react-ecosystem:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "react-is"
+          - "next-themes"
+          - "lucide-react"
+          - "styled-components"
+          - "radix-ui"
+        update-types:
+          - "minor"
+          - "patch"
 
-  # Enable version updates for Dart
-  # - package-ecosystem: "pub"
-  #   directory: "/"
-  #   schedule:
-  #     interval: "monthly"
+      # Framework + CMS stack.
+      next-sanity-stack:
+        patterns:
+          - "next"
+          - "next-sanity"
+          - "sanity"
+          - "@sanity/*"
+          - "@portabletext/react"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # OpenPanel + Formspree (vendored SDKs in public/).
+      analytics-forms:
+        patterns:
+          - "@openpanel/nextjs"
+          - "@formspree/react"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # Dev tooling (linter, formatter, TS, Tailwind, Husky).
+      dev-tooling:
+        patterns:
+          - "oxfmt"
+          - "oxlint"
+          - "@gv-tech/oxc-config"
+          - "typescript"
+          - "tailwindcss"
+          - "@tailwindcss/postcss"
+          - "husky"
+          - "lint-staged"
+          - "@types/*"
+        update-types:
+          - "minor"
+          - "patch"
+
+      # Everything else that didn't match above (catches minor/patch only).
+      miscellaneous:
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+
+    reviewers:
+      - "eng618"
+
+    assignees:
+      - "eng618"
