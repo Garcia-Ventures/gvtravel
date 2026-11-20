@@ -56,7 +56,7 @@ function runRegressionChecks() {
     },
     {
       label: 'Form submit should stay wired through react-hook-form handleSubmit',
-      passed: /onSubmit=\{form\.handleSubmit\(onSubmit\)\}/.test(source),
+      passed: /onSubmit=\{form\.handleSubmit\(onSubmit,\s*onInvalid\)\}/.test(source),
     },
     {
       label: 'Form submit should not bypass react-hook-form with direct Formspree handler',

@@ -26,9 +26,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'GV Travel | Bespoke Journeys & Expertly Charted Adventures',
+  title: 'GV Travel | Family cruise vacations, and the trips around them',
   description:
-    'Boutique travel concierge specializing in curated cruise vacations and extraordinary family itineraries.',
+    'Cruise planning for families, plus Disney vacations and other family itineraries when a sailing is not the right fit.',
 };
 
 export default function RootLayout({

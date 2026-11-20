@@ -15,7 +15,7 @@ import {
 } from '@gv-tech/ui-web';
 import Link from 'next/link';
 
-import { trackEmailClick, trackNavigationClick } from '@/lib/openpanel';
+import { trackCtaClick, trackEmailClick, trackNavigationClick } from '@/lib/openpanel';
 
 import { Logo } from './Logo';
 
@@ -35,7 +35,8 @@ export function Footer() {
               <Logo className="h-10 w-auto text-[var(--color-logo)] transition-colors duration-300" />
             </Link>
             <Text as="p" variant="bodySmall" className="max-w-xs font-medium text-[var(--color-text-main)] opacity-70">
-              Thoughtful travel planning for families who want memorable trips, smart spending, and less stress.
+              Cruise planning for families who want a memorable sailing, smart spending, and less stress. Disney
+              vacations and other trips are welcome too.
             </Text>
           </div>
 
@@ -85,7 +86,7 @@ export function Footer() {
                     <Link
                       href="/start-planning"
                       onClick={() =>
-                        trackNavigationClick({
+                        trackCtaClick({
                           location: 'footer',
                           label: 'Start Planning',
                           target: '/start-planning',
