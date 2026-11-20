@@ -6,7 +6,7 @@
       "name": "gvtravel",
       "dependencies": {
         "@formspree/react": "^3.0.0",
-        "@gv-tech/design-tokens": "^2.29.3",
+        "@gv-tech/design-tokens": "^2.30.0",
         "@gv-tech/ui-core": "^2.29.3",
         "@gv-tech/ui-web": "^2.30.0",
         "@openpanel/nextjs": "^1.5.4",
@@ -389,7 +389,7 @@
 
     "@formspree/react": ["@formspree/react@3.0.0", "", { "dependencies": { "@formspree/core": "^4.0.0", "@stripe/react-stripe-js": "^3.1.1", "@stripe/stripe-js": "^5.7.0" }, "peerDependencies": { "react": "^16.8 || ^17.0 || ^18.0 || ^19.0", "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0" } }, "sha512-8PufBZ4l13VmCp9xTGQXwyF6mZtYSecqgTlFuMo5Fbe4Q6zUk7PMU2uKOwIaytZyTyJgFVCvdbpQElPPBKYNLw=="],
 
-    "@gv-tech/design-tokens": ["@gv-tech/design-tokens@2.29.3", "", {}, "sha512-ur/yQqITdz5IUNnmepuQwrw+xFUI+l3KLQu/GlZCL75hpF4iTNjPcLOivUUxQeuR2XtNUwliSIe4J5cFrda9CQ=="],
+    "@gv-tech/design-tokens": ["@gv-tech/design-tokens@2.30.0", "", {}, "sha512-FAo5O3JDsdVY5xWZRd6FHJOzBm2tjPJ0eBQtRcoL+zsIeOedi88GUf9Qqq4cpfp9c0/wDE+onwf5VrVOVw6zfQ=="],
 
     "@gv-tech/oxc-config": ["@gv-tech/oxc-config@1.4.0", "", { "peerDependencies": { "oxfmt": ">=0.68.0", "oxlint": ">=1.83.0", "typescript": ">=6.0.0" }, "optionalPeers": ["typescript"], "bin": { "gv-oxfmt": "bin/gv-oxfmt.js" } }, "sha512-WNp5vb6YL09S83plV/8N74cFfAtdvEsDhIS/+/eb76hdrrBLQjcZ9CNeKKPM6WEjreiiN5r5+6h6hkJLSIapnQ=="],
 
@@ -2428,8 +2428,6 @@
     "@babel/preset-env/semver": ["semver@6.3.2", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-GYrCADwpu6yV5OAvchkQ27Z5wwMxWAEMg5NNWjyHh/5DboFFqbdbvYNIvZouQpxXyeMPoTOh0vdPYKlf0ZswdQ=="],
 
     "@base-ui/utils/reselect": ["reselect@5.3.0", "", {}, "sha512-XGoLeRAVzUTcJ1qkxPQhDJyIZ5d6zzZD9nT7AEZOaaU9UbWclhycElmhO+VD5bFeLuzhPBaOV2oXC8uG35ZSpg=="],
-
-    "@gv-tech/ui-web/@gv-tech/design-tokens": ["@gv-tech/design-tokens@2.30.0", "", {}, "sha512-FAo5O3JDsdVY5xWZRd6FHJOzBm2tjPJ0eBQtRcoL+zsIeOedi88GUf9Qqq4cpfp9c0/wDE+onwf5VrVOVw6zfQ=="],
 
     "@gv-tech/ui-web/@gv-tech/ui-core": ["@gv-tech/ui-core@2.30.0", "", { "dependencies": { "class-variance-authority": "^0.7.1" }, "peerDependencies": { "react": ">=18" } }, "sha512-svyI4Xq6Chd55KvQm72Pwc8IyzHOgt9z9/7JTn8wMhUPs85pixBzCsJ8e74jxHP7ZlcU8uECjIG8ugIRc74k4A=="],
 
